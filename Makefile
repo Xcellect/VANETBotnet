@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for Sim1
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -KVEINS_PROJ=D:/Projects/VNETBotnet/veins/veins-4.7.1 -I"D:/Projects/VNETBotnet/veins/veins-4.7.1" -I$$\(VEINS_PROJ\)/src -Isrc -L$$\(VEINS_PROJ\)/src -lveins$$\(D\)
+#  opp_makemake -f --deep -O out -KVEINS_PROJ=D:/Projects/VNETBotnet/veins/veins-4.7.1 -I"D:/Projects/VNETBotnet/veins/veins-4.7.1" -I$$\(VEINS_PROJ\)/src -Isrc -L$$\(VEINS_PROJ\)/src -lveins_dbg -lveins$$\(D\)
 #
 
 # Name of target to be created (-o option)
@@ -22,7 +22,7 @@ INCLUDE_PATH = -I"D:/Projects/VNETBotnet/veins/veins-4.7.1" -I$(VEINS_PROJ)/src 
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS = $(LDFLAG_LIBPATH)$(VEINS_PROJ)/src  -lveins$(D)
+LIBS = $(LDFLAG_LIBPATH)$(VEINS_PROJ)/src  -lveins_dbg -lveins$(D)
 
 # Output directory
 PROJECT_OUTPUT_DIR = out
@@ -30,7 +30,7 @@ PROJECTRELATIVE_PATH =
 O = $(PROJECT_OUTPUT_DIR)/$(CONFIGNAME)/$(PROJECTRELATIVE_PATH)
 
 # Object files for local .cpp, .msg and .sm files
-OBJS = $O/src/Exploited.o $O/src/MalwareAlgo.o $O/src/Uninfected.o
+OBJS = $O/src/Exploited.o $O/src/Uninfected.o
 
 # Message files
 MSGFILES =
