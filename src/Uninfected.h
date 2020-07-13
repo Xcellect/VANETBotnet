@@ -85,10 +85,12 @@ decides what route to choose
 #define TraCIDemo11p_H
 #include <string>
 #include <stdint.h>
-#include <math.h>
-#include <regex>
+#include <map>
 #include <list>
+#include <vector>
+#include <math.h>
 #include "veins/modules/application/ieee80211p/BaseWaveApplLayer.h"
+
 
 class Uninfected : public BaseWaveApplLayer {
     public:
@@ -104,11 +106,13 @@ class Uninfected : public BaseWaveApplLayer {
             }
         } ConInf;
         ConInf cInfo;
-        std::list<CongestionInfo> cidb;
+        std::map<int, CongestionInfo> cidb;     // carID, cInfo struct
         double avgEdgeSpeed;
         simtime_t lastDroveAt;
+
         int carCount;
         bool sentMessage;
+        bool calculated;
         int currentSubscribedServiceId;
     protected:
         virtual void onWSM(WaveShortMessage* wsm);
@@ -118,6 +122,13 @@ class Uninfected : public BaseWaveApplLayer {
         virtual void handleSelfMsg(cMessage* msg);
         virtual void handlePositionUpdate(cObject* obj);
         virtual struct CongestionInfo stringToStruct(std::string str);
+        virtual void updateDB(struct CongestionInfo cinfo);
+        virtual void updateSelf();
+        virtual void sendBeacon(struct CongestionInfo cInfo);
+        virtual void sendCongestionRequest(std::string edgeIDs);
+        virtual std::list<std::string> stringToList(std::string edges);
+        virtual void reroute();
+        virtual std::string getEdgeByIndex(std::list<std::string> ls, int index);
 };
 
 #endif

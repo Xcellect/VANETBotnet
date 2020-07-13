@@ -4,8 +4,8 @@
 -->
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
 	<vTypeDistribution id="typedist1">
-		<vType id="uninfected" color="1,1,0" probability="0.9"/>
-		<vType id="exploited" color="1,0,0" probability="0.1"/>
+		<vType id="uninfected" color="1,1,0" probability="1"/>
+		<vType id="exploited" color="1,0,0" probability="0"/>
 	</vTypeDistribution>
     <trip type="typedist1" id="0" depart="0.00" from="B4C4" to="D1D0"/>
     <trip type="typedist1" id="1" depart="1.00" from="B0A0" to="E4E3"/>

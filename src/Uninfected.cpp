@@ -8,13 +8,15 @@ void Uninfected::initialize(int stage) {
         sentMessage = false;
         lastDroveAt = simTime();
         currentSubscribedServiceId = -1;
+        calculated = false;
+
+        mobility = TraCIMobilityAccess().get(getParentModule());
+        traci = mobility->getCommandInterface();
+        traciVehicle = mobility->getVehicleCommandInterface();
     }
     carCount = 1;
-
     cInfo.creatorID = mobility->getNode()->getIndex();
-
     // read parameters
-
 }
 
 void Uninfected::onWSA(WaveServiceAdvertisment* wsa) {
@@ -28,54 +30,46 @@ void Uninfected::onWSA(WaveServiceAdvertisment* wsa) {
     }
 }
 
+// wsm response, exploitation happens here
 void Uninfected::onWSM(WaveShortMessage* wsm) {
-    findHost()->getDisplayString().updateWith("r=16,green");
+    findHost()->getDisplayString().updateWith("r=16,blue");
+    /**************************/
+    // accessing the array from a different car
+    std::string query;
+    std::list<std::string> list = Uninfected::stringToList(wsm->getWsmData());
+    for(int i = 0; i < list.size(); i++)
+        i != list.size()-1 ? query += Uninfected::getEdgeByIndex(list, i) +"," : query += Uninfected::getEdgeByIndex(list, i);
 
+    /*************************
     if (mobility->getRoadId()[0] != ':') traciVehicle->changeRoute(wsm->getWsmData(), 9999);
     if (!sentMessage) {
         sentMessage = true;
-        //repeat the received traffic update once in 2 seconds plus some random delay
+        // repeat the received traffic update once in 2 seconds plus some random delay
         wsm->setSenderAddress(myId);
         wsm->setSerial(3);
         scheduleAt(simTime() + 2 + uniform(0.01,0.2), wsm->dup());
     }
+    */
 }
 
 void Uninfected::onBSM(BasicSafetyMessage* bsm) {
     findHost()->getDisplayString().updateWith("r=16,purple");
-    Coord cSpeed = bsm->getSenderSpeed();
     struct Uninfected::CongestionInfo con = stringToStruct(bsm->getWsmData());
-
-    cInfo.edgeID = mobility->getRoadId();
-    cInfo.timestamp = simTime();
-    cInfo.avgSpeed = mobility->getSpeed();
-
-
-    double speed = 0;
-    double xfract, xint, yfract, yint;
-    double x = abs(cSpeed.x);
-    double y = abs(cSpeed.y);
-    xfract = modf(x, &xint);
-    yfract = modf(y, &yint);
+    // updating current car's cinfo
+    updateSelf();
+    updateDB(cInfo);
     // Need edge information for this comparison
-    if(con.edgeID.compare(cInfo.edgeID) == 0) {
-        if(xint > 0) {
-            speed = x;
-        } else if(yint > 0) {
-            speed = y;
-        }
-        carCount++;
-        if(carCount == 3) {
-            printf("we just cured cancer");
-        }
+    if(cidb.size() >= 3) {
+        printf("smd");
     }
-    cInfo.avgSpeed += speed;
-    cInfo.avgSpeed = cInfo.avgSpeed/carCount;
+    if(con.edgeID.compare(cInfo.edgeID) == 0) {
+    // if it already exists just update it
+        updateDB(con);
+    }
 }
 
 
 void Uninfected::handleSelfMsg(cMessage* msg) {
-    /*
     if (WaveShortMessage* wsm = dynamic_cast<WaveShortMessage*>(msg)) {
         //send this message on the service channel until the counter is 3 or higher.
         //this code only runs when channel switching is enabled
@@ -87,13 +81,13 @@ void Uninfected::handleSelfMsg(cMessage* msg) {
             delete(wsm);
         }
         else {
-            scheduleAt(simTime()+1, wsm);
+            scheduleAt(simTime()+2, wsm);
         }
     }
     else {
-        BaseWaveApplLayer::handleSelfMsg(msg);
+      //  BaseWaveApplLayer::handleSelfMsg(msg);
     }
-    */
+
 }
 /*
  B. Congestion Information Database
@@ -138,35 +132,59 @@ decides what route to choose
  */
 void Uninfected::handlePositionUpdate(cObject* obj) {
     BaseWaveApplLayer::handlePositionUpdate(obj);
-    cInfo.edgeID = mobility->getRoadId();
-    cInfo.timestamp = simTime();
-    cInfo.avgSpeed = mobility->getSpeed();
+    updateSelf();
+    updateDB(cInfo);
     // Road length is 200. Make the threshold 180.
-
-    if (traciVehicle->getLanePosition() > 180) {
-        findHost()->getDisplayString().updateWith("r=16,red");
-        // iterate through all vehicles in the same edge
-        // need to get this info from BSM
-
+    // apparently cidb never increments here???
+    if (traciVehicle->getLanePosition() > 180 && calculated == false) {
+        findHost()->getDisplayString().updateWith("r=16,yellow");
+        // calculate avg
+        double avgSpeed = 0.0;
+        std::map<int,CongestionInfo>::iterator it;
+        for(it=cidb.begin(); it != cidb.end(); ++it)
+            avgSpeed += it->second.avgSpeed;
+        avgSpeed = avgSpeed/cidb.size();
+        // update own struct avgSpeed bc it got measurements from other cars
+        cInfo.avgSpeed = avgSpeed;
+        calculated = true;
+        // send wsm request, find a way to get the next edge IDs
+        // creating the query string of edges in current vehicle
+        std::string allLanes;
+        std::list<std::string> lanes = traciVehicle->getPlannedRoadIds();
+        int size = lanes.size();
+        for(int i = 0; i < size; i++)
+            i != size-1 ? allLanes += getEdgeByIndex(lanes, i) +"," : allLanes += getEdgeByIndex(lanes, i);
+        sendCongestionRequest(allLanes);
     } else {
         findHost()->getDisplayString().updateWith("r=16,green");
         lastDroveAt = simTime();
     }
-    // send bsm
-    if(simTime() - lastDroveAt >= 1 && sentMessage == false) {
-        findHost()->getDisplayString().updateWith("r=16,yellow");
-        sentMessage = true;
+    sendBeacon(cInfo);
+}
+// wsm request
+void Uninfected::sendCongestionRequest(std::string edgeIDs) {
+    findHost()->getDisplayString().updateWith("r=16,red");
+    WaveShortMessage* wsm = new WaveShortMessage();
+    populateWSM(wsm);
+    wsm->setWsmData(edgeIDs.c_str());
+    sendDown(wsm);
+}
 
-        BasicSafetyMessage* bsm = new BasicSafetyMessage();
-        populateWSM(bsm);
-        struct Uninfected::CongestionInfo con = stringToStruct(cInfo.toString().c_str());
-        bsm->setWsmData(con.toString().c_str());
-        sendDown(bsm);
-        scheduleAt(simTime() + beaconInterval, sendBeaconEvt);
+// calculate minimum route time and choose that route
+// rerouting happens when a different edge has higher avg speed
+void Uninfected::reroute() {
 
+}
+// string to list
+std::list<std::string> Uninfected::stringToList(std::string edges) {
+    std::list<std::string> ls;
+    std::string const delims{","};
+    size_t beg, pos = 0;
+    while ((beg = edges.find_first_not_of(delims, pos)) != std::string::npos) {
+        pos = edges.find_first_of(delims, beg + 1);
+        ls.push_back(edges.substr(beg, pos - beg).c_str());
     }
-    // cInfo.avgSpeed = 0;
-    // carCount = 1;
+    return ls;
 }
 // Converting string to struct
 struct Uninfected::CongestionInfo Uninfected::stringToStruct(std::string str) {
@@ -182,9 +200,47 @@ struct Uninfected::CongestionInfo Uninfected::stringToStruct(std::string str) {
             if(count == 4) con.edgeID = str.substr(beg, pos - beg).c_str();
             if(count == 6) con.avgSpeed = std::stod(str.substr(beg, pos - beg));
             if(count == 8) con.timestamp =  std::stoi(str.substr(beg, pos - beg));
-         }
+        }
     }
     return con;
+}
+
+
+void Uninfected::updateDB(struct CongestionInfo cInfo) {
+    std::pair<std::map<int, CongestionInfo>::iterator,bool> itr;
+    // if it already exists just update it
+    itr = cidb.insert(std::pair<int,CongestionInfo>(cInfo.creatorID,cInfo));
+    if(itr.second == false) {
+        cidb.erase(cInfo.creatorID);
+        cidb.insert(std::pair<int,CongestionInfo>(cInfo.creatorID,cInfo));
+    }
+}
+
+void Uninfected::updateSelf() {
+    cInfo.edgeID = traciVehicle->getLaneId();
+    cInfo.timestamp = simTime();
+    cInfo.avgSpeed = mobility->getSpeed();
+}
+
+void Uninfected::sendBeacon(struct CongestionInfo cInfo) {
+    BasicSafetyMessage* bsm = new BasicSafetyMessage();
+    populateWSM(bsm);
+    // struct Uninfected::CongestionInfo con = stringToStruct(cInfo.toString().c_str());
+    bsm->setWsmData(cInfo.toString().c_str());
+    sendDown(bsm);
+    scheduleAt(simTime() + beaconInterval, sendBeaconEvt);
+}
+
+std::string Uninfected::getEdgeByIndex(std::list<std::string> lanes, int index) {
+    // TraCICommandInterface::Route rou = traci->route(traciVehicle->getRouteId());
+
+    std::list<std::string>::iterator it;
+    int count = 0;
+    for (it = lanes.begin(); it != lanes.end(); ++it) {
+        if(count == index) return *it;
+        count++;
+    }
+    return 0;
 }
 
 
