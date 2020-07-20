@@ -111,8 +111,10 @@ class Uninfected : public BaseWaveApplLayer {
         std::list<std::map<std::string, struct CongestionInfo>> candidateRoutes;
         double avgEdgeSpeed;
         simtime_t lastDroveAt;
+        // for route following algo
+        std::list<std::string> chosenRoute;
+        bool changedRoute;
 
-        int carCount;
         bool sentMessage;
         int currentSubscribedServiceId;
     protected:
@@ -134,7 +136,10 @@ class Uninfected : public BaseWaveApplLayer {
         virtual std::string listToString(std::list<std::string> lanes);
         virtual std::list<std::string> stringToList(std::string edges);
         virtual void reroute();
-        virtual std::string getEdgeByIndex(std::list<std::string> ls, int index);
+        virtual std::string getElementByIndex(std::list<std::string> ls, int index);
+        virtual std::list<std::string> getRouteListByCarID(std::list<std::string> ls, int carID);
+        virtual std::pair<int,int> iterateRouteID(std::string routeID);
+        virtual std::list<std::string> getAdjacentEdges();
 };
 
 #endif
