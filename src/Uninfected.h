@@ -64,7 +64,7 @@ class Uninfected : public BaseWaveApplLayer {
         //virtual std::list<std::string> getTargetAdjacentEdges();
         virtual std::list<std::string> roadListStringToRoadList(std::string routeStr);
         virtual std::string routeListToRoadListString(std::list<std::string> routeList);
-        virtual bool contains(std::list<struct CongestionInfo> cidbResponse, std::string query);
+        virtual bool contains_struct(std::list<struct CongestionInfo> cidbResponse, std::string query);
         //virtual bool isOnTarget();
 };
 

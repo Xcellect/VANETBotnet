@@ -48,14 +48,16 @@
 
 <routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
     <vTypeDistribution id="typedist1">
-		<vType id="uninfected" color="0,1,1" probability="0.9"/>
-		<vType id="exploited" color="1,0,0" probability="0.1"/>
+		<vType id="uninfected" color="0,1,1" probability="1"/>
+		<vType id="exploited" color="1,0,0" probability="0"/>
 	</vTypeDistribution>
     <vehicle type="typedist1" id="0" depart="0.00">
     	<routeDistribution last="0">
-            <route id="0" cost="102.94" probability="1.00000000" edges="B4C4"/>
-        </routeDistribution>	
-   	</vehicle>
+            <route id="0" cost="102.94" probability="1.00000000" edges="B4C4 C4D4 D4E4 E4E3"/>
+        </routeDistribution>
+    </vehicle>
+    
+
     <vehicle type="typedist1" id="1" depart="1.00">
         <routeDistribution last="0">
             <route id="1" cost="171.92" probability="1.00000000" edges="B0A0 A0A1 A1A2 A2A3 A3A4 A4B4 B4C4 C4D4 D4E4 E4E3"/>
@@ -63,7 +65,7 @@
     </vehicle>
     <vehicle type="typedist1" id="2" depart="2.00">
         <routeDistribution last="0">
-            <route id="2" cost="77.08" probability="1.00000000" edges="C0D0"/>
+            <route id="2" cost="77.08" probability="1.00000000" edges="C2C1 C1B1 B1A1 A1A2"/>
         </routeDistribution>
     </vehicle>
     <vehicle type="typedist1" id="3" depart="3.00">

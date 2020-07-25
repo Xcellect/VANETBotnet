@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for Sim1
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -KVEINS_PROJ=D:/Projects/VNETBotnet/veins/veins-4.7.1 -I"D:/Projects/VNETBotnet/veins/veins-4.7.1" -I$$\(VEINS_PROJ\)/src -Isrc -L$$\(VEINS_PROJ\)/src -lveins_dbg -lveins$$\(D\)
+#  opp_makemake -f --deep -O out -KVEINS_PROJ=D:/Projects/VNETBotnet/veins/veins-4.7.1 -I"D:/Projects/VNETBotnet/veins/veins-4.7.1" -I$$\(VEINS_PROJ\)/src -Isrc -L$$\(VEINS_PROJ\)/src -lveins$$\(D\)
 #
 
 # Name of target to be created (-o option)
@@ -22,7 +22,7 @@ INCLUDE_PATH = -I"D:/Projects/VNETBotnet/veins/veins-4.7.1" -I$(VEINS_PROJ)/src 
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS = $(LDFLAG_LIBPATH)$(VEINS_PROJ)/src  -lveins_dbg -lveins$(D)
+LIBS = $(LDFLAG_LIBPATH)$(VEINS_PROJ)/src  -lveins$(D)
 
 # Output directory
 PROJECT_OUTPUT_DIR = out
