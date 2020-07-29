@@ -5,13 +5,14 @@ Define_Module(Uninfected);
 void Uninfected::initialize(int stage) {
     BaseWaveApplLayer::initialize(stage);
     if (stage == 0) {
-        sentMessage = false;
-        lastDroveAt = simTime();
         currentSubscribedServiceId = -1;
         chosenRoute = traciVehicle->getPlannedRoadIds();
+        changedRoute = false;
+        cInfo.creatorID = mobility->getNode()->getIndex();
+        sentMessage = false;
+        hasChosen = false;
     }
-    changedRoute = false;
-    cInfo.creatorID = mobility->getNode()->getIndex();
+
     // read parameters
 }
 
@@ -55,7 +56,7 @@ void Uninfected::onWSM(WaveShortMessage* wsm) {
                     cidbResponse.push_back(it->second);
                 }
             }
-        if(cidbResponse.size() != 0)
+        if(cidbResponse.size() != 0 && !sentMessage)
             sendCongestionResponse(cidbResponse);
     } else {    // reacting to response
         // great. now we're getting the response. time to get to decode and decide.
@@ -69,6 +70,10 @@ void Uninfected::onWSM(WaveShortMessage* wsm) {
         for (it = conResponseCIDB.begin(); it != conResponseCIDB.end(); ++it) {
             updateDB(*it);      // adding congestionResponse struct to current DB
         }
+        std::string rec = listStructToString(conResponseCIDB);
+        //std::string self = listStructToString(cidb);
+        const char* c99 = rec.c_str();
+        //const char* c100 = self.c_str();
         /*  Afterwards, the routing
             decision becomes a set of arithmetic operations; the trip time
             for each of the k candidate routes will be computed, and the
@@ -77,13 +82,7 @@ void Uninfected::onWSM(WaveShortMessage* wsm) {
             Sol: give unknown roads a default trip time
             Make a list of routes (list of roads) and sort them according to shortest time
          */
-        if(traciVehicle->getRoadId().compare(prevRoad) == 0) {
-            changedRoute = true;
-        } else {
-            changedRoute = false;
-        }
-        if(!changedRoute) reroute();
-        prevRoad = traciVehicle->getRoadId();
+        changeRoute();
     }
     /*
     if (!sentMessage) {
@@ -95,8 +94,11 @@ void Uninfected::onWSM(WaveShortMessage* wsm) {
     }
      */
 }
+
+
+
 void Uninfected::handleSelfMsg(cMessage* msg) {
-    /*
+
     if (WaveShortMessage* wsm = dynamic_cast<WaveShortMessage*>(msg)) {
         //send this message on the service channel until the counter is 3 or higher.
         //this code only runs when channel switching is enabled
@@ -114,7 +116,7 @@ void Uninfected::handleSelfMsg(cMessage* msg) {
     else {
        // BaseWaveApplLayer::handleSelfMsg(msg);
     }
-*/
+
 }
 bool Uninfected::contains_struct(std::list<struct CongestionInfo> cidbResponse, std::string query) {
     for (std::list<struct CongestionInfo>::iterator it=cidbResponse.begin(); it != cidbResponse.end(); ++it) {
@@ -171,24 +173,20 @@ void Uninfected::handlePositionUpdate(cObject* obj) {
     updateDB(cInfo);
     // Road length is 200. Make the threshold 180.
     // apparently cidb never increments here???
-    if (traciVehicle->getLanePosition() > 160) {
+    if (traciVehicle->getLanePosition() < 160 && !hasChosen) {
         findHost()->getDisplayString().updateWith("r=16,yellow");
         std::string alledges = routeListToRoadListString(getRouteListByCarID(traci->getRouteIds(), cInfo.creatorID));
-        sendCongestionRequest(alledges);
-
+        if(!sentMessage) sendCongestionRequest(alledges);
         // then we move on to onWSM's 2nd part where we get congestionResponse
-        if(traciVehicle->getRoadId().compare(prevRoad) == 0) {
-            changedRoute = true;
-        } else {
-            changedRoute = false;
-        }
-        if(!changedRoute) reroute();
-        prevRoad = traciVehicle->getRoadId();
+        // changeRoute();
         // rerouting works here but not afer congestion request.
         // traciVehicle->changeRoute(getElementByIndex(getAdjacentEdges(), getAdjacentEdges().size()-1), 9999);
-
+    } else if (traciVehicle->getLanePosition() > 160 && hasChosen && traciVehicle->getLanePosition() < 180) {
+        changeRoute();
+        if(!sentMessage) sendBeacon(cInfo);
+    } else {
+        if(!sentMessage) sendBeacon(cInfo);
     }
-    sendBeacon(cInfo);
     // wait till you get the congestion response. if you don't, choose whatever
     // has higher avg speed
 }
@@ -238,9 +236,13 @@ double Uninfected::calculateCIDBAvg(std::map<std::string, struct CongestionInfo>
 
 // wsm request
 void Uninfected::sendCongestionRequest(std::string edgeIDs) {
+    sentMessage = false;
+    t_channel channel = dataOnSch ? type_SCH : type_CCH;
+
     const char* c = edgeIDs.c_str();
     findHost()->getDisplayString().updateWith("r=16,red");
     WaveShortMessage* wsm = new WaveShortMessage();
+    wsm->setChannelNumber(channel);
     populateWSM(wsm);
     // setting psid to 10 for request
     wsm->setPsid(10);
@@ -251,10 +253,13 @@ void Uninfected::sendCongestionResponse(std::list<struct CongestionInfo> cidbRes
     // sort the db with relevant edges by timestamp
     // here we're just sending the cidbResponse as wsm
     // then based on these structs it will choose the route
+    sentMessage = false;
+    t_channel channel = dataOnSch ? type_SCH : type_CCH;
 
     findHost()->getDisplayString().updateWith("r=16,orange");
     std::string str = listStructToString(cidbResponse);
     WaveShortMessage* wsm = new WaveShortMessage();
+    wsm->setChannelNumber(channel);
     populateWSM(wsm);
     // setting psid to 20 for response
     wsm->setPsid(20);
@@ -304,8 +309,19 @@ std::list<std::string> Uninfected::getAdjacentEdges() {
     }
     return adjEdge;
 }
-
-
+void Uninfected::changeRoute() {
+    if(traciVehicle->getRoadId().compare(prevRoad) == 0) {
+        changedRoute = true;
+    } else {
+        changedRoute = false;
+    }
+    if(!changedRoute) {
+        reroute();
+    }
+    std::string ss = listToString(chosenRoute);
+    const char* c99 = ss.c_str();
+    prevRoad = traciVehicle->getRoadId();
+}
 
 // calculate minimum route time and choose that route
 // rerouting happens when a different edge has higher avg speed
@@ -322,27 +338,31 @@ void Uninfected::reroute() {
     std::list<double> speedlist;
     std::list<double> timeL;
     //std::string fastestRoute;
-    for(int i = 0; i < routeList.size(); i++) {
-        double edgeCount = 0;
-        double avgSpeedSum = 0;
-        std::list<std::string> roads = traci->route(getElementByIndex(routeList, i)).getRoadIds();
-        for(int j = 0; j < roads.size(); j++) {
-            std::string edgeByIndex = getElementByIndex(roads, j);
-            for(std::map<std::string,struct CongestionInfo>::iterator it=cidb.begin(); it!=cidb.end(); ++it) {
-                if(it->second.edgeID.compare(edgeByIndex) == 0) {
-                    avgSpeedSum += it->second.avgSpeed;
-                } else {
-                    avgSpeedSum += traci->road(edgeByIndex).getMeanSpeed() * 0.000001;
+    if(!hasChosen) {
+        for(int i = 0; i < routeList.size(); i++) {
+            double edgeCount = 0;
+            double avgSpeedSum = 0;
+            std::list<std::string> roads = traci->route(getElementByIndex(routeList, i)).getRoadIds();
+            for(int j = 0; j < roads.size(); j++) {
+                std::string edgeByIndex = getElementByIndex(roads, j);
+                for(std::map<std::string,struct CongestionInfo>::iterator it=cidb.begin(); it!=cidb.end(); ++it) {
+                    if(it->second.edgeID.compare(edgeByIndex) == 0) {
+                        avgSpeedSum += it->second.avgSpeed;
+                    } else {
+                        avgSpeedSum += it->second.avgSpeed * 0.0001;
+                    }
                 }
+                edgeCount++;
             }
-            edgeCount++;
+            time = (edgeCount*200)/avgSpeedSum;
+            if(time < minTime) {
+                minTime = time;
+                chosenRoute = roads;
+                traciVehicle->changeVehicleRoute(roads);
+                hasChosen = true;
+            }
+            speedlist.push_back(time);
         }
-        time = (edgeCount*200)/avgSpeedSum;
-        if(time < minTime) {
-            minTime = time;
-            chosenRoute = roads;
-        }
-        speedlist.push_back(time);
     }
     // you're supposed to change road one at a time, not the entire route
     // current gap: rerouting.
@@ -350,20 +370,42 @@ void Uninfected::reroute() {
     // 2. whatever is faster gets chosen.
     // 3. check the chosen route's edges in the current edge's adj edges
     // 4. if exists follow that road and subsequent ones
-    std::list<std::string> adjacentEdges = getAdjacentEdges();
+    std::string route = listToString(chosenRoute);
+    const char* c98 = route.c_str();
+    rerouteHelper(getAdjacentEdges());
+}
+
+void Uninfected::cleanRoadList() {
+    for(int i = 0; i < chosenRoute.size(); i++) {
+        if(getElementByIndex(chosenRoute, i).compare(traciVehicle->getRoadId()) == 0) {
+            chosenRoute.remove(getElementByIndex(chosenRoute, i));
+            return;
+        }
+        chosenRoute.remove(getElementByIndex(chosenRoute, i));
+    }
+}
+
+void Uninfected::rerouteHelper(std::list<std::string> adjacentEdges) {
+    cleanRoadList();
+    std::string chRoute = listToString(chosenRoute);
+    const char* chList = chRoute.c_str();
+    std::string route = listToString(adjacentEdges);
+    const char* edgList = route.c_str();
     if(!chosenRoute.empty() && !adjacentEdges.empty()) {
         for(int i = 0; i < adjacentEdges.size(); i++) {
-            for(int j = 0; j < chosenRoute.size(); j++) {
-                if(getElementByIndex(adjacentEdges, i).compare(getElementByIndex(chosenRoute, j)) == 0
-                        && mobility->getRoadId()[0] != ':') {
-                    traciVehicle->newRoute(getElementByIndex(adjacentEdges, i));
-                    return;
+            std::string adj = getElementByIndex(adjacentEdges, i);
+                const char* adj99 = adj.c_str();
+                for(int j = 0; j < chosenRoute.size(); j++) {
+                    std::string ch = getElementByIndex(chosenRoute, j);
+                    const char* ch99 = ch.c_str();
+                    if(adj.compare(ch) == 0) {
+                        //traciVehicle->newRoute(adj);
+                        traciVehicle->changeRoute(adj, 1);
+                        return;
+                    }
                 }
             }
-        }
-    }
-
-
+     }
 }
 // list to string
 std::string Uninfected::listToString(std::list<std::string> lanes) {
@@ -426,6 +468,8 @@ void Uninfected::updateSelf() {
 }
 
 void Uninfected::sendBeacon(struct CongestionInfo cInfo) {
+    sentMessage = false;
+
     BasicSafetyMessage* bsm = new BasicSafetyMessage();
     populateWSM(bsm);
     // struct Uninfected::CongestionInfo con = stringToStruct(cInfo.toString().c_str());
@@ -443,7 +487,6 @@ std::string Uninfected::getElementByIndex(std::list<std::string> lanes, int inde
     }
     return 0;
 }
-
 
 std::list<std::string> Uninfected::getRouteListByCarID(std::list<std::string> ls, int carID) {
     std::list<std::string>::iterator it;
@@ -492,3 +535,4 @@ std::pair<int,int> Uninfected::iterateRouteID(std::string routeID) {
     }
     return product;
 }
+

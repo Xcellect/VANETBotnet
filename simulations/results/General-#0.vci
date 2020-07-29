@@ -1,0 +1,1953 @@
+                                                                
+version 2
+run General-0-20200729-15:25:38-26184
+attr configname General
+attr datetime 20200729-15:25:38
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsf ""
+attr measurement ""
+attr network sim1.src.TestScenario
+attr processid 26184
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+param *.playgroundSizeX 1000m
+param *.playgroundSizeY 1000m
+param *.playgroundSizeZ 50m
+param *.manager.moduleType "\"exploited=org.car2x.veins.nodes.Car *=org.car2x.veins.nodes.Car\""
+param *.manager.moduleName "\"exploited=exploited *=uninfected\""
+param *.manager.updateInterval 1s
+param *.manager.host "\"localhost\""
+param *.manager.port 9999
+param *.manager.autoShutdown true
+param *.manager.launchConfig "xmldoc(\"demo.launchd.xml\")"
+param *.connectionManager.sendDirect true
+param *.connectionManager.maxInterfDist 300m
+param *.connectionManager.drawMaxIntfDist false
+param *.**.nic.mac1609_4.useServiceChannel false
+param *.**.nic.mac1609_4.txPower 20mW
+param *.**.nic.mac1609_4.bitrate 6Mbps
+param *.**.nic.phy80211p.sensitivity -89dBm
+param *.**.nic.phy80211p.useThermalNoise true
+param *.**.nic.phy80211p.thermalNoise -110dBm
+param *.**.nic.phy80211p.decider "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.analogueModels "xmldoc(\"config.xml\")"
+param *.**.nic.phy80211p.usePropagationDelay true
+param *.**.nic.phy80211p.antenna "xmldoc(\"antenna.xml\", \"/root/Antenna[@id='monopole']\")"
+param *.uninfected[*].applType "\"sim1.src.Uninfected\""
+param *.uninfected[*].appl.dataPriority 2
+param *.uninfected[*].appl.headerLength "80 bit"
+param *.uninfected[*].appl.sendBeacons false
+param *.uninfected[*].appl.dataOnSch false
+param *.uninfected[*].appl.beaconInterval 1s
+param *.uninfected[*].veinsmobilityType.debug true
+param *.uninfected[*].veinsmobility.x 0
+param *.uninfected[*].veinsmobility.y 0
+param *.uninfected[*].veinsmobility.z 0
+param *.exploited[*].applType "\"sim1.src.Exploited\""
+param *.exploited[*].appl.dataPriority 2
+param *.exploited[*].appl.headerLength "80 bit"
+param *.exploited[*].appl.sendBeacons false
+param *.exploited[*].appl.dataOnSch false
+param *.exploited[*].appl.beaconInterval 1s
+param *.exploited[*].veinsmobilityType.debug true
+param *.exploited[*].veinsmobility.x 0
+param *.exploited[*].veinsmobility.y 0
+param *.exploited[*].veinsmobility.z 0
+
+vector 0 TestScenario.uninfected[0].veinsmobility posx ETV
+vector 1 TestScenario.uninfected[0].veinsmobility posy ETV
+vector 2 TestScenario.uninfected[1].veinsmobility posx ETV
+vector 3 TestScenario.uninfected[1].veinsmobility posy ETV
+vector 4 TestScenario.uninfected[0].veinsmobility speed ETV
+vector 5 TestScenario.uninfected[2].veinsmobility posx ETV
+vector 6 TestScenario.uninfected[2].veinsmobility posy ETV
+vector 7 TestScenario.uninfected[0].veinsmobility acceleration ETV
+vector 8 TestScenario.uninfected[0].veinsmobility co2emission ETV
+vector 9 TestScenario.uninfected[1].veinsmobility speed ETV
+vector 10 TestScenario.uninfected[3].veinsmobility posx ETV
+vector 11 TestScenario.uninfected[3].veinsmobility posy ETV
+vector 12 TestScenario.uninfected[1].veinsmobility acceleration ETV
+vector 13 TestScenario.uninfected[1].veinsmobility co2emission ETV
+vector 14 TestScenario.uninfected[2].veinsmobility speed ETV
+vector 15 TestScenario.uninfected[4].veinsmobility posx ETV
+vector 16 TestScenario.uninfected[4].veinsmobility posy ETV
+vector 17 TestScenario.uninfected[2].veinsmobility acceleration ETV
+vector 18 TestScenario.uninfected[2].veinsmobility co2emission ETV
+vector 19 TestScenario.uninfected[3].veinsmobility speed ETV
+vector 20 TestScenario.uninfected[5].veinsmobility posx ETV
+vector 21 TestScenario.uninfected[5].veinsmobility posy ETV
+vector 22 TestScenario.uninfected[3].veinsmobility acceleration ETV
+vector 23 TestScenario.uninfected[3].veinsmobility co2emission ETV
+vector 24 TestScenario.uninfected[4].veinsmobility speed ETV
+vector 25 TestScenario.uninfected[6].veinsmobility posx ETV
+vector 26 TestScenario.uninfected[6].veinsmobility posy ETV
+vector 27 TestScenario.uninfected[4].veinsmobility acceleration ETV
+vector 28 TestScenario.uninfected[4].veinsmobility co2emission ETV
+vector 29 TestScenario.uninfected[5].veinsmobility speed ETV
+vector 30 TestScenario.uninfected[7].veinsmobility posx ETV
+vector 31 TestScenario.uninfected[7].veinsmobility posy ETV
+vector 32 TestScenario.uninfected[5].veinsmobility acceleration ETV
+vector 33 TestScenario.uninfected[5].veinsmobility co2emission ETV
+vector 34 TestScenario.uninfected[6].veinsmobility speed ETV
+vector 35 TestScenario.uninfected[8].veinsmobility posx ETV
+vector 36 TestScenario.uninfected[8].veinsmobility posy ETV
+vector 37 TestScenario.uninfected[6].veinsmobility acceleration ETV
+vector 38 TestScenario.uninfected[6].veinsmobility co2emission ETV
+vector 39 TestScenario.uninfected[7].veinsmobility speed ETV
+vector 40 TestScenario.uninfected[9].veinsmobility posx ETV
+vector 41 TestScenario.uninfected[9].veinsmobility posy ETV
+vector 42 TestScenario.uninfected[7].veinsmobility acceleration ETV
+vector 43 TestScenario.uninfected[7].veinsmobility co2emission ETV
+vector 44 TestScenario.uninfected[8].veinsmobility speed ETV
+vector 45 TestScenario.uninfected[10].veinsmobility posx ETV
+vector 46 TestScenario.uninfected[10].veinsmobility posy ETV
+vector 47 TestScenario.uninfected[8].veinsmobility acceleration ETV
+vector 48 TestScenario.uninfected[8].veinsmobility co2emission ETV
+vector 49 TestScenario.uninfected[9].veinsmobility speed ETV
+vector 50 TestScenario.uninfected[11].veinsmobility posx ETV
+vector 51 TestScenario.uninfected[11].veinsmobility posy ETV
+vector 52 TestScenario.uninfected[9].veinsmobility acceleration ETV
+vector 53 TestScenario.uninfected[9].veinsmobility co2emission ETV
+vector 54 TestScenario.uninfected[10].veinsmobility speed ETV
+vector 55 TestScenario.uninfected[12].veinsmobility posx ETV
+vector 56 TestScenario.uninfected[12].veinsmobility posy ETV
+vector 57 TestScenario.uninfected[10].veinsmobility acceleration ETV
+vector 58 TestScenario.uninfected[10].veinsmobility co2emission ETV
+vector 59 TestScenario.uninfected[11].veinsmobility speed ETV
+vector 60 TestScenario.uninfected[13].veinsmobility posx ETV
+vector 61 TestScenario.uninfected[13].veinsmobility posy ETV
+vector 62 TestScenario.uninfected[11].veinsmobility acceleration ETV
+vector 63 TestScenario.uninfected[11].veinsmobility co2emission ETV
+vector 64 TestScenario.uninfected[12].veinsmobility speed ETV
+vector 65 TestScenario.uninfected[14].veinsmobility posx ETV
+vector 66 TestScenario.uninfected[14].veinsmobility posy ETV
+vector 67 TestScenario.uninfected[12].veinsmobility acceleration ETV
+vector 68 TestScenario.uninfected[12].veinsmobility co2emission ETV
+vector 69 TestScenario.uninfected[13].veinsmobility speed ETV
+vector 70 TestScenario.uninfected[15].veinsmobility posx ETV
+vector 71 TestScenario.uninfected[15].veinsmobility posy ETV
+vector 72 TestScenario.uninfected[13].veinsmobility acceleration ETV
+vector 73 TestScenario.uninfected[13].veinsmobility co2emission ETV
+vector 74 TestScenario.uninfected[14].veinsmobility speed ETV
+vector 75 TestScenario.uninfected[16].veinsmobility posx ETV
+vector 76 TestScenario.uninfected[16].veinsmobility posy ETV
+vector 77 TestScenario.uninfected[14].veinsmobility acceleration ETV
+vector 78 TestScenario.uninfected[14].veinsmobility co2emission ETV
+vector 79 TestScenario.uninfected[15].veinsmobility speed ETV
+vector 80 TestScenario.uninfected[17].veinsmobility posx ETV
+vector 81 TestScenario.uninfected[17].veinsmobility posy ETV
+vector 82 TestScenario.uninfected[15].veinsmobility acceleration ETV
+vector 83 TestScenario.uninfected[15].veinsmobility co2emission ETV
+vector 84 TestScenario.uninfected[16].veinsmobility speed ETV
+vector 85 TestScenario.uninfected[18].veinsmobility posx ETV
+vector 86 TestScenario.uninfected[18].veinsmobility posy ETV
+vector 87 TestScenario.uninfected[16].veinsmobility acceleration ETV
+vector 88 TestScenario.uninfected[16].veinsmobility co2emission ETV
+vector 89 TestScenario.uninfected[17].veinsmobility speed ETV
+vector 90 TestScenario.uninfected[19].veinsmobility posx ETV
+vector 91 TestScenario.uninfected[19].veinsmobility posy ETV
+vector 92 TestScenario.uninfected[17].veinsmobility acceleration ETV
+vector 93 TestScenario.uninfected[17].veinsmobility co2emission ETV
+vector 94 TestScenario.uninfected[18].veinsmobility speed ETV
+vector 95 TestScenario.uninfected[20].veinsmobility posx ETV
+vector 96 TestScenario.uninfected[20].veinsmobility posy ETV
+vector 97 TestScenario.uninfected[18].veinsmobility acceleration ETV
+vector 98 TestScenario.uninfected[18].veinsmobility co2emission ETV
+vector 99 TestScenario.uninfected[19].veinsmobility speed ETV
+vector 100 TestScenario.uninfected[21].veinsmobility posx ETV
+vector 101 TestScenario.uninfected[21].veinsmobility posy ETV
+vector 102 TestScenario.uninfected[19].veinsmobility acceleration ETV
+vector 103 TestScenario.uninfected[19].veinsmobility co2emission ETV
+vector 104 TestScenario.uninfected[20].veinsmobility speed ETV
+vector 105 TestScenario.uninfected[22].veinsmobility posx ETV
+vector 106 TestScenario.uninfected[22].veinsmobility posy ETV
+vector 107 TestScenario.uninfected[20].veinsmobility acceleration ETV
+vector 108 TestScenario.uninfected[20].veinsmobility co2emission ETV
+vector 109 TestScenario.uninfected[21].veinsmobility speed ETV
+vector 110 TestScenario.uninfected[23].veinsmobility posx ETV
+vector 111 TestScenario.uninfected[23].veinsmobility posy ETV
+vector 112 TestScenario.uninfected[21].veinsmobility acceleration ETV
+vector 113 TestScenario.uninfected[21].veinsmobility co2emission ETV
+vector 114 TestScenario.uninfected[22].veinsmobility speed ETV
+vector 115 TestScenario.uninfected[24].veinsmobility posx ETV
+vector 116 TestScenario.uninfected[24].veinsmobility posy ETV
+vector 117 TestScenario.uninfected[22].veinsmobility acceleration ETV
+vector 118 TestScenario.uninfected[22].veinsmobility co2emission ETV
+vector 119 TestScenario.uninfected[23].veinsmobility speed ETV
+vector 120 TestScenario.uninfected[25].veinsmobility posx ETV
+vector 121 TestScenario.uninfected[25].veinsmobility posy ETV
+vector 122 TestScenario.uninfected[23].veinsmobility acceleration ETV
+vector 123 TestScenario.uninfected[23].veinsmobility co2emission ETV
+vector 124 TestScenario.uninfected[24].veinsmobility speed ETV
+vector 125 TestScenario.uninfected[26].veinsmobility posx ETV
+vector 126 TestScenario.uninfected[26].veinsmobility posy ETV
+vector 127 TestScenario.uninfected[24].veinsmobility acceleration ETV
+vector 128 TestScenario.uninfected[24].veinsmobility co2emission ETV
+vector 129 TestScenario.uninfected[25].veinsmobility speed ETV
+vector 130 TestScenario.uninfected[27].veinsmobility posx ETV
+vector 131 TestScenario.uninfected[27].veinsmobility posy ETV
+vector 132 TestScenario.uninfected[25].veinsmobility acceleration ETV
+vector 133 TestScenario.uninfected[25].veinsmobility co2emission ETV
+vector 134 TestScenario.uninfected[26].veinsmobility speed ETV
+vector 135 TestScenario.uninfected[28].veinsmobility posx ETV
+vector 136 TestScenario.uninfected[28].veinsmobility posy ETV
+vector 137 TestScenario.uninfected[26].veinsmobility acceleration ETV
+vector 138 TestScenario.uninfected[26].veinsmobility co2emission ETV
+vector 139 TestScenario.uninfected[27].veinsmobility speed ETV
+vector 140 TestScenario.uninfected[29].veinsmobility posx ETV
+vector 141 TestScenario.uninfected[29].veinsmobility posy ETV
+vector 142 TestScenario.uninfected[27].veinsmobility acceleration ETV
+vector 143 TestScenario.uninfected[27].veinsmobility co2emission ETV
+vector 144 TestScenario.uninfected[28].veinsmobility speed ETV
+vector 145 TestScenario.uninfected[30].veinsmobility posx ETV
+vector 146 TestScenario.uninfected[30].veinsmobility posy ETV
+vector 147 TestScenario.uninfected[28].veinsmobility acceleration ETV
+vector 148 TestScenario.uninfected[28].veinsmobility co2emission ETV
+vector 149 TestScenario.uninfected[29].veinsmobility speed ETV
+vector 150 TestScenario.uninfected[31].veinsmobility posx ETV
+vector 151 TestScenario.uninfected[31].veinsmobility posy ETV
+vector 152 TestScenario.uninfected[29].veinsmobility acceleration ETV
+vector 153 TestScenario.uninfected[29].veinsmobility co2emission ETV
+vector 154 TestScenario.uninfected[30].veinsmobility speed ETV
+vector 155 TestScenario.uninfected[32].veinsmobility posx ETV
+vector 156 TestScenario.uninfected[32].veinsmobility posy ETV
+vector 157 TestScenario.uninfected[30].veinsmobility acceleration ETV
+vector 158 TestScenario.uninfected[30].veinsmobility co2emission ETV
+vector 159 TestScenario.uninfected[31].veinsmobility speed ETV
+vector 160 TestScenario.uninfected[33].veinsmobility posx ETV
+vector 161 TestScenario.uninfected[33].veinsmobility posy ETV
+vector 162 TestScenario.uninfected[31].veinsmobility acceleration ETV
+vector 163 TestScenario.uninfected[31].veinsmobility co2emission ETV
+vector 164 TestScenario.uninfected[32].veinsmobility speed ETV
+vector 165 TestScenario.uninfected[34].veinsmobility posx ETV
+vector 166 TestScenario.uninfected[34].veinsmobility posy ETV
+vector 167 TestScenario.uninfected[32].veinsmobility acceleration ETV
+vector 168 TestScenario.uninfected[32].veinsmobility co2emission ETV
+vector 169 TestScenario.uninfected[33].veinsmobility speed ETV
+vector 170 TestScenario.uninfected[35].veinsmobility posx ETV
+vector 171 TestScenario.uninfected[35].veinsmobility posy ETV
+vector 172 TestScenario.uninfected[33].veinsmobility acceleration ETV
+vector 173 TestScenario.uninfected[33].veinsmobility co2emission ETV
+vector 174 TestScenario.uninfected[34].veinsmobility speed ETV
+vector 175 TestScenario.uninfected[36].veinsmobility posx ETV
+vector 176 TestScenario.uninfected[36].veinsmobility posy ETV
+vector 177 TestScenario.uninfected[34].veinsmobility acceleration ETV
+vector 178 TestScenario.uninfected[34].veinsmobility co2emission ETV
+vector 179 TestScenario.uninfected[35].veinsmobility speed ETV
+vector 180 TestScenario.uninfected[37].veinsmobility posx ETV
+vector 181 TestScenario.uninfected[37].veinsmobility posy ETV
+vector 182 TestScenario.uninfected[35].veinsmobility acceleration ETV
+vector 183 TestScenario.uninfected[35].veinsmobility co2emission ETV
+vector 184 TestScenario.uninfected[36].veinsmobility speed ETV
+vector 185 TestScenario.uninfected[38].veinsmobility posx ETV
+vector 186 TestScenario.uninfected[38].veinsmobility posy ETV
+vector 187 TestScenario.uninfected[36].veinsmobility acceleration ETV
+vector 188 TestScenario.uninfected[36].veinsmobility co2emission ETV
+vector 189 TestScenario.uninfected[37].veinsmobility speed ETV
+123	14830 419 9321 28549 26 39 14 1.7046288362581 7.8248594772988 50.054110153398 244.29796694799
+122	15249 438 9321 28549 26 39 14 -0.09373022872256 2.0943918044725 9.8061608840758 18.728260891895
+119	15687 445 8418 28549 25 39 15 4.0277950379694 13.878134806112 178.11467811615 2267.4349855542
+111	16132 317 7536 28549 24 39 16 823.4 823.4 13174.4 10847800.96
+110	16449 477 7536 28549 24 39 16 452.54479423958 611.61766712898 8764.6970416121 4846661.9481102
+vector 190 TestScenario.uninfected[39].veinsmobility posx ETV
+vector 191 TestScenario.uninfected[39].veinsmobility posy ETV
+vector 192 TestScenario.uninfected[37].veinsmobility acceleration ETV
+vector 193 TestScenario.uninfected[37].veinsmobility co2emission ETV
+vector 194 TestScenario.uninfected[38].veinsmobility speed ETV
+vector 195 TestScenario.uninfected[40].veinsmobility posx ETV
+vector 196 TestScenario.uninfected[40].veinsmobility posy ETV
+vector 197 TestScenario.uninfected[38].veinsmobility acceleration ETV
+vector 198 TestScenario.uninfected[38].veinsmobility co2emission ETV
+vector 199 TestScenario.uninfected[39].veinsmobility speed ETV
+vector 200 TestScenario.uninfected[39].veinsmobility acceleration ETV
+vector 201 TestScenario.uninfected[39].veinsmobility co2emission ETV
+vector 202 TestScenario.uninfected[40].veinsmobility speed ETV
+vector 203 TestScenario.uninfected[41].veinsmobility posx ETV
+vector 204 TestScenario.uninfected[41].veinsmobility posy ETV
+vector 205 TestScenario.uninfected[42].veinsmobility posx ETV
+vector 206 TestScenario.uninfected[42].veinsmobility posy ETV
+vector 207 TestScenario.uninfected[40].veinsmobility acceleration ETV
+vector 208 TestScenario.uninfected[40].veinsmobility co2emission ETV
+vector 209 TestScenario.uninfected[43].veinsmobility posx ETV
+vector 210 TestScenario.uninfected[43].veinsmobility posy ETV
+vector 211 TestScenario.uninfected[41].veinsmobility speed ETV
+vector 212 TestScenario.uninfected[42].veinsmobility speed ETV
+vector 213 TestScenario.uninfected[44].veinsmobility posx ETV
+vector 214 TestScenario.uninfected[44].veinsmobility posy ETV
+vector 215 TestScenario.uninfected[41].veinsmobility acceleration ETV
+vector 216 TestScenario.uninfected[41].veinsmobility co2emission ETV
+vector 217 TestScenario.uninfected[42].veinsmobility acceleration ETV
+vector 218 TestScenario.uninfected[42].veinsmobility co2emission ETV
+vector 219 TestScenario.uninfected[43].veinsmobility speed ETV
+vector 220 TestScenario.uninfected[45].veinsmobility posx ETV
+vector 221 TestScenario.uninfected[45].veinsmobility posy ETV
+vector 222 TestScenario.uninfected[43].veinsmobility acceleration ETV
+vector 223 TestScenario.uninfected[43].veinsmobility co2emission ETV
+vector 224 TestScenario.uninfected[44].veinsmobility speed ETV
+vector 225 TestScenario.uninfected[46].veinsmobility posx ETV
+vector 226 TestScenario.uninfected[46].veinsmobility posy ETV
+vector 227 TestScenario.uninfected[44].veinsmobility acceleration ETV
+vector 228 TestScenario.uninfected[44].veinsmobility co2emission ETV
+vector 229 TestScenario.uninfected[45].veinsmobility speed ETV
+vector 230 TestScenario.uninfected[47].veinsmobility posx ETV
+vector 231 TestScenario.uninfected[47].veinsmobility posy ETV
+vector 232 TestScenario.uninfected[45].veinsmobility acceleration ETV
+vector 233 TestScenario.uninfected[45].veinsmobility co2emission ETV
+vector 234 TestScenario.uninfected[46].veinsmobility speed ETV
+vector 235 TestScenario.uninfected[48].veinsmobility posx ETV
+vector 236 TestScenario.uninfected[48].veinsmobility posy ETV
+vector 237 TestScenario.uninfected[46].veinsmobility acceleration ETV
+vector 238 TestScenario.uninfected[46].veinsmobility co2emission ETV
+vector 239 TestScenario.uninfected[47].veinsmobility speed ETV
+vector 240 TestScenario.uninfected[49].veinsmobility posx ETV
+vector 241 TestScenario.uninfected[49].veinsmobility posy ETV
+vector 242 TestScenario.uninfected[47].veinsmobility acceleration ETV
+vector 243 TestScenario.uninfected[47].veinsmobility co2emission ETV
+vector 244 TestScenario.uninfected[48].veinsmobility speed ETV
+vector 245 TestScenario.uninfected[48].veinsmobility acceleration ETV
+vector 246 TestScenario.uninfected[48].veinsmobility co2emission ETV
+vector 247 TestScenario.uninfected[49].veinsmobility speed ETV
+23	20772 1259 185 56959 6 51 46 0.973 8.0209828473551 131.13706836125 543.52610284763
+22	22031 1382 185 56959 6 51 46 -3.3188026039673 2.2626646912354 9.7017864311674 63.595931337341
+19	23413 1323 107 56959 5 51 47 4.1837425248161 13.888416356484 576.0065223412 7458.4770435667
+11	24736 1215 53 56959 4 51 48 223.4 611.63399887184 17706.281144574 7502930.9273381
+10	25951 1022 53 56959 4 51 48 54.90994824776 226.6 9709.2812613374 2072953.5695402
+vector 248 TestScenario.uninfected[50].veinsmobility posx ETV
+vector 249 TestScenario.uninfected[50].veinsmobility posy ETV
+vector 250 TestScenario.uninfected[51].veinsmobility posx ETV
+vector 251 TestScenario.uninfected[51].veinsmobility posy ETV
+vector 252 TestScenario.uninfected[49].veinsmobility acceleration ETV
+vector 253 TestScenario.uninfected[49].veinsmobility co2emission ETV
+vector 254 TestScenario.uninfected[52].veinsmobility posx ETV
+vector 255 TestScenario.uninfected[52].veinsmobility posy ETV
+vector 256 TestScenario.uninfected[50].veinsmobility speed ETV
+vector 257 TestScenario.uninfected[51].veinsmobility speed ETV
+vector 258 TestScenario.uninfected[50].veinsmobility acceleration ETV
+vector 259 TestScenario.uninfected[50].veinsmobility co2emission ETV
+vector 260 TestScenario.uninfected[51].veinsmobility acceleration ETV
+vector 261 TestScenario.uninfected[51].veinsmobility co2emission ETV
+vector 262 TestScenario.uninfected[52].veinsmobility speed ETV
+vector 263 TestScenario.uninfected[53].veinsmobility posx ETV
+vector 264 TestScenario.uninfected[53].veinsmobility posy ETV
+vector 265 TestScenario.uninfected[52].veinsmobility acceleration ETV
+vector 266 TestScenario.uninfected[52].veinsmobility co2emission ETV
+vector 267 TestScenario.uninfected[54].veinsmobility posx ETV
+vector 268 TestScenario.uninfected[54].veinsmobility posy ETV
+vector 269 TestScenario.uninfected[53].veinsmobility speed ETV
+vector 270 TestScenario.uninfected[55].veinsmobility posx ETV
+vector 271 TestScenario.uninfected[55].veinsmobility posy ETV
+vector 272 TestScenario.uninfected[53].veinsmobility acceleration ETV
+vector 273 TestScenario.uninfected[53].veinsmobility co2emission ETV
+vector 274 TestScenario.uninfected[54].veinsmobility speed ETV
+vector 275 TestScenario.uninfected[56].veinsmobility posx ETV
+vector 276 TestScenario.uninfected[56].veinsmobility posy ETV
+vector 277 TestScenario.uninfected[54].veinsmobility acceleration ETV
+vector 278 TestScenario.uninfected[54].veinsmobility co2emission ETV
+vector 279 TestScenario.uninfected[55].veinsmobility speed ETV
+vector 280 TestScenario.uninfected[57].veinsmobility posx ETV
+vector 281 TestScenario.uninfected[57].veinsmobility posy ETV
+vector 282 TestScenario.uninfected[55].veinsmobility acceleration ETV
+vector 283 TestScenario.uninfected[55].veinsmobility co2emission ETV
+vector 284 TestScenario.uninfected[56].veinsmobility speed ETV
+vector 285 TestScenario.uninfected[58].veinsmobility posx ETV
+vector 286 TestScenario.uninfected[58].veinsmobility posy ETV
+vector 287 TestScenario.uninfected[59].veinsmobility posx ETV
+vector 288 TestScenario.uninfected[59].veinsmobility posy ETV
+vector 289 TestScenario.uninfected[56].veinsmobility acceleration ETV
+vector 290 TestScenario.uninfected[56].veinsmobility co2emission ETV
+vector 291 TestScenario.uninfected[57].veinsmobility speed ETV
+vector 292 TestScenario.uninfected[60].veinsmobility posx ETV
+vector 293 TestScenario.uninfected[60].veinsmobility posy ETV
+vector 294 TestScenario.uninfected[57].veinsmobility acceleration ETV
+vector 295 TestScenario.uninfected[57].veinsmobility co2emission ETV
+vector 296 TestScenario.uninfected[58].veinsmobility speed ETV
+vector 297 TestScenario.uninfected[59].veinsmobility speed ETV
+53	30268 1360 1147 92586 12 61 50 0.973 8.3916367649199 156.80045804416 729.58782198448
+52	31628 1507 1147 92586 12 61 50 -3.355611395049 2.1179010292981 9.8259926062364 109.70182149102
+49	33135 1454 942 92586 11 61 51 3.5621496864848 13.887274319187 575.8570763894 7080.8057374023
+41	34589 1324 710 92586 10 61 52 438.35435812088 801.17371212613 31758.442332684 19820592.450239
+40	35913 1167 710 92586 10 61 52 423.4 623.4 26798.289272917 14221842.622449
+vector 298 TestScenario.uninfected[61].veinsmobility posx ETV
+vector 299 TestScenario.uninfected[61].veinsmobility posy ETV
+vector 300 TestScenario.uninfected[58].veinsmobility acceleration ETV
+vector 301 TestScenario.uninfected[58].veinsmobility co2emission ETV
+vector 302 TestScenario.uninfected[59].veinsmobility acceleration ETV
+vector 303 TestScenario.uninfected[59].veinsmobility co2emission ETV
+vector 304 TestScenario.uninfected[60].veinsmobility speed ETV
+73	37552 1310 2486 97143 16 62 47 0.973 8.4289382751256 133.80654020426 548.35124064984
+72	38862 1426 2486 97143 16 62 47 -4.3940084835604 2.0562678857078 10.054449167529 68.699407950955
+69	40288 1374 1932 97143 15 62 48 3.8004325452788 13.887520042215 578.97310923599 7425.2870496198
+61	41662 1237 1661 97143 14 62 49 26.6 411.64691181547 8254.1627950567 2374751.3860797
+60	42899 1034 1661 97143 14 62 49 26.6 202.04593230617 2527.3226012161 246210.13855087
+8	43933 1603 28 97143 3 62 60 0.973 8.4055474696849 161.39668434256 616.77973148018
+7	45536 1759 28 97143 3 62 60 -4.4742306211542 2.1980462150532 10.058768241004 73.209887276054
+4	47295 1651 11 97143 2 62 61 3.722822103166 13.882528818171 769.00215658714 10139.949429199
+1	48946 1168 2 97143 1 62 62 26.6 192.63966594523 2752.9413016583 227548.61082081
+0	50114 1541 2 97143 1 62 62 238.33130028169 823.4 36298.826908334 23941053.479798
+vector 305 TestScenario.uninfected[60].veinsmobility acceleration ETV
+vector 306 TestScenario.uninfected[60].veinsmobility co2emission ETV
+vector 307 TestScenario.uninfected[61].veinsmobility speed ETV
+vector 308 TestScenario.uninfected[62].veinsmobility posx ETV
+vector 309 TestScenario.uninfected[62].veinsmobility posy ETV
+vector 310 TestScenario.uninfected[61].veinsmobility acceleration ETV
+vector 311 TestScenario.uninfected[61].veinsmobility co2emission ETV
+88	52127 1282 3954 106121 19 64 46 0.973 8.2358515529932 131.91085265231 556.36646504916
+87	53409 1413 3954 106121 19 64 46 -3.3358843139955 2.2415648450074 9.7560719799153 64.888481319342
+84	54822 1351 3356 106121 18 64 47 4.1265234313304 13.886215206874 574.44610393518 7428.8682971159
+76	56173 1020 2900 106121 17 64 48 23.4 193.42243663515 2269.7825513412 213596.47107638
+75	57193 1247 2900 106121 17 64 48 223.4 611.61862955957 17732.721325601 7524000.6769584
+vector 312 TestScenario.uninfected[63].veinsmobility posx ETV
+vector 313 TestScenario.uninfected[63].veinsmobility posy ETV
+vector 314 TestScenario.uninfected[64].veinsmobility posx ETV
+vector 315 TestScenario.uninfected[64].veinsmobility posy ETV
+vector 316 TestScenario.uninfected[62].veinsmobility speed ETV
+vector 317 TestScenario.uninfected[65].veinsmobility posx ETV
+vector 318 TestScenario.uninfected[65].veinsmobility posy ETV
+vector 319 TestScenario.uninfected[62].veinsmobility acceleration ETV
+vector 320 TestScenario.uninfected[62].veinsmobility co2emission ETV
+vector 321 TestScenario.uninfected[63].veinsmobility speed ETV
+vector 322 TestScenario.uninfected[64].veinsmobility speed ETV
+vector 323 TestScenario.uninfected[66].veinsmobility posx ETV
+vector 324 TestScenario.uninfected[66].veinsmobility posy ETV
+vector 325 TestScenario.uninfected[63].veinsmobility acceleration ETV
+vector 326 TestScenario.uninfected[63].veinsmobility co2emission ETV
+vector 327 TestScenario.uninfected[64].veinsmobility acceleration ETV
+vector 328 TestScenario.uninfected[64].veinsmobility co2emission ETV
+vector 329 TestScenario.uninfected[65].veinsmobility speed ETV
+vector 330 TestScenario.uninfected[67].veinsmobility posx ETV
+vector 331 TestScenario.uninfected[67].veinsmobility posy ETV
+vector 332 TestScenario.uninfected[65].veinsmobility acceleration ETV
+vector 333 TestScenario.uninfected[65].veinsmobility co2emission ETV
+vector 334 TestScenario.uninfected[66].veinsmobility speed ETV
+vector 335 TestScenario.uninfected[68].veinsmobility posx ETV
+vector 336 TestScenario.uninfected[68].veinsmobility posy ETV
+vector 337 TestScenario.uninfected[66].veinsmobility acceleration ETV
+vector 338 TestScenario.uninfected[66].veinsmobility co2emission ETV
+vector 339 TestScenario.uninfected[67].veinsmobility speed ETV
+vector 340 TestScenario.uninfected[69].veinsmobility posx ETV
+vector 341 TestScenario.uninfected[69].veinsmobility posy ETV
+vector 342 TestScenario.uninfected[67].veinsmobility acceleration ETV
+vector 343 TestScenario.uninfected[67].veinsmobility co2emission ETV
+vector 344 TestScenario.uninfected[68].veinsmobility speed ETV
+18	60616 1782 107 135271 5 70 66 0.973 8.6151469169583 205.92781878847 961.09746909413
+17	62398 1984 107 135271 5 70 66 -4.4851412721979 2.5619180149538 9.7838820958249 154.75401434256
+14	64382 1906 53 135271 4 70 67 3.3176953228269 13.884849982031 765.3527784616 9453.1679057191
+6	66288 1526 28 135271 3 70 68 438.34775942317 623.4 39283.348386153 22966229.009566
+5	67814 1555 28 135271 3 70 68 26.6 423.4 15942.635879878 5504065.9165953
+vector 345 TestScenario.uninfected[68].veinsmobility acceleration ETV
+vector 346 TestScenario.uninfected[68].veinsmobility co2emission ETV
+vector 347 TestScenario.uninfected[69].veinsmobility speed ETV
+vector 348 TestScenario.uninfected[70].veinsmobility posx ETV
+vector 349 TestScenario.uninfected[70].veinsmobility posy ETV
+vector 350 TestScenario.uninfected[69].veinsmobility acceleration ETV
+vector 351 TestScenario.uninfected[69].veinsmobility co2emission ETV
+33	69841 1771 381 146305 8 72 65 0.973 8.9859220848101 186.09799576939 797.28184277769
+32	71612 1975 381 146305 8 72 65 -3.4368808660463 2.3751326795574 9.8961554513899 112.00690324481
+29	73587 1889 273 146305 7 72 66 3.5229142080061 13.885804472454 764.3416443214 9637.0327637195
+21	75476 1785 185 146305 6 72 67 31.356110592024 426.6 15950.381580692 5158167.2006917
+20	77261 1421 185 146305 6 72 67 623.4 793.44996904326 42978.545298029 27681480.776277
+vector 352 TestScenario.uninfected[71].veinsmobility posx ETV
+vector 353 TestScenario.uninfected[71].veinsmobility posy ETV
+vector 354 TestScenario.uninfected[70].veinsmobility speed ETV
+128	78872 1376 10247 151950 27 73 47 0.973 8.6453453187798 133.73762281897 565.41000573813
+127	80248 1500 10247 151950 27 73 47 -3.1359433062577 2.2232572488766 9.9372805051508 66.389920049587
+124	81748 1433 9321 151950 26 73 48 3.508825753218 13.889162013922 567.54293322415 7262.2466217982
+116	83181 1473 8418 151950 25 73 49 430.64007028021 796.8747634632 28061.152460047 16599658.937677
+115	84654 950 8418 151950 25 73 49 23.4 26.6 1209.0801405604 29951.89345053
+vector 355 TestScenario.uninfected[72].veinsmobility posx ETV
+vector 356 TestScenario.uninfected[72].veinsmobility posy ETV
+vector 357 TestScenario.uninfected[73].veinsmobility posx ETV
+vector 358 TestScenario.uninfected[73].veinsmobility posy ETV
+vector 359 TestScenario.uninfected[70].veinsmobility acceleration ETV
+vector 360 TestScenario.uninfected[70].veinsmobility co2emission ETV
+vector 361 TestScenario.uninfected[71].veinsmobility speed ETV
+vector 362 TestScenario.uninfected[74].veinsmobility posx ETV
+vector 363 TestScenario.uninfected[74].veinsmobility posy ETV
+vector 364 TestScenario.uninfected[71].veinsmobility acceleration ETV
+vector 365 TestScenario.uninfected[71].veinsmobility co2emission ETV
+vector 366 TestScenario.uninfected[72].veinsmobility speed ETV
+vector 367 TestScenario.uninfected[73].veinsmobility speed ETV
+48	86456 1797 942 164023 11 75 65 0.973 8.2072686594422 187.71288692099 811.78118767211
+47	88253 1991 942 164023 11 75 65 -3.2744870394464 2.3903803224303 9.8833558793013 113.53202088968
+44	90244 1899 710 164023 10 75 66 3.587650280724 13.88813461059 778.22263722542 9841.9473747989
+36	92143 1589 524 164023 9 75 67 23.4 423.4 15829.151897479 5614628.9692868
+35	93732 1620 524 164023 9 75 67 446.7376449805 811.64220992029 42689.211960145 27630282.584381
+68	95352 1726 1932 164023 15 75 61 0.973 8.2226651300081 163.58713809215 623.21781126663
+67	97078 1878 1932 164023 15 75 61 -3.242755186063 2.5301911424333 9.8561166362681 68.748033582185
+64	98956 1791 1661 164023 14 75 62 3.3958605258411 13.888971277256 781.19170232938 10287.314560984
+56	100747 1691 1402 164023 13 75 63 38.36469348464 626.6 24630.124440731 12381407.329093
+55	102438 1356 1402 164023 13 75 63 623.4 801.40474858191 40525.611000067 26196291.118825
+43	103794 1784 710 164023 10 75 66 0.973 8.5290299308371 203.03655714509 936.02575275051
+42	105578 1997 710 164023 10 75 66 -4.4726458723443 2.166760462618 10.02993018158 143.73203549514
+39	107575 1929 524 164023 9 75 67 3.6270036264462 13.889763465817 759.85849693563 9363.2243770203
+31	109504 1458 381 164023 8 75 68 623.4 823.4 47810.775469611 34155098.169039
+30	110962 1801 381 164023 8 75 68 426.6 619.141619257 34675.862410298 18022559.215129
+vector 368 TestScenario.uninfected[75].veinsmobility posx ETV
+vector 369 TestScenario.uninfected[75].veinsmobility posy ETV
+vector 370 TestScenario.uninfected[72].veinsmobility acceleration ETV
+vector 371 TestScenario.uninfected[72].veinsmobility co2emission ETV
+vector 372 TestScenario.uninfected[73].veinsmobility acceleration ETV
+vector 373 TestScenario.uninfected[73].veinsmobility co2emission ETV
+vector 374 TestScenario.uninfected[74].veinsmobility speed ETV
+63	113235 1755 1661 170194 14 76 63 0.973 8.6364354675409 180.79267418395 778.08388135106
+62	114990 1930 1661 170194 14 76 63 -4.442733806076 2.1352196676121 9.8320179698789 103.04473286638
+59	116920 1832 1402 170194 13 76 64 3.5885107131671 13.888562554053 760.19797189644 9682.3748050734
+51	118752 1531 1147 170194 12 76 65 455.36150302568 826.6 48480.631491508 37039902.423171
+50	120283 1602 1147 170194 12 76 65 226.6 419.33045742646 18366.41290817 5495064.899282
+vector 375 TestScenario.uninfected[76].veinsmobility posx ETV
+vector 376 TestScenario.uninfected[76].veinsmobility posy ETV
+vector 377 TestScenario.uninfected[74].veinsmobility acceleration ETV
+vector 378 TestScenario.uninfected[74].veinsmobility co2emission ETV
+vector 379 TestScenario.uninfected[75].veinsmobility speed ETV
+vector 380 TestScenario.uninfected[77].veinsmobility posx ETV
+vector 381 TestScenario.uninfected[77].veinsmobility posy ETV
+vector 382 TestScenario.uninfected[75].veinsmobility acceleration ETV
+vector 383 TestScenario.uninfected[75].veinsmobility co2emission ETV
+vector 384 TestScenario.uninfected[76].veinsmobility speed ETV
+vector 385 TestScenario.uninfected[78].veinsmobility posx ETV
+vector 386 TestScenario.uninfected[78].veinsmobility posy ETV
+vector 387 TestScenario.uninfected[76].veinsmobility acceleration ETV
+vector 388 TestScenario.uninfected[76].veinsmobility co2emission ETV
+vector 389 TestScenario.uninfected[77].veinsmobility speed ETV
+vector 390 TestScenario.uninfected[79].veinsmobility posx ETV
+vector 391 TestScenario.uninfected[79].veinsmobility posy ETV
+vector 392 TestScenario.uninfected[77].veinsmobility acceleration ETV
+vector 393 TestScenario.uninfected[77].veinsmobility co2emission ETV
+vector 394 TestScenario.uninfected[78].veinsmobility speed ETV
+58	123209 1840 1402 193882 13 80 68 0.973 8.7639305161143 211.47295017966 1014.0223958742
+57	125049 2072 1402 193882 13 80 68 -3.1574405016875 2.4827399817482 9.8391439978967 156.5300660542
+54	127121 1996 1147 193882 12 80 69 3.4118622156925 13.88011962451 770.30953179894 9407.8930096187
+46	129117 1479 942 193882 11 80 70 453.93643728226 623.4 42495.269274187 25911622.708106
+45	130596 1899 942 193882 11 80 70 226.6 811.61667995088 32786.841874239 18187610.8481
+vector 395 TestScenario.uninfected[80].veinsmobility posx ETV
+vector 396 TestScenario.uninfected[80].veinsmobility posy ETV
+vector 397 TestScenario.uninfected[78].veinsmobility acceleration ETV
+vector 398 TestScenario.uninfected[78].veinsmobility co2emission ETV
+vector 399 TestScenario.uninfected[79].veinsmobility speed ETV
+vector 400 TestScenario.uninfected[81].veinsmobility posx ETV
+vector 401 TestScenario.uninfected[81].veinsmobility posy ETV
+vector 402 TestScenario.uninfected[79].veinsmobility acceleration ETV
+vector 403 TestScenario.uninfected[79].veinsmobility co2emission ETV
+vector 404 TestScenario.uninfected[80].veinsmobility speed ETV
+vector 405 TestScenario.uninfected[82].veinsmobility posx ETV
+vector 406 TestScenario.uninfected[82].veinsmobility posy ETV
+vector 407 TestScenario.uninfected[80].veinsmobility acceleration ETV
+vector 408 TestScenario.uninfected[80].veinsmobility co2emission ETV
+vector 409 TestScenario.uninfected[81].veinsmobility speed ETV
+28	133488 2154 273 213623 7 83 77 0.973 8.269885686356 210.59555057945 842.34603181159
+27	135642 2379 273 213623 7 83 77 -4.0406378441723 2.4238022202952 9.7682104501123 106.07340312192
+24	138021 2243 185 213623 6 83 78 3.9686554428826 13.887086931765 965.31654161386 12546.981570754
+16	140264 2107 107 213623 5 83 79 226.6 811.65841929311 33733.200827644 17529618.681268
+15	142371 1687 107 213623 5 83 79 426.6 623.4 38326.321239181 19132532.935192
+98	144058 1765 5198 213623 21 83 63 0.973 8.3306015219217 180.99002325832 765.30468114205
+97	145823 1952 5198 213623 21 83 63 -4.4712321171188 2.121022433578 9.7992577653241 105.96327032686
+94	147775 1865 4543 213623 20 83 64 3.6172514760634 13.882746335675 757.90177877263 9630.1148304913
+86	149640 1726 3954 213623 19 83 65 430.97311606707 823.4 42258.735073356 28905315.396021
+85	151366 1445 3954 213623 19 83 65 223.4 411.64642465614 16641.579504366 4485563.7572945
+vector 410 TestScenario.uninfected[83].veinsmobility posx ETV
+vector 411 TestScenario.uninfected[83].veinsmobility posy ETV
+vector 412 TestScenario.uninfected[81].veinsmobility acceleration ETV
+vector 413 TestScenario.uninfected[81].veinsmobility co2emission ETV
+vector 414 TestScenario.uninfected[82].veinsmobility speed ETV
+346	153142 433 141004 220562 71 84 14 1.7933743232885 8.753052751821 49.881098415015 248.19812011681
+345	153575 457 141004 220562 71 84 14 -0.067255322006531 2.0320803387812 9.677053989907 18.493263337762
+344	154032 463 135271 220562 70 84 15 4.1589218131204 13.871521093801 177.97812194292 2262.4913200106
+336	154495 320 129772 220562 69 84 16 26.6 26.6 425.6 11320.96
+335	154815 495 129772 220562 69 84 16 34.417267033467 193.49138924004 1572.3230916304 199846.95351089
+78	155310 1844 2900 220562 17 84 68 0.973 9.347352072338 206.11162935021 948.19105101007
+77	157154 2080 2900 220562 17 84 68 -3.1016604352973 2.2995617746771 9.8873498633847 141.49734908074
+74	159234 2002 2486 220562 16 84 69 2.8476165352548 13.889966999968 762.16676576668 9286.9102319602
+66	161236 1668 1932 220562 15 84 70 258.45421452937 626.6 38281.892769147 21839251.656449
+65	162904 1746 1932 220562 15 84 70 31.651835111532 226.6 11974.879813199 2382780.4781039
+vector 415 TestScenario.uninfected[84].veinsmobility posx ETV
+vector 416 TestScenario.uninfected[84].veinsmobility posy ETV
+vector 417 TestScenario.uninfected[82].veinsmobility acceleration ETV
+vector 418 TestScenario.uninfected[82].veinsmobility co2emission ETV
+vector 419 TestScenario.uninfected[83].veinsmobility speed ETV
+vector 420 TestScenario.uninfected[83].veinsmobility acceleration ETV
+vector 421 TestScenario.uninfected[83].veinsmobility co2emission ETV
+vector 422 TestScenario.uninfected[84].veinsmobility speed ETV
+118	165186 1697 8418 233487 25 86 62 0.973 8.5882099109577 173.96261866652 762.85201259547
+117	166883 1922 8418 233487 25 86 62 -3.1382993380892 2.032232945445 10.030915325833 127.55001672667
+114	168805 1864 7536 233487 24 86 63 0 13.889673733534 573.63736392378 6836.0309477557
+106	170669 1489 6703 233487 23 86 64 446.88203729803 626.6 38755.780509826 23597605.563268
+105	172158 1774 6703 233487 23 86 64 431.57263242924 626.6 35747.053825806 20295835.913682
+vector 423 TestScenario.uninfected[85].veinsmobility posx ETV
+vector 424 TestScenario.uninfected[85].veinsmobility posy ETV
+vector 425 TestScenario.uninfected[86].veinsmobility posx ETV
+vector 426 TestScenario.uninfected[86].veinsmobility posy ETV
+vector 427 TestScenario.uninfected[84].veinsmobility acceleration ETV
+vector 428 TestScenario.uninfected[84].veinsmobility co2emission ETV
+vector 429 TestScenario.uninfected[87].veinsmobility posx ETV
+vector 430 TestScenario.uninfected[87].veinsmobility posy ETV
+vector 431 TestScenario.uninfected[85].veinsmobility speed ETV
+vector 432 TestScenario.uninfected[86].veinsmobility speed ETV
+183	174579 1469 26662 246292 38 88 51 0.973 8.8052574710336 158.43609658089 752.24238646769
+182	176048 1628 26662 246292 38 88 51 -3.3878286956617 2.3919783047144 9.9114509553987 114.10272126159
+179	177676 1582 24818 246292 37 88 52 3.5594781276956 13.889759708501 574.7844715017 7032.0459527983
+171	179258 1096 23064 246292 36 88 53 623.4 626.6 33089.26905184 20658594.716706
+170	180354 1609 23064 246292 36 88 53 430.86547407979 811.66942286851 31469.34212267 19453940.091406
+113	181963 1886 7536 246292 24 88 65 0.973 8.2909371665769 187.7866782093 790.24343570476
+112	183849 2075 7536 246292 24 88 65 -3.2085171715851 2.5300814038911 9.8576526326361 110.71219854889
+109	185924 1999 6703 246292 23 88 66 3.6123074032807 13.889256575068 777.01618541583 9819.3658318422
+101	187923 1531 5975 246292 22 88 67 26.6 226.6 7470.4767531731 1382723.5404281
+100	189454 1865 5975 246292 22 88 67 238.35795385615 802.0646391876 31820.909386407 16601651.610074
+vector 433 TestScenario.uninfected[88].veinsmobility posx ETV
+vector 434 TestScenario.uninfected[88].veinsmobility posy ETV
+vector 435 TestScenario.uninfected[85].veinsmobility acceleration ETV
+vector 436 TestScenario.uninfected[85].veinsmobility co2emission ETV
+vector 437 TestScenario.uninfected[86].veinsmobility acceleration ETV
+vector 438 TestScenario.uninfected[86].veinsmobility co2emission ETV
+vector 439 TestScenario.uninfected[87].veinsmobility speed ETV
+vector 440 TestScenario.uninfected[87].veinsmobility acceleration ETV
+vector 441 TestScenario.uninfected[87].veinsmobility co2emission ETV
+vector 442 TestScenario.uninfected[88].veinsmobility speed ETV
+vector 443 TestScenario.uninfected[89].veinsmobility posx ETV
+vector 444 TestScenario.uninfected[89].veinsmobility posy ETV
+vector 445 TestScenario.uninfected[88].veinsmobility acceleration ETV
+vector 446 TestScenario.uninfected[88].veinsmobility co2emission ETV
+vector 447 TestScenario.uninfected[90].veinsmobility posx ETV
+vector 448 TestScenario.uninfected[90].veinsmobility posy ETV
+vector 449 TestScenario.uninfected[91].veinsmobility posx ETV
+vector 450 TestScenario.uninfected[91].veinsmobility posy ETV
+vector 451 TestScenario.uninfected[89].veinsmobility speed ETV
+388	192579 433 187601 273740 79 92 14 1.7902711916928 8.5554980954525 49.766540665204 247.29802762148
+387	193012 453 187601 273740 79 92 14 -0.067959628293757 2.0359589122306 9.6203561804873 18.303197025607
+384	193465 465 181644 273740 78 92 15 4.2135263395485 13.841948049047 177.71958564295 2255.1215859594
+376	193930 336 175989 273740 77 92 16 826.6 826.6 13225.6 10932280.96
+375	194266 492 175989 273740 77 92 16 34.389230929148 193.19528325524 1568.8228583124 199061.12582288
+vector 452 TestScenario.uninfected[92].veinsmobility posx ETV
+vector 453 TestScenario.uninfected[92].veinsmobility posy ETV
+vector 454 TestScenario.uninfected[89].veinsmobility acceleration ETV
+vector 455 TestScenario.uninfected[89].veinsmobility co2emission ETV
+vector 456 TestScenario.uninfected[90].veinsmobility speed ETV
+vector 457 TestScenario.uninfected[91].veinsmobility speed ETV
+vector 458 TestScenario.uninfected[93].veinsmobility posx ETV
+vector 459 TestScenario.uninfected[93].veinsmobility posy ETV
+vector 460 TestScenario.uninfected[90].veinsmobility acceleration ETV
+vector 461 TestScenario.uninfected[90].veinsmobility co2emission ETV
+vector 462 TestScenario.uninfected[91].veinsmobility acceleration ETV
+vector 463 TestScenario.uninfected[91].veinsmobility co2emission ETV
+vector 464 TestScenario.uninfected[92].veinsmobility speed ETV
+218	195625 1442 41356 288363 45 94 50 0.973 8.6721490645042 157.62005732129 750.7618734157
+217	197067 1602 41356 288363 45 94 50 -3.3256103961926 2.5179308495973 9.6698565600586 115.39123302244
+212	198669 1552 38882 288363 44 94 51 3.2629094730085 13.888142702524 576.23378624748 7101.6964310723
+206	200221 1268 36657 288363 43 94 52 226.6 426.6 16528.310972245 5665286.1763086
+205	201489 1430 36657 288363 43 94 52 438.35218967679 801.23058302364 31691.530764626 19736062.657377
+vector 465 TestScenario.uninfected[94].veinsmobility posx ETV
+vector 466 TestScenario.uninfected[94].veinsmobility posy ETV
+vector 467 TestScenario.uninfected[92].veinsmobility acceleration ETV
+vector 468 TestScenario.uninfected[92].veinsmobility co2emission ETV
+vector 469 TestScenario.uninfected[93].veinsmobility speed ETV
+vector 470 TestScenario.uninfected[93].veinsmobility acceleration ETV
+vector 471 TestScenario.uninfected[93].veinsmobility co2emission ETV
+vector 472 TestScenario.uninfected[94].veinsmobility speed ETV
+vector 473 TestScenario.uninfected[95].veinsmobility posx ETV
+vector 474 TestScenario.uninfected[95].veinsmobility posy ETV
+vector 475 TestScenario.uninfected[94].veinsmobility acceleration ETV
+vector 476 TestScenario.uninfected[94].veinsmobility co2emission ETV
+vector 477 TestScenario.uninfected[96].veinsmobility posx ETV
+vector 478 TestScenario.uninfected[96].veinsmobility posy ETV
+vector 479 TestScenario.uninfected[95].veinsmobility speed ETV
+vector 480 TestScenario.uninfected[97].veinsmobility posx ETV
+vector 481 TestScenario.uninfected[97].veinsmobility posy ETV
+vector 482 TestScenario.uninfected[98].veinsmobility posx ETV
+vector 483 TestScenario.uninfected[98].veinsmobility posy ETV
+vector 484 TestScenario.uninfected[95].veinsmobility acceleration ETV
+vector 485 TestScenario.uninfected[95].veinsmobility co2emission ETV
+vector 486 TestScenario.uninfected[96].veinsmobility speed ETV
+vector 487 TestScenario.uninfected[99].veinsmobility posx ETV
+vector 488 TestScenario.uninfected[99].veinsmobility posy ETV
+vector 489 TestScenario.uninfected[96].veinsmobility acceleration ETV
+vector 490 TestScenario.uninfected[96].veinsmobility co2emission ETV
+vector 491 TestScenario.uninfected[97].veinsmobility speed ETV
+vector 492 TestScenario.uninfected[98].veinsmobility speed ETV
+vector 493 TestScenario.uninfected[100].veinsmobility posx ETV
+vector 494 TestScenario.uninfected[100].veinsmobility posy ETV
+vector 495 TestScenario.uninfected[97].veinsmobility acceleration ETV
+vector 496 TestScenario.uninfected[97].veinsmobility co2emission ETV
+vector 497 TestScenario.uninfected[98].veinsmobility acceleration ETV
+vector 498 TestScenario.uninfected[98].veinsmobility co2emission ETV
+vector 499 TestScenario.uninfected[99].veinsmobility speed ETV
+138	205238 2043 12360 342150 29 101 73 0.973 9.1104217018551 209.62075388962 939.75113913731
+137	207281 2323 12360 342150 29 101 73 -4.4723523406731 2.1951974842628 0.94388755691902 178.84035485126
+134	209604 2258 11254 342150 28 101 74 0.2563562358446 13.887866197138 763.85650733712 9192.7533211732
+126	211862 1898 10247 342150 27 101 75 226.6 423.4 24949.746284141 8819953.790903
+125	213760 1958 10247 342150 27 101 75 226.6 423.4 23844.149301886 8086339.14337
+vector 500 TestScenario.uninfected[101].veinsmobility posx ETV
+vector 501 TestScenario.uninfected[101].veinsmobility posy ETV
+vector 502 TestScenario.uninfected[99].veinsmobility acceleration ETV
+vector 503 TestScenario.uninfected[99].veinsmobility co2emission ETV
+vector 504 TestScenario.uninfected[100].veinsmobility speed ETV
+vector 505 TestScenario.uninfected[102].veinsmobility posx ETV
+vector 506 TestScenario.uninfected[102].veinsmobility posy ETV
+vector 507 TestScenario.uninfected[100].veinsmobility acceleration ETV
+vector 508 TestScenario.uninfected[100].veinsmobility co2emission ETV
+vector 509 TestScenario.uninfected[101].veinsmobility speed ETV
+vector 510 TestScenario.uninfected[103].veinsmobility posx ETV
+vector 511 TestScenario.uninfected[103].veinsmobility posy ETV
+vector 512 TestScenario.uninfected[101].veinsmobility acceleration ETV
+vector 513 TestScenario.uninfected[101].veinsmobility co2emission ETV
+vector 514 TestScenario.uninfected[102].veinsmobility speed ETV
+108	216724 2386 6703 367443 23 104 82 0.973 8.5282913085386 236.55335930287 1022.1497360336
+107	219110 2622 6703 367443 23 104 82 -4.5 2.5465106254048 9.7740759117212 156.0059188643
+104	221732 2526 5975 367443 22 104 83 3.3416818298807 13.885193817336 960.67928982507 12054.821407732
+96	224258 2303 5198 367443 21 104 84 30.85273248045 423.4 22082.781330168 7379696.7015885
+95	226561 1844 5198 367443 21 104 84 623.4 823.4 57823.975759619 40414529.345863
+83	228405 2394 3356 367443 18 104 87 0.973 8.8236314339965 265.76812934042 1230.5510951547
+82	230799 2666 3356 367443 18 104 87 -4.5 2.5698221082822 9.6443395710836 216.28772147763
+79	233465 2580 2900 367443 17 104 88 0.53709502093064 13.8870143887 965.33866188055 11837.316315632
+71	236045 2060 2486 367443 16 104 89 423.4 623.4 48100.410092179 26663443.055165
+70	238105 2326 2486 367443 16 104 89 26.6 611.63982373774 26889.180910925 11309831.727987
+vector 515 TestScenario.uninfected[102].veinsmobility acceleration ETV
+vector 516 TestScenario.uninfected[102].veinsmobility co2emission ETV
+vector 517 TestScenario.uninfected[103].veinsmobility speed ETV
+vector 518 TestScenario.uninfected[104].veinsmobility posx ETV
+vector 519 TestScenario.uninfected[104].veinsmobility posy ETV
+vector 520 TestScenario.uninfected[105].veinsmobility posx ETV
+vector 521 TestScenario.uninfected[105].veinsmobility posy ETV
+vector 522 TestScenario.uninfected[103].veinsmobility acceleration ETV
+vector 523 TestScenario.uninfected[103].veinsmobility co2emission ETV
+vector 524 TestScenario.uninfected[106].veinsmobility posx ETV
+vector 525 TestScenario.uninfected[106].veinsmobility posy ETV
+vector 526 TestScenario.uninfected[104].veinsmobility speed ETV
+vector 527 TestScenario.uninfected[105].veinsmobility speed ETV
+259	241296 1528 66710 393231 54 107 54 0.973 7.7093424630438 157.9057970121 719.97737197306
+258	242824 1743 66710 393231 54 107 54 -4.4124721208657 2.3110064515029 3.7855520822798 127.41863858986
+256	244567 1698 63224 393231 53 107 55 2.8763442045643 13.883816716638 571.2558549737 6677.5028160032
+249	246265 1362 59873 393231 52 107 56 237.45052724309 423.4 21634.74168639 8584129.1139306
+248	247627 1549 59873 393231 52 107 56 244.76330360393 623.4 27179.132434738 14240850.011347
+vector 528 TestScenario.uninfected[107].veinsmobility posx ETV
+vector 529 TestScenario.uninfected[107].veinsmobility posy ETV
+vector 530 TestScenario.uninfected[104].veinsmobility acceleration ETV
+vector 531 TestScenario.uninfected[104].veinsmobility co2emission ETV
+vector 532 TestScenario.uninfected[105].veinsmobility acceleration ETV
+vector 533 TestScenario.uninfected[105].veinsmobility co2emission ETV
+vector 534 TestScenario.uninfected[106].veinsmobility speed ETV
+vector 535 TestScenario.uninfected[106].veinsmobility acceleration ETV
+vector 536 TestScenario.uninfected[106].veinsmobility co2emission ETV
+vector 537 TestScenario.uninfected[107].veinsmobility speed ETV
+vector 538 TestScenario.uninfected[108].veinsmobility posx ETV
+vector 539 TestScenario.uninfected[108].veinsmobility posy ETV
+vector 540 TestScenario.uninfected[109].veinsmobility posx ETV
+vector 541 TestScenario.uninfected[109].veinsmobility posy ETV
+vector 542 TestScenario.uninfected[107].veinsmobility acceleration ETV
+vector 543 TestScenario.uninfected[107].veinsmobility co2emission ETV
+153	250262 2339 16305 420257 32 110 79 0.973 7.9931527155273 214.94515363702 821.82596387805
+152	252601 2570 16305 420257 32 110 79 -3.2775216615389 2.3696890860586 9.762122275107 106.39481099178
+149	255171 2453 14793 420257 31 110 80 3.9112171911293 13.885318338973 973.44569491654 12540.605628449
+141	257624 2026 13512 420257 30 110 81 423.4 826.6 52562.264286563 36542590.146042
+140	259650 2172 13512 420257 30 110 81 223.4 593.52552854995 25301.836960616 8848814.5819711
+vector 544 TestScenario.uninfected[110].veinsmobility posx ETV
+vector 545 TestScenario.uninfected[110].veinsmobility posy ETV
+vector 546 TestScenario.uninfected[108].veinsmobility speed ETV
+vector 547 TestScenario.uninfected[109].veinsmobility speed ETV
+vector 548 TestScenario.uninfected[108].veinsmobility acceleration ETV
+vector 549 TestScenario.uninfected[108].veinsmobility co2emission ETV
+vector 550 TestScenario.uninfected[109].veinsmobility acceleration ETV
+vector 551 TestScenario.uninfected[109].veinsmobility co2emission ETV
+vector 552 TestScenario.uninfected[110].veinsmobility speed ETV
+143	262431 2424 13512 438680 30 112 83 0.973 8.4601718395549 238.97221624056 1028.8259148183
+142	264855 2692 13512 438680 30 112 83 -4.4174802359834 2.2622567715248 9.8494505610486 165.78769727124
+139	267547 2575 12360 438680 29 112 84 0.52493642787965 13.888316221489 951.03718014199 11940.476479388
+131	270122 2449 11254 438680 28 112 85 26.6 419.1491695395 16325.378945622 4795015.9208653
+130	272571 1970 11254 438680 28 112 85 426.6 626.6 47487.835314848 27170680.670229
+vector 553 TestScenario.uninfected[111].veinsmobility posx ETV
+vector 554 TestScenario.uninfected[111].veinsmobility posy ETV
+vector 555 TestScenario.uninfected[110].veinsmobility acceleration ETV
+vector 556 TestScenario.uninfected[110].veinsmobility co2emission ETV
+173	274812 2320 23064 448141 36 113 78 0.973 8.1689582506283 211.51311650728 832.40766034581
+172	277132 2549 23064 448141 36 113 78 -4.4440858139022 2.1716121752001 9.6437543556433 106.91999764573
+169	279681 2414 21273 448141 35 113 79 3.6032333098119 13.876669238606 967.63025469926 12546.319439887
+161	282095 2121 19646 448141 34 113 80 23.4 611.63318202506 16720.334081759 6974762.1646297
+160	284216 1995 19646 448141 34 113 80 631.04882113841 826.6 62454.444573697 49120232.752967
+vector 557 TestScenario.uninfected[111].veinsmobility speed ETV
+vector 558 TestScenario.uninfected[112].veinsmobility posx ETV
+vector 559 TestScenario.uninfected[112].veinsmobility posy ETV
+vector 560 TestScenario.uninfected[111].veinsmobility acceleration ETV
+vector 561 TestScenario.uninfected[111].veinsmobility co2emission ETV
+365	286547 1143 164023 466620 75 115 41 0.973 8.348439101245 117.76891308929 562.0165367095
+364	287690 1294 164023 466620 75 115 41 -2.8224886897052 2.1317245987779 9.2449155838379 79.633566326469
+361	288984 1268 157957 466620 74 115 42 0 13.884002572349 370.89024569251 4437.9745770244
+353	290252 1076 151950 466620 73 115 43 252.58950797856 423.4 16995.451975982 6826667.62367
+352	291328 1169 151950 466620 73 115 43 226.6 411.64653902142 11791.941444652 3419945.7816201
+vector 562 TestScenario.uninfected[113].veinsmobility posx ETV
+vector 563 TestScenario.uninfected[113].veinsmobility posy ETV
+vector 564 TestScenario.uninfected[114].veinsmobility posx ETV
+vector 565 TestScenario.uninfected[114].veinsmobility posy ETV
+vector 566 TestScenario.uninfected[112].veinsmobility speed ETV
+vector 567 TestScenario.uninfected[115].veinsmobility posx ETV
+vector 568 TestScenario.uninfected[115].veinsmobility posy ETV
+vector 569 TestScenario.uninfected[112].veinsmobility acceleration ETV
+vector 570 TestScenario.uninfected[112].veinsmobility co2emission ETV
+vector 571 TestScenario.uninfected[113].veinsmobility speed ETV
+vector 572 TestScenario.uninfected[114].veinsmobility speed ETV
+vector 573 TestScenario.uninfected[113].veinsmobility acceleration ETV
+vector 574 TestScenario.uninfected[113].veinsmobility co2emission ETV
+vector 575 TestScenario.uninfected[114].veinsmobility acceleration ETV
+vector 576 TestScenario.uninfected[114].veinsmobility co2emission ETV
+vector 577 TestScenario.uninfected[115].veinsmobility speed ETV
+188	293570 2372 28549 495132 39 118 80 0.973 8.4869278631434 233.84055380224 1011.0832530162
+187	295942 2600 28549 495132 39 118 80 -4.4906705314457 2.2103053481411 9.8721071095039 153.2168406851
+184	298542 2494 26662 495132 38 118 81 3.890602850751 13.888802927609 969.48811428048 12351.164321931
+176	301036 2241 24818 495132 37 118 82 423.4 823.4 53284.039225634 36554935.156009
+175	303277 2053 24818 495132 37 118 82 452.65927925097 823.4 55612.279405778 38611536.808354
+246	305330 1968 56959 495132 51 118 68 0.973 8.9604806052914 208.24607848638 988.61507411745
+245	307298 2209 56959 495132 51 118 68 -3.3279525721204 2.4181990492041 9.7363559709915 152.66129351378
+244	309507 2134 53995 495132 50 118 69 4.0061316501068 13.888244064159 771.77556179829 9434.9066947984
+236	311641 1623 51219 495132 49 118 70 454.26869999027 623.4 42499.461176882 25916127.395939
+235	313264 2036 51219 495132 49 118 70 226.6 811.63186995971 32543.41715801 17962778.219819
+338	315300 1484 129772 495132 69 118 50 0.973 8.6910654318304 157.27937646964 746.4658616023
+337	316784 1638 129772 495132 69 118 50 -3.187450656366 2.3619901148602 9.7559886575324 111.67863057224
+334	318422 1581 124507 495132 68 118 51 3.5641482248055 13.886155473492 563.02865707847 6881.3403425858
+324	320003 1270 119713 495132 67 118 52 658.06440961755 826.6 41793.683221926 33693800.265236
+323	321273 1494 119713 495132 67 118 52 230.67219179699 426.6 18384.142460873 6759584.2238477
+vector 578 TestScenario.uninfected[116].veinsmobility posx ETV
+vector 579 TestScenario.uninfected[116].veinsmobility posy ETV
+vector 580 TestScenario.uninfected[117].veinsmobility posx ETV
+vector 581 TestScenario.uninfected[117].veinsmobility posy ETV
+vector 582 TestScenario.uninfected[115].veinsmobility acceleration ETV
+vector 583 TestScenario.uninfected[115].veinsmobility co2emission ETV
+vector 584 TestScenario.uninfected[118].veinsmobility posx ETV
+vector 585 TestScenario.uninfected[118].veinsmobility posy ETV
+vector 586 TestScenario.uninfected[116].veinsmobility speed ETV
+vector 587 TestScenario.uninfected[117].veinsmobility speed ETV
+193	323424 2364 30499 517036 40 120 81 0.973 9.1702128466764 227.99521600094 959.43034222364
+192	325788 2627 30499 517036 40 120 81 -3.2603863337183 2.1961725732195 9.8469818169898 106.6786466328
+189	328415 2533 28549 517036 39 120 82 3.5616530528934 13.889022939045 985.331802727 12487.136800794
+181	330948 2423 26662 517036 38 120 83 38.389116823078 826.6 41322.9444544 26690227.536521
+180	333371 1888 26662 517036 38 120 83 623.4 803.92772572964 53028.958442289 34019743.218027
+vector 588 TestScenario.uninfected[116].veinsmobility acceleration ETV
+vector 589 TestScenario.uninfected[116].veinsmobility co2emission ETV
+vector 590 TestScenario.uninfected[117].veinsmobility acceleration ETV
+vector 591 TestScenario.uninfected[117].veinsmobility co2emission ETV
+vector 592 TestScenario.uninfected[118].veinsmobility speed ETV
+vector 593 TestScenario.uninfected[119].veinsmobility posx ETV
+vector 594 TestScenario.uninfected[119].veinsmobility posy ETV
+vector 595 TestScenario.uninfected[118].veinsmobility acceleration ETV
+vector 596 TestScenario.uninfected[118].veinsmobility co2emission ETV
+vector 597 TestScenario.uninfected[120].veinsmobility posx ETV
+vector 598 TestScenario.uninfected[120].veinsmobility posy ETV
+vector 599 TestScenario.uninfected[121].veinsmobility posx ETV
+vector 600 TestScenario.uninfected[121].veinsmobility posy ETV
+vector 601 TestScenario.uninfected[119].veinsmobility speed ETV
+vector 602 TestScenario.uninfected[119].veinsmobility acceleration ETV
+vector 603 TestScenario.uninfected[119].veinsmobility co2emission ETV
+vector 604 TestScenario.uninfected[120].veinsmobility speed ETV
+vector 605 TestScenario.uninfected[121].veinsmobility speed ETV
+vector 606 TestScenario.uninfected[122].veinsmobility posx ETV
+vector 607 TestScenario.uninfected[122].veinsmobility posy ETV
+vector 608 TestScenario.uninfected[123].veinsmobility posx ETV
+vector 609 TestScenario.uninfected[123].veinsmobility posy ETV
+vector 610 TestScenario.uninfected[120].veinsmobility acceleration ETV
+vector 611 TestScenario.uninfected[120].veinsmobility co2emission ETV
+vector 612 TestScenario.uninfected[121].veinsmobility acceleration ETV
+vector 613 TestScenario.uninfected[121].veinsmobility co2emission ETV
+vector 614 TestScenario.uninfected[124].veinsmobility posx ETV
+vector 615 TestScenario.uninfected[124].veinsmobility posy ETV
+vector 616 TestScenario.uninfected[125].veinsmobility posx ETV
+vector 617 TestScenario.uninfected[125].veinsmobility posy ETV
+vector 618 TestScenario.uninfected[122].veinsmobility speed ETV
+vector 619 TestScenario.uninfected[123].veinsmobility speed ETV
+vector 620 TestScenario.uninfected[126].veinsmobility posx ETV
+vector 621 TestScenario.uninfected[126].veinsmobility posy ETV
+vector 622 TestScenario.uninfected[122].veinsmobility acceleration ETV
+vector 623 TestScenario.uninfected[122].veinsmobility co2emission ETV
+vector 624 TestScenario.uninfected[123].veinsmobility acceleration ETV
+vector 625 TestScenario.uninfected[123].veinsmobility co2emission ETV
+vector 626 TestScenario.uninfected[124].veinsmobility speed ETV
+vector 627 TestScenario.uninfected[125].veinsmobility speed ETV
+328	337947 1865 119713 591228 67 127 61 0.973 7.8994657358191 141.50120678401 439.06590615172
+327	339812 2057 119713 591228 67 127 61 -2.7040257510975 2.1708301159111 1.7743947862453 46.15187542924
+322	341869 1945 115038 591228 66 127 62 3.7711675823907 13.887366587443 779.47381590676 10321.213789287
+315	343814 1974 110517 591228 65 127 63 38.79088034075 811.6038944125 27078.422697499 15443125.892222
+314	345788 1351 110517 591228 65 127 63 626.6 626.6 39475.8 24735536.28
+333	347139 1850 124507 591228 68 127 60 0.973 8.423885503801 158.70348531868 580.56529138182
+332	348989 1993 124507 591228 68 127 60 -4.5 2.0649697922962 9.8969766421141 57.324128193308
+329	350982 1909 119713 591228 67 127 61 3.9646679083663 13.887033339364 780.75145872247 10336.799978765
+318	352891 1793 115038 591228 66 127 62 23.4 611.62575269543 16366.884546479 7033260.4568493
+317	354684 1479 115038 591228 66 127 62 651.40397009088 826.6 50032.075628339 40496216.316874
+148	356163 2733 14793 591228 31 127 97 0.973 8.5929113680315 256.65087158859 1068.1515343088
+147	358896 3073 14793 591228 31 127 97 -3.3244795312439 2.4703381640188 9.9111736044408 176.99044896601
+144	361969 2948 13512 591228 30 127 98 0 13.889776994304 953.84392617844 11731.711051916
+136	364917 2599 12360 591228 29 127 99 230.64526005642 626.6 48979.868876877 26575663.442869
+135	367516 2550 12360 591228 29 127 99 223.4 419.14233214517 27832.471021512 8378033.312499
+vector 628 TestScenario.uninfected[127].veinsmobility posx ETV
+vector 629 TestScenario.uninfected[127].veinsmobility posy ETV
+vector 630 TestScenario.uninfected[124].veinsmobility acceleration ETV
+vector 631 TestScenario.uninfected[124].veinsmobility co2emission ETV
+vector 632 TestScenario.uninfected[125].veinsmobility acceleration ETV
+vector 633 TestScenario.uninfected[125].veinsmobility co2emission ETV
+vector 634 TestScenario.uninfected[126].veinsmobility speed ETV
+233	370545 2417 48575 602555 48 128 81 0.973 8.4013903756301 236.61661230492 1019.4044061062
+232	372962 2634 48575 602555 48 128 81 -4.5 2.495869031488 9.7792671751037 154.09891070402
+229	375596 2547 46072 602555 47 128 82 3.4134697402982 13.888685336341 970.92213729521 12284.493179606
+221	378143 2277 43711 602555 46 128 83 226.6 626.6 33196.133515064 15245105.574248
+220	380420 2091 43711 602555 46 128 83 26.6 402.4668920968 14559.95554383 3450349.2565907
+93	382511 3128 4543 602555 20 128 109 0.973 8.560646659091 290.48029562524 1129.5536058902
+92	385639 3462 4543 602555 20 128 109 -4.458011438807 2.3399011120154 9.833283254494 141.95066895324
+89	389101 3265 3954 602555 19 128 110 3.8093035120389 13.889228570948 1366.6882381806 17790.896798371
+81	392366 3010 3356 602555 18 128 111 53.479330428986 823.4 65899.229221849 45816273.114432
+80	395376 2513 3356 602555 18 128 111 226.6 623.4 39262.504849805 16930567.269158
+vector 635 TestScenario.uninfected[128].veinsmobility posx ETV
+vector 636 TestScenario.uninfected[128].veinsmobility posy ETV
+vector 637 TestScenario.uninfected[126].veinsmobility acceleration ETV
+vector 638 TestScenario.uninfected[126].veinsmobility co2emission ETV
+vector 639 TestScenario.uninfected[127].veinsmobility speed ETV
+vector 640 TestScenario.uninfected[127].veinsmobility acceleration ETV
+vector 641 TestScenario.uninfected[127].veinsmobility co2emission ETV
+vector 642 TestScenario.uninfected[128].veinsmobility speed ETV
+223	398433 2480 43711 626024 46 130 85 0.973 8.9152597861356 259.15555597771 1205.0298418815
+222	400913 2771 43711 626024 46 130 85 -4.3808078118572 2.432923256068 9.6182626083657 192.49818370791
+219	403684 2675 41356 626024 45 130 86 3.5684427641658 13.889501384608 962.11680231745 11774.259983486
+210	406359 2194 38882 626024 44 130 87 448.08435794113 826.6 62115.560604889 45509391.017418
+209	408553 2387 38882 626024 44 130 87 26.6 419.33004524219 18536.006022557 5306484.5303341
+vector 643 TestScenario.uninfected[129].veinsmobility posx ETV
+vector 644 TestScenario.uninfected[129].veinsmobility posy ETV
+vector 645 TestScenario.uninfected[128].veinsmobility acceleration ETV
+vector 646 TestScenario.uninfected[128].veinsmobility co2emission ETV
+163	411211 2907 19646 636203 34 131 98 0.973 8.9549804664251 286.61931160231 1268.6842248056
+162	414118 3199 19646 636203 34 131 98 -4.49456668342 2.4787324606953 9.8794775408857 201.06127441046
+159	417317 3048 17890 636203 33 131 99 3.3435786166504 13.889225196582 1157.6327424606 14564.952049388
+151	420365 2793 16305 636203 32 131 100 23.4 619.16647523162 30420.456182673 13066502.378978
+150	423158 2454 16305 636203 32 131 100 623.4 826.6 69490.592173155 48998710.931206
+vector 647 TestScenario.uninfected[130].veinsmobility posx ETV
+vector 648 TestScenario.uninfected[130].veinsmobility posy ETV
+vector 649 TestScenario.uninfected[131].veinsmobility posx ETV
+vector 650 TestScenario.uninfected[131].veinsmobility posy ETV
+vector 651 TestScenario.uninfected[129].veinsmobility speed ETV
+vector 652 TestScenario.uninfected[132].veinsmobility posx ETV
+vector 653 TestScenario.uninfected[132].veinsmobility posy ETV
+vector 654 TestScenario.uninfected[129].veinsmobility acceleration ETV
+vector 655 TestScenario.uninfected[129].veinsmobility co2emission ETV
+vector 656 TestScenario.uninfected[130].veinsmobility speed ETV
+vector 657 TestScenario.uninfected[131].veinsmobility speed ETV
+vector 658 TestScenario.uninfected[130].veinsmobility acceleration ETV
+vector 659 TestScenario.uninfected[130].veinsmobility co2emission ETV
+vector 660 TestScenario.uninfected[131].veinsmobility acceleration ETV
+vector 661 TestScenario.uninfected[131].veinsmobility co2emission ETV
+vector 662 TestScenario.uninfected[132].veinsmobility speed ETV
+vector 663 TestScenario.uninfected[133].veinsmobility posx ETV
+vector 664 TestScenario.uninfected[133].veinsmobility posy ETV
+vector 665 TestScenario.uninfected[132].veinsmobility acceleration ETV
+vector 666 TestScenario.uninfected[132].veinsmobility co2emission ETV
+393	426956 1651 193882 679371 80 135 56 0.973 8.4041437320047 166.62752862608 753.7359239328
+392	428607 1852 193882 679371 80 135 56 -3.309146801691 2.4737242467469 9.8786410301944 120.3713372279
+389	430459 1803 187601 679371 79 135 57 0.44576801371237 13.888439402012 587.66165089271 7144.6605646957
+381	432262 1410 181644 679371 78 135 58 623.4 806.7748247774 37482.892511036 24359515.264231
+380	433672 1675 181644 679371 78 135 58 23.4 411.64132144228 10156.099277851 2807002.7919953
+vector 667 TestScenario.uninfected[134].veinsmobility posx ETV
+vector 668 TestScenario.uninfected[134].veinsmobility posy ETV
+vector 669 TestScenario.uninfected[133].veinsmobility speed ETV
+531	435540 922 402730 691882 108 136 29 1.6783130455812 8.8567291139984 81.180980932058 310.84980965941
+530	436462 983 402730 691882 108 136 29 -0.10179129021009 2.2491136766854 11.004165641138 20.984909621592
+526	437445 954 393231 691882 107 136 30 2.8376721874104 13.880328723823 377.91797623991 5008.8209036316
+519	438399 988 384531 691882 106 136 31 237.45236269621 596.22046411262 12225.024940359 5237150.844404
+518	439387 682 384531 691882 106 136 31 623.4 623.4 19325.4 12047454.36
+vector 670 TestScenario.uninfected[133].veinsmobility acceleration ETV
+vector 671 TestScenario.uninfected[133].veinsmobility co2emission ETV
+vector 672 TestScenario.uninfected[134].veinsmobility speed ETV
+283	440277 2377 84484 702667 59 137 79 0.973 8.7270425078197 224.53380083404 956.00782711341
+282	442654 2613 84484 702667 59 137 79 -3.660634972533 2.3482845874294 10.497108192289 117.63209994807
+279	445267 2507 80687 702667 58 137 80 3.3857529219721 13.882966110718 981.83427152742 12655.322902854
+271	447774 2228 76997 702667 57 137 81 223.4 823.4 43381.397956801 27811422.872705
+270	450002 2089 76997 702667 57 137 81 447.96037857303 816.32410747395 51587.221824308 33308833.960421
+vector 673 TestScenario.uninfected[135].veinsmobility posx ETV
+vector 674 TestScenario.uninfected[135].veinsmobility posy ETV
+vector 675 TestScenario.uninfected[134].veinsmobility acceleration ETV
+vector 676 TestScenario.uninfected[134].veinsmobility co2emission ETV
+228	452362 2802 46072 713051 47 138 92 0.973 8.2541350838967 238.70863260449 871.68873917989
+227	455164 3070 46072 713051 47 138 92 -4.4586840059352 2.1206371415174 9.759974353722 101.27063881167
+224	458234 2899 43711 713051 46 138 93 4.0514964356029 13.88715550924 1177.9531469354 15508.005183261
+214	461133 2312 41356 713051 45 138 94 426.6 826.6 65897.335489212 48655767.02908
+213	463445 2635 41356 713051 45 138 94 34.375117776587 798.89039511113 44964.869372367 25998527.323106
+vector 677 TestScenario.uninfected[136].veinsmobility posx ETV
+vector 678 TestScenario.uninfected[136].veinsmobility posy ETV
+vector 679 TestScenario.uninfected[135].veinsmobility speed ETV
+208	466273 2897 36657 723396 43 139 97 0.973 9.070686334692 269.48483612335 1096.6735023733
+207	469170 3187 36657 723396 43 139 97 -4.308834130025 2.4967094540782 9.4938585309215 168.83953121928
+202	472357 3043 34610 723396 42 139 98 3.4133662646685 13.884023862486 1163.785515285 14848.611695473
+196	475400 2596 32569 723396 41 139 99 26.6 219.14983424107 7538.016859489 990343.99843024
+195	477996 2570 32569 723396 41 139 99 223.4 823.4 45011.767417417 26250373.334878
+vector 680 TestScenario.uninfected[137].veinsmobility posx ETV
+vector 681 TestScenario.uninfected[137].veinsmobility posy ETV
+vector 682 TestScenario.uninfected[135].veinsmobility acceleration ETV
+vector 683 TestScenario.uninfected[135].veinsmobility co2emission ETV
+vector 684 TestScenario.uninfected[136].veinsmobility speed ETV
+438	480902 1518 252883 733614 89 140 52 0.973 8.9144326764912 157.15011489138 737.08530302181
+437	482420 1717 252883 733614 89 140 52 -2.9643491553998 2.3149044842692 2.9289387240281 121.31056377025
+432	484137 1679 246292 733614 88 140 53 3.7544183431137 13.889037084605 569.57491499531 6748.9177295404
+426	485816 1546 239921 733614 87 140 54 438.37812436052 805.62664672552 33265.497646756 20975270.767077
+425	487362 1385 239921 733614 87 140 54 223.4 423.4 17216.152384012 5921963.0024096
+168	488747 3067 21273 733614 35 140 106 0.973 8.3801349395098 283.42678509288 1157.2908897111
+167	491814 3424 21273 733614 35 140 106 -4.4253333551132 2.1935391603084 9.893650433827 172.55540401743
+164	495238 3285 19646 733614 34 140 107 0 13.889831382905 1158.2617107464 14645.957731229
+156	498523 2803 17890 733614 33 140 108 223.4 826.6 51778.885165529 31686140.318906
+155	501326 2883 17890 733614 33 140 108 238.38965383801 619.12269473109 49012.558552948 23231415.050614
+vector 685 TestScenario.uninfected[138].veinsmobility posx ETV
+vector 686 TestScenario.uninfected[138].veinsmobility posy ETV
+vector 687 TestScenario.uninfected[136].veinsmobility acceleration ETV
+vector 688 TestScenario.uninfected[136].veinsmobility co2emission ETV
+vector 689 TestScenario.uninfected[137].veinsmobility speed ETV
+360	504545 2033 157957 743813 74 141 68 0.973 8.5603210576792 191.32182787767 816.14493048794
+359	506578 2264 157957 743813 74 141 68 -3.1832952649752 2.4117265791399 9.8212972260037 121.04282058461
+354	508842 2172 151950 743813 73 141 69 0.69888243829773 13.887149649539 772.97734159764 9725.1977683633
+349	511014 2019 146305 743813 72 141 70 30.955128658853 426.6 17340.228820583 5921981.5227567
+348	513033 1731 146305 743813 72 141 70 438.35747687548 626.6 41756.369585546 25140931.12713
+38	514764 3593 524 743813 9 141 133 0.973 8.7385801330552 367.22320455928 1610.3082790204
+37	518357 4125 524 743813 9 141 133 -4.4384468834149 2.2495018494106 0.46042180849529 292.42367190328
+34	522482 3967 381 743813 8 141 134 0.42901486159593 13.887510276614 1362.621432017 16167.728498725
+26	526449 3364 273 743813 7 141 135 230.6489579221 811.38949631973 60575.791166398 29621624.36388
+25	529813 3324 273 743813 7 141 135 223.4 826.6 69504.452964242 44212669.534673
+vector 690 TestScenario.uninfected[137].veinsmobility acceleration ETV
+vector 691 TestScenario.uninfected[137].veinsmobility co2emission ETV
+vector 692 TestScenario.uninfected[138].veinsmobility speed ETV
+198	533345 2872 32569 753515 41 142 102 0.973 8.500961644579 280.12199540841 1228.2079186551
+197	536217 3177 32569 753515 41 142 102 -4.4928547950322 2.5115347517398 10.028808400491 211.40852692754
+194	539394 3069 30499 753515 40 142 103 0 13.889054601928 964.14523116723 11663.699555256
+186	542463 2523 28549 753515 39 142 104 226.6 426.6 30363.176945579 9583981.1338935
+185	544986 2878 28549 753515 39 142 104 38.337922191965 623.4 38193.928454153 17364969.740427
+vector 693 TestScenario.uninfected[139].veinsmobility posx ETV
+vector 694 TestScenario.uninfected[139].veinsmobility posy ETV
+vector 695 TestScenario.uninfected[140].veinsmobility posx ETV
+vector 696 TestScenario.uninfected[140].veinsmobility posy ETV
+vector 697 TestScenario.uninfected[141].veinsmobility posx ETV
+vector 698 TestScenario.uninfected[141].veinsmobility posy ETV
+vector 699 TestScenario.uninfected[138].veinsmobility acceleration ETV
+vector 700 TestScenario.uninfected[138].veinsmobility co2emission ETV
+vector 701 TestScenario.uninfected[139].veinsmobility speed ETV
+vector 702 TestScenario.uninfected[140].veinsmobility speed ETV
+vector 703 TestScenario.uninfected[141].veinsmobility speed ETV
+vector 704 TestScenario.uninfected[142].veinsmobility posx ETV
+vector 705 TestScenario.uninfected[142].veinsmobility posy ETV
+vector 706 TestScenario.uninfected[139].veinsmobility acceleration ETV
+vector 707 TestScenario.uninfected[139].veinsmobility co2emission ETV
+vector 708 TestScenario.uninfected[140].veinsmobility acceleration ETV
+vector 709 TestScenario.uninfected[140].veinsmobility co2emission ETV
+vector 710 TestScenario.uninfected[141].veinsmobility acceleration ETV
+vector 711 TestScenario.uninfected[141].veinsmobility co2emission ETV
+158	549143 3349 17890 782088 33 145 113 0.973 8.5587240813367 310.12358454359 1293.9635271685
+157	552492 3723 17890 782088 33 145 113 -3.2764535933419 2.2251241884613 9.7939885659941 174.20946280014
+154	556215 3527 16305 782088 32 145 114 3.5914845186286 13.888746318005 1356.5112083204 17284.027330502
+146	559742 2923 14793 782088 31 145 115 226.6 826.6 69211.448034022 48652399.798074
+145	562665 3119 14793 782088 31 145 115 231.37709199181 623.4 58159.145179036 31542851.29446
+vector 712 TestScenario.uninfected[143].veinsmobility posx ETV
+vector 713 TestScenario.uninfected[143].veinsmobility posy ETV
+vector 714 TestScenario.uninfected[142].veinsmobility speed ETV
+238	565977 2948 51219 791960 49 146 98 0.973 8.0804200294469 231.29709353416 755.91711077508
+237	568925 3250 51219 791960 49 146 98 -3.2078499914586 2.202879414889 9.7041820929488 78.628210861946
+234	572175 3060 48575 791960 48 146 99 0 13.889889416588 1180.190302534 15717.006859311
+226	575235 2789 46072 791960 47 146 100 23.4 811.65455643876 28053.505312286 15518481.916857
+225	578024 2437 46072 791960 47 146 100 250.01936082988 626.6 57323.770001044 33935532.03334
+vector 715 TestScenario.uninfected[144].veinsmobility posx ETV
+vector 716 TestScenario.uninfected[144].veinsmobility posy ETV
+vector 717 TestScenario.uninfected[142].veinsmobility acceleration ETV
+vector 718 TestScenario.uninfected[142].veinsmobility co2emission ETV
+vector 719 TestScenario.uninfected[143].veinsmobility speed ETV
+398	580797 1979 200345 805719 81 147 67 0.973 9.1471729098065 212.34432745059 1048.9485896714
+397	582776 2214 200345 805719 81 147 67 -4.3522106055329 2.5036410050071 9.4682539108893 164.26191399525
+394	584990 2148 193882 805719 80 147 68 2.66468713883 13.889242294331 768.10720469286 9416.1439978052
+386	587138 1675 187601 805719 79 147 69 226.6 423.4 24764.7812198 9380904.1931098
+385	588813 2030 187601 805719 79 147 69 426.6 811.6160284148 38349.645447779 22416084.120612
+266	590843 2845 70099 805719 55 147 93 0.973 8.6847014292126 244.9302128898 915.96677787295
+265	593688 3096 70099 805719 55 147 93 -4.4824057303031 2.0808153760759 9.9740372043535 118.64253198367
+262	596784 2934 66710 805719 54 147 94 3.6147367438943 13.889750196666 1160.6920640066 15171.867422889
+255	599718 2430 63224 805719 53 147 95 23.4 593.13198872123 14379.895531669 5244175.8574736
+254	602148 2549 63224 805719 53 147 95 430.67765964443 823.4 65924.751747659 47761626.234149
+306	604697 2373 101891 805719 63 147 85 0.973 8.925544379204 227.7839818761 1006.0640522749
+305	607070 2649 101891 805719 63 147 85 -3.294916231917 2.3239190432988 9.9101411570931 164.38936822788
+304	609719 2557 97143 805719 62 147 86 0 13.883157313813 762.16809436922 9121.0972909489
+293	612276 1883 92586 805719 61 147 87 223.4 226.6 19667.350434776 4446153.0577579
+292	614159 2648 92586 805719 61 147 87 238.37225903636 819.17521738777 50471.330846356 31777426.95926
+vector 720 TestScenario.uninfected[143].veinsmobility acceleration ETV
+vector 721 TestScenario.uninfected[143].veinsmobility co2emission ETV
+vector 722 TestScenario.uninfected[144].veinsmobility speed ETV
+278	617015 2789 80687 815768 58 148 91 0.973 8.6900016762718 227.27204552276 764.36172291213
+277	619804 3045 80687 815768 58 148 91 -3.3202813429217 2.1269768179767 10.541541015586 67.362856447317
+274	622849 2873 76997 815768 57 148 92 3.330941653737 13.88794095485 1180.4197780937 15688.370073232
+268	625722 2447 73473 815768 56 148 93 26.6 612.33123021537 17545.402848229 7219320.2613689
+267	628169 2431 73473 815768 56 148 93 226.6 803.85526402299 33466.092025697 15217486.641251
+301	630600 2568 97143 815768 62 148 87 0.973 8.8989428822785 259.88223231196 1174.2617777404
+300	633168 2862 97143 815768 62 148 87 -4.1396091649402 2.130173698077 9.7075894699818 188.6736873649
+296	636030 2760 92586 815768 61 148 88 3.5744291379489 13.884772561947 952.19790913495 11452.945016062
+286	638790 2123 88351 815768 60 148 89 423.4 626.6 47427.53575148 26056896.265046
+285	640913 2656 88351 815768 60 148 89 230.65831023883 618.35477765387 37649.6839237 17017121.281205
+vector 723 TestScenario.uninfected[145].veinsmobility posx ETV
+vector 724 TestScenario.uninfected[145].veinsmobility posy ETV
+vector 725 TestScenario.uninfected[146].veinsmobility posx ETV
+vector 726 TestScenario.uninfected[146].veinsmobility posy ETV
+vector 727 TestScenario.uninfected[144].veinsmobility acceleration ETV
+vector 728 TestScenario.uninfected[144].veinsmobility co2emission ETV
+383	643968 2104 181644 825824 78 149 72 0.973 8.5454121394479 198.98347876542 837.23752475365
+382	646072 2373 181644 825824 78 149 72 -3.139574342669 2.1840238847746 6.7829690611327 124.51936968186
+379	648445 2292 175989 825824 77 149 73 0 13.888272754999 779.42280555783 9656.1968569475
+369	650737 2187 170194 825824 76 149 74 223.4 812.19446722987 32203.357408333 17199476.939404
+368	652924 1839 170194 825824 76 149 74 245.96081778568 426.6 30084.353425736 12390015.886473
+vector 729 TestScenario.uninfected[147].veinsmobility posx ETV
+vector 730 TestScenario.uninfected[147].veinsmobility posy ETV
+vector 731 TestScenario.uninfected[148].veinsmobility posx ETV
+vector 732 TestScenario.uninfected[148].veinsmobility posy ETV
+vector 733 TestScenario.uninfected[145].veinsmobility speed ETV
+vector 734 TestScenario.uninfected[146].veinsmobility speed ETV
+290	655149 2664 88351 835646 60 150 91 0.973 8.8419480702329 267.05197487106 1221.5710759289
+289	657813 2982 88351 835646 60 150 91 -4.4728985238597 2.1930855068262 9.8480555697211 206.96602539167
+284	660795 2868 84484 835646 59 150 92 0 13.889317078406 968.52132622466 11815.108147331
+276	663663 2373 80687 835646 58 150 93 423.4 823.4 55820.725950602 35584343.918601
+275	666036 2596 80687 835646 58 150 93 251.85215119554 811.65283720173 50568.991310791 29369980.310808
+vector 735 TestScenario.uninfected[145].veinsmobility acceleration ETV
+vector 736 TestScenario.uninfected[145].veinsmobility co2emission ETV
+vector 737 TestScenario.uninfected[146].veinsmobility acceleration ETV
+vector 738 TestScenario.uninfected[146].veinsmobility co2emission ETV
+vector 739 TestScenario.uninfected[147].veinsmobility speed ETV
+vector 740 TestScenario.uninfected[148].veinsmobility speed ETV
+133	669048 3593 11254 848109 28 151 124 0.973 9.3863812239397 349.14538382068 1490.6439819539
+132	672641 4026 11254 848109 28 151 124 -4.4412541563596 2.3238373243739 9.8127673197222 243.05847886668
+129	676667 3882 10247 848109 27 151 125 0.82813971660113 13.888794915674 1363.416084256 16686.418382373
+121	680549 3028 9321 848109 26 151 126 26.6 226.6 18751.556935841 3762882.1284727
+120	683577 3559 9321 848109 26 151 126 26.6 819.33555359154 53619.580722722 31695486.55439
+vector 741 TestScenario.uninfected[149].veinsmobility posx ETV
+vector 742 TestScenario.uninfected[149].veinsmobility posy ETV
+vector 743 TestScenario.uninfected[150].veinsmobility posx ETV
+vector 744 TestScenario.uninfected[150].veinsmobility posy ETV
+vector 745 TestScenario.uninfected[151].veinsmobility posx ETV
+vector 746 TestScenario.uninfected[151].veinsmobility posy ETV
+vector 747 TestScenario.uninfected[147].veinsmobility acceleration ETV
+vector 748 TestScenario.uninfected[147].veinsmobility co2emission ETV
+vector 749 TestScenario.uninfected[148].veinsmobility acceleration ETV
+vector 750 TestScenario.uninfected[148].veinsmobility co2emission ETV
+vector 751 TestScenario.uninfected[149].veinsmobility speed ETV
+vector 752 TestScenario.uninfected[150].veinsmobility speed ETV
+vector 753 TestScenario.uninfected[151].veinsmobility speed ETV
+413	688001 2089 220562 867885 84 153 70 0.973 8.3745040760251 208.80671302385 933.50663032263
+412	690090 2317 220562 867885 84 153 70 -4.4730800890798 2.2363618320669 9.5487649631773 149.9898752526
+409	692407 2248 213623 867885 83 153 71 1.7279733099165 13.88994257092 759.64195589108 9148.1246290072
+401	694655 1882 206798 867885 82 153 72 423.4 623.4 37368.698760033 19918299.483704
+400	696537 1988 206798 867885 82 153 72 26.6 411.61247823492 13658.650789057 3604236.9506094
+vector 754 TestScenario.uninfected[152].veinsmobility posx ETV
+vector 755 TestScenario.uninfected[152].veinsmobility posy ETV
+vector 756 TestScenario.uninfected[149].veinsmobility acceleration ETV
+vector 757 TestScenario.uninfected[149].veinsmobility co2emission ETV
+vector 758 TestScenario.uninfected[150].veinsmobility acceleration ETV
+vector 759 TestScenario.uninfected[150].veinsmobility co2emission ETV
+vector 760 TestScenario.uninfected[151].veinsmobility acceleration ETV
+vector 761 TestScenario.uninfected[151].veinsmobility co2emission ETV
+343	699082 2538 135271 877996 70 154 85 0.973 8.2382843469504 241.39135519801 1026.550241894
+342	701620 2828 135271 877996 70 154 85 -3.2937534889617 2.3563156797993 9.8549094883705 151.45477651709
+339	704448 2711 129772 877996 69 154 86 3.5412636827375 13.885240665365 951.34223382331 11685.80477536
+331	707159 2389 124507 877996 68 154 87 423.4 818.41876717234 48765.194022144 29315042.090207
+330	709548 2299 124507 877996 68 154 87 231.63428597043 426.6 33140.375324328 12990241.071645
+vector 762 TestScenario.uninfected[153].veinsmobility posx ETV
+vector 763 TestScenario.uninfected[153].veinsmobility posy ETV
+vector 764 TestScenario.uninfected[152].veinsmobility speed ETV
+351	712040 2513 146305 888103 72 155 84 0.973 8.7901600161048 258.57653800114 1212.787705863
+350	714553 2781 146305 888103 72 155 84 -4.4564139882172 2.444877405744 9.8082026767074 196.43841914326
+347	717334 2678 141004 888103 71 155 85 3.6509019828667 13.888732470463 967.11082342316 11917.996944365
+341	720012 2255 135271 888103 70 155 86 26.6 226.6 12517.308992978 2430717.2028367
+340	722267 2365 135271 888103 70 155 86 226.6 797.47203277444 36752.006499893 18157316.045282
+vector 765 TestScenario.uninfected[152].veinsmobility acceleration ETV
+vector 766 TestScenario.uninfected[152].veinsmobility co2emission ETV
+vector 767 TestScenario.uninfected[153].veinsmobility speed ETV
+436	724840 2040 252883 897838 89 156 68 0.973 8.5418031454154 207.13927524615 949.91595137765
+435	726880 2266 252883 897838 89 156 68 -4.4637851120229 2.1081260583689 10.823633713152 149.5898498978
+431	729146 2191 246292 897838 88 156 69 2.9934573146537 13.873603675365 762.31826010489 9290.3305472082
+424	731337 1703 239921 897838 87 156 70 223.4 423.4 20181.053935792 6318590.2312246
+423	733040 2070 239921 897838 87 156 70 30.666632269001 223.4 10671.602184944 1944247.3075874
+103	735110 4123 5975 897838 22 156 135 0.973 8.7095743379261 325.82088335563 1059.9151786238
+102	739233 4469 5975 897838 22 156 135 -4.5 2.0699351865519 9.6654744610942 100.49731325097
+99	743702 4077 5198 897838 21 156 136 4.1836085551388 13.889716980581 1786.5420811153 23996.498765659
+91	747779 3297 4543 897838 20 156 137 23.4 826.6 42440.844211122 27160001.981485
+90	751076 3516 4543 897838 20 156 137 46.671445478307 826.6 88819.625973851 65267014.521884
+326	754592 2533 119713 897838 67 156 90 0.973 8.0295756603913 215.90954648099 829.61275209567
+325	757125 2741 119713 897838 67 156 90 -3.2646975814611 2.1573537360971 9.8778122774578 133.64329178369
+321	759866 2644 115038 897838 66 156 91 0 13.885521770152 767.5427042636 9577.8871239803
+313	762510 2617 110517 897838 65 156 92 23.4 419.33114100852 16247.665182101 4956694.8878878
+312	765127 2207 110517 897838 65 156 92 252.84242094749 426.6 37978.295653078 15803002.987319
+vector 768 TestScenario.uninfected[154].veinsmobility posx ETV
+vector 769 TestScenario.uninfected[154].veinsmobility posy ETV
+vector 770 TestScenario.uninfected[155].veinsmobility posx ETV
+vector 771 TestScenario.uninfected[155].veinsmobility posy ETV
+vector 772 TestScenario.uninfected[153].veinsmobility acceleration ETV
+vector 773 TestScenario.uninfected[153].veinsmobility co2emission ETV
+vector 774 TestScenario.uninfected[156].veinsmobility posx ETV
+vector 775 TestScenario.uninfected[156].veinsmobility posy ETV
+vector 776 TestScenario.uninfected[154].veinsmobility speed ETV
+vector 777 TestScenario.uninfected[155].veinsmobility speed ETV
+vector 778 TestScenario.uninfected[154].veinsmobility acceleration ETV
+vector 779 TestScenario.uninfected[154].veinsmobility co2emission ETV
+vector 780 TestScenario.uninfected[155].veinsmobility acceleration ETV
+vector 781 TestScenario.uninfected[155].veinsmobility co2emission ETV
+vector 782 TestScenario.uninfected[156].veinsmobility speed ETV
+446	768342 2061 266534 926047 91 159 69 0.973 8.7114342775256 211.86753484454 978.63585026837
+445	770403 2284 266534 926047 91 159 69 -3.3250187984237 2.32125653425 9.9087657038605 156.29614386619
+442	772687 2217 259899 926047 90 159 70 3.5604423631681 13.886391814172 771.26428439423 9398.723464966
+434	774904 1766 252883 926047 89 159 71 423.4 611.61662560939 32171.770085771 14813681.270102
+433	776670 2075 252883 926047 89 159 71 30.861239314003 426.6 17977.020981111 6076163.5476377
+vector 783 TestScenario.uninfected[157].veinsmobility posx ETV
+vector 784 TestScenario.uninfected[157].veinsmobility posy ETV
+vector 785 TestScenario.uninfected[156].veinsmobility acceleration ETV
+vector 786 TestScenario.uninfected[156].veinsmobility co2emission ETV
+543	779016 1537 420257 935371 110 160 51 0.973 9.1353047819416 158.88260906496 757.42697172415
+542	780553 1700 420257 935371 110 160 51 -3.3863862382805 2.4688226699014 9.775742194299 117.75115157952
+537	782253 1659 411638 935371 109 160 52 3.123471128753 13.886772473718 563.04266842616 6824.8950739387
+529	783912 1333 402730 935371 108 160 53 257.6972307629 426.6 21414.833840076 8757053.9005523
+528	785245 1559 402730 935371 108 160 53 631.35531963079 826.6 39920.90656226 30335568.076287
+vector 787 TestScenario.uninfected[158].veinsmobility posx ETV
+vector 788 TestScenario.uninfected[158].veinsmobility posy ETV
+vector 789 TestScenario.uninfected[159].veinsmobility posx ETV
+vector 790 TestScenario.uninfected[159].veinsmobility posy ETV
+vector 791 TestScenario.uninfected[157].veinsmobility speed ETV
+vector 792 TestScenario.uninfected[160].veinsmobility posx ETV
+vector 793 TestScenario.uninfected[160].veinsmobility posy ETV
+vector 794 TestScenario.uninfected[161].veinsmobility posx ETV
+vector 795 TestScenario.uninfected[161].veinsmobility posy ETV
+vector 796 TestScenario.uninfected[157].veinsmobility acceleration ETV
+vector 797 TestScenario.uninfected[157].veinsmobility co2emission ETV
+vector 798 TestScenario.uninfected[158].veinsmobility speed ETV
+vector 799 TestScenario.uninfected[159].veinsmobility speed ETV
+311	787654 2961 106121 954979 64 162 99 0.973 9.1989561241167 290.51757735762 1283.8746029583
+310	790615 3283 106121 954979 64 162 99 -4.4877051280509 2.5810920869024 10.035860923861 201.02237311003
+307	793898 3159 101891 954979 63 162 100 3.2505031561868 13.888521409088 1169.1366152435 14681.95030279
+299	797057 2717 97143 954979 62 162 101 226.6 626.6 37258.374975634 16151171.96088
+298	799774 2692 97143 954979 62 162 101 26.6 601.32510096036 29876.646434024 12052821.470458
+441	802466 2148 259899 954979 90 162 73 0.973 8.2058256638688 213.3714313577 964.48258656012
+440	804614 2395 259899 954979 90 162 73 -3.4076285831296 2.309306868507 9.6318575849804 153.91111832289
+439	807009 2307 252883 954979 89 162 74 0 13.88355087884 757.22529480827 9227.2335579202
+430	809316 2049 246292 954979 88 162 75 31.173831762745 223.4 11838.64310133 2296392.7958898
+429	811365 1974 246292 954979 88 162 75 58.606470433388 426.6 26216.731340302 10108812.620571
+vector 800 TestScenario.uninfected[162].veinsmobility posx ETV
+vector 801 TestScenario.uninfected[162].veinsmobility posy ETV
+vector 802 TestScenario.uninfected[158].veinsmobility acceleration ETV
+vector 803 TestScenario.uninfected[158].veinsmobility co2emission ETV
+vector 804 TestScenario.uninfected[159].veinsmobility acceleration ETV
+vector 805 TestScenario.uninfected[159].veinsmobility co2emission ETV
+vector 806 TestScenario.uninfected[160].veinsmobility speed ETV
+vector 807 TestScenario.uninfected[161].veinsmobility speed ETV
+320	813883 2966 115038 964637 66 163 98 0.973 8.3434584770313 270.17033688929 1070.5285548765
+319	816849 3242 115038 964637 66 163 98 -4.5 2.3742309463513 9.6459668699862 162.89766009987
+316	820091 3122 110517 964637 65 163 99 2.7271834915394 13.88988970486 1161.9046800827 14684.225335683
+309	823213 2627 106121 964637 64 163 100 226.6 823.4 44781.251293204 25785482.979663
+308	825840 2719 106121 964637 64 163 100 438.35443373135 823.4 73423.8805262 55365845.252611
+vector 808 TestScenario.uninfected[163].veinsmobility posx ETV
+vector 809 TestScenario.uninfected[163].veinsmobility posy ETV
+vector 810 TestScenario.uninfected[160].veinsmobility acceleration ETV
+vector 811 TestScenario.uninfected[160].veinsmobility co2emission ETV
+vector 812 TestScenario.uninfected[161].veinsmobility acceleration ETV
+vector 813 TestScenario.uninfected[161].veinsmobility co2emission ETV
+vector 814 TestScenario.uninfected[162].veinsmobility speed ETV
+261	829038 3365 66710 974094 54 164 111 0.973 8.8671404133666 298.18496475463 1174.719703304
+260	832403 3693 66710 974094 54 164 111 -4.5 2.4007705723122 9.9687606418868 172.4508036501
+257	836096 3514 63224 974094 53 164 112 3.6131717901141 13.889458331065 1357.190682721 17532.553462004
+251	839610 2695 59873 974094 52 164 113 23.4 423.4 17084.610760355 5672235.5821114
+250	842305 3223 59873 974094 52 164 113 26.6 619.00337963489 26803.590973993 11498263.346846
+273	845528 3316 76997 974094 57 164 108 0.973 8.0066272881312 275.34221299626 963.1433998311
+272	848844 3622 76997 974094 57 164 108 -3.2737228474403 2.4754626479512 9.9294399863515 112.12508255766
+269	852466 3425 73473 974094 56 164 109 3.3440540132909 13.889156112755 1378.1207695684 18177.017768679
+264	855891 2971 70099 974094 55 164 110 23.4 826.6 38941.691423181 24682641.91614
+263	858862 2872 70099 974094 55 164 110 423.4 815.64487337585 54922.249700134 28997214.781535
+vector 815 TestScenario.uninfected[162].veinsmobility acceleration ETV
+vector 816 TestScenario.uninfected[162].veinsmobility co2emission ETV
+vector 817 TestScenario.uninfected[163].veinsmobility speed ETV
+408	861942 2509 213623 983732 83 165 83 0.973 9.0442861945729 240.91221434878 1028.8110954326
+407	864451 2767 213623 983732 83 165 83 -3.2841304756386 2.4949620509939 10.520101746969 157.51395131101
+404	867218 2656 206798 983732 82 165 84 3.2335951002935 13.888585569828 970.79311014266 12157.169350377
+396	869874 2187 200345 983732 81 165 85 426.6 823.4 48617.491148441 30142099.906544
+395	872061 2386 200345 983732 81 165 85 237.54839759492 623.4 44009.285669656 24144639.91113
+418	874447 2429 227279 983732 85 165 81 0.973 9.0126618883477 229.16665364362 995.29490504408
+417	876876 2713 227279 983732 85 165 81 -4.4759738213045 2.2374490060401 10.01244802448 132.26519087662
+414	879589 2604 220562 983732 84 165 82 2.8816065405626 13.886671379015 954.0327421519 11924.120005098
+406	882193 2192 213623 983732 83 165 83 626.6 823.4 62087.651635528 46997369.106156
+405	884385 2285 213623 983732 83 165 83 226.6 623.4 34309.644981217 16352501.801305
+vector 818 TestScenario.uninfected[164].veinsmobility posx ETV
+vector 819 TestScenario.uninfected[164].veinsmobility posy ETV
+vector 820 TestScenario.uninfected[163].veinsmobility acceleration ETV
+vector 821 TestScenario.uninfected[163].veinsmobility co2emission ETV
+vector 822 TestScenario.uninfected[165].veinsmobility posx ETV
+vector 823 TestScenario.uninfected[165].veinsmobility posy ETV
+vector 824 TestScenario.uninfected[164].veinsmobility speed ETV
+201	887134 3657 34610 1002682 42 167 126 0.973 8.5442809690085 373.7742762343 1717.7540137712
+200	890791 4110 34610 1002682 42 167 126 -4.4290927849547 2.4910104911448 0.96140165269502 320.94786685969
+199	894901 3968 32569 1002682 41 167 127 3.2794414738562 13.889715830639 1367.9990460948 16454.304010676
+191	898869 2953 30499 1002682 40 167 128 623.4 826.6 85380.363943702 57720421.972763
+190	901822 3841 30499 1002682 40 167 128 31.521544365231 826.6 60765.653276818 38838367.967271
+vector 825 TestScenario.uninfected[164].veinsmobility acceleration ETV
+vector 826 TestScenario.uninfected[164].veinsmobility co2emission ETV
+vector 827 TestScenario.uninfected[165].veinsmobility speed ETV
+vector 828 TestScenario.uninfected[166].veinsmobility posx ETV
+vector 829 TestScenario.uninfected[166].veinsmobility posy ETV
+vector 830 TestScenario.uninfected[167].veinsmobility posx ETV
+vector 831 TestScenario.uninfected[167].veinsmobility posy ETV
+vector 832 TestScenario.uninfected[165].veinsmobility acceleration ETV
+vector 833 TestScenario.uninfected[165].veinsmobility co2emission ETV
+vector 834 TestScenario.uninfected[166].veinsmobility speed ETV
+vector 835 TestScenario.uninfected[167].veinsmobility speed ETV
+13	906400 4711 53 1031444 4 170 167 0.973 8.8891102605953 438.108990999 1702.0175100771
+12	911111 5266 53 1031444 4 170 167 -4.4817660125752 2.5642885649949 9.9335539680695 260.16259498577
+9	916377 4796 28 1031444 3 170 168 0 13.889589019441 1963.9501862235 25203.651825878
+3	921173 3980 11 1031444 2 170 169 26.6 823.4 50579.442246563 29033507.545776
+2	925153 4040 11 1031444 2 170 169 26.6 823.4 48114.456304754 26415310.250565
+253	929193 3532 59873 1031444 52 170 119 0.973 8.4918787814464 344.90189225891 1525.8676881375
+252	932725 3925 59873 1031444 52 170 119 -4.4671564551699 2.2919145776215 11.154560952697 243.78098928218
+247	936650 3763 56959 1031444 51 170 120 2.6363864045584 13.889993982937 1360.1452429463 16878.24004843
+241	940413 3455 53995 1031444 50 170 121 30.672919097538 619.36048420909 34864.381015513 13553931.079786
+240	943868 2944 53995 1031444 50 170 121 23.4 426.6 24988.884859869 9052651.3833434
+vector 836 TestScenario.uninfected[168].veinsmobility posx ETV
+vector 837 TestScenario.uninfected[168].veinsmobility posy ETV
+vector 838 TestScenario.uninfected[166].veinsmobility acceleration ETV
+vector 839 TestScenario.uninfected[166].veinsmobility co2emission ETV
+vector 840 TestScenario.uninfected[167].veinsmobility acceleration ETV
+vector 841 TestScenario.uninfected[167].veinsmobility co2emission ETV
+455	947226 2399 281142 1041191 93 171 79 0.973 8.7688556230935 211.41474235594 835.29523662018
+454	949625 2669 281142 1041191 93 171 79 -4.4553820015257 2.1266208096151 6.5645937192034 106.81393764657
+451	952294 2548 273740 1041191 92 171 80 2.9234403891008 13.88977050845 971.71757718974 12421.269510838
+444	954842 2059 266534 1041191 91 171 81 26.6 423.4 14880.309553781 5020311.1922045
+443	956901 2281 266534 1041191 91 171 81 237.44793766413 623.4 41741.956729362 22830083.739073
+vector 842 TestScenario.uninfected[169].veinsmobility posx ETV
+vector 843 TestScenario.uninfected[169].veinsmobility posy ETV
+vector 844 TestScenario.uninfected[168].veinsmobility speed ETV
+vector 845 TestScenario.uninfected[168].veinsmobility acceleration ETV
+vector 846 TestScenario.uninfected[168].veinsmobility co2emission ETV
+vector 847 TestScenario.uninfected[169].veinsmobility speed ETV
+vector 848 TestScenario.uninfected[170].veinsmobility posx ETV
+vector 849 TestScenario.uninfected[170].veinsmobility posy ETV
+vector 850 TestScenario.uninfected[171].veinsmobility posx ETV
+vector 851 TestScenario.uninfected[171].veinsmobility posy ETV
+vector 852 TestScenario.uninfected[172].veinsmobility posx ETV
+vector 853 TestScenario.uninfected[172].veinsmobility posy ETV
+vector 854 TestScenario.uninfected[169].veinsmobility acceleration ETV
+vector 855 TestScenario.uninfected[169].veinsmobility co2emission ETV
+vector 856 TestScenario.uninfected[173].veinsmobility posx ETV
+vector 857 TestScenario.uninfected[173].veinsmobility posy ETV
+vector 858 TestScenario.uninfected[170].veinsmobility speed ETV
+vector 859 TestScenario.uninfected[171].veinsmobility speed ETV
+vector 860 TestScenario.uninfected[172].veinsmobility speed ETV
+508	960433 2149 358967 1079717 103 175 73 0.973 8.8021209552783 194.85784152625 824.97494164263
+507	962582 2401 358967 1079717 103 175 73 -4.5 2.2818199996053 4.6990853516876 135.6088787809
+504	964983 2319 350446 1079717 102 175 74 0 13.887756035661 768.29746979054 9582.0354377497
+494	967302 2225 342150 1079717 101 175 75 430.64510386436 826.6 47193.374277716 31501995.888386
+493	969527 1927 342150 1079717 101 175 75 638.39536641304 826.6 59915.268740557 48100935.827012
+vector 861 TestScenario.uninfected[174].veinsmobility posx ETV
+vector 862 TestScenario.uninfected[174].veinsmobility posy ETV
+vector 863 TestScenario.uninfected[170].veinsmobility acceleration ETV
+vector 864 TestScenario.uninfected[170].veinsmobility co2emission ETV
+vector 865 TestScenario.uninfected[171].veinsmobility acceleration ETV
+vector 866 TestScenario.uninfected[171].veinsmobility co2emission ETV
+vector 867 TestScenario.uninfected[172].veinsmobility acceleration ETV
+vector 868 TestScenario.uninfected[172].veinsmobility co2emission ETV
+vector 869 TestScenario.uninfected[173].veinsmobility speed ETV
+471	972076 2483 303417 1089828 96 176 81 0.973 8.744910723999 234.52209205663 1005.2712479202
+470	974559 2725 303417 1089828 96 176 81 -3.7255808551972 2.2045105772931 9.899836657909 148.42332473471
+469	977284 2621 295997 1089828 95 176 82 3.6350218035886 13.889027678678 962.91763467373 12163.13149743
+459	979905 1989 288363 1089828 94 176 83 23.4 226.6 6816.6232682828 1133639.9016973
+458	981894 2496 288363 1089828 94 176 83 230.66183159479 797.01314902437 40691.442386918 22207372.952679
+vector 870 TestScenario.uninfected[175].veinsmobility posx ETV
+vector 871 TestScenario.uninfected[175].veinsmobility posy ETV
+vector 872 TestScenario.uninfected[173].veinsmobility acceleration ETV
+vector 873 TestScenario.uninfected[173].veinsmobility co2emission ETV
+vector 874 TestScenario.uninfected[174].veinsmobility speed ETV
+vector 875 TestScenario.uninfected[176].veinsmobility posx ETV
+vector 876 TestScenario.uninfected[176].veinsmobility posy ETV
+vector 877 TestScenario.uninfected[174].veinsmobility acceleration ETV
+vector 878 TestScenario.uninfected[174].veinsmobility co2emission ETV
+vector 879 TestScenario.uninfected[175].veinsmobility speed ETV
+295	985062 3535 92586 1110749 61 178 118 0.973 8.524450420643 345.22964941461 1503.5380571168
+294	988597 3917 92586 1110749 61 178 118 -4.4931457419304 2.3276575862197 9.7460648029506 246.2132457607
+291	992514 3767 88351 1110749 60 178 119 3.5567540746077 13.889703238432 1360.7299814406 16861.276361589
+281	996281 3277 84484 1110749 59 178 120 223.4 823.4 67784.66287233 44004790.440052
+280	999558 3146 84484 1110749 59 178 120 23.4 223.4 12219.694363952 2056748.6850841
+vector 880 TestScenario.uninfected[177].veinsmobility posx ETV
+vector 881 TestScenario.uninfected[177].veinsmobility posy ETV
+vector 882 TestScenario.uninfected[175].veinsmobility acceleration ETV
+vector 883 TestScenario.uninfected[175].veinsmobility co2emission ETV
+vector 884 TestScenario.uninfected[176].veinsmobility speed ETV
+216	1003040 4013 41356 1121372 45 179 135 0.973 8.6792126716347 396.5025381209 1739.0677517969
+215	1007053 4441 41356 1121372 45 179 135 -4.5 2.4845849802834 11.056383413945 288.66138998107
+211	1011494 4270 38882 1121372 44 179 136 2.8320125740322 13.889949261174 1574.9105287048 19672.531032565
+204	1015764 3647 36657 1121372 43 179 137 37.453267033535 823.4 74243.838610618 46949202.77614
+203	1019411 3661 36657 1121372 43 179 137 223.4 823.4 64869.181611408 38952873.919794
+vector 885 TestScenario.uninfected[178].veinsmobility posx ETV
+vector 886 TestScenario.uninfected[178].veinsmobility posy ETV
+vector 887 TestScenario.uninfected[176].veinsmobility acceleration ETV
+vector 888 TestScenario.uninfected[176].veinsmobility co2emission ETV
+vector 889 TestScenario.uninfected[177].veinsmobility speed ETV
+vector 890 TestScenario.uninfected[179].veinsmobility posx ETV
+vector 891 TestScenario.uninfected[179].veinsmobility posy ETV
+vector 892 TestScenario.uninfected[177].veinsmobility acceleration ETV
+vector 893 TestScenario.uninfected[177].veinsmobility co2emission ETV
+vector 894 TestScenario.uninfected[178].veinsmobility speed ETV
+vector 895 TestScenario.uninfected[180].veinsmobility posx ETV
+vector 896 TestScenario.uninfected[180].veinsmobility posy ETV
+vector 897 TestScenario.uninfected[178].veinsmobility acceleration ETV
+vector 898 TestScenario.uninfected[178].veinsmobility co2emission ETV
+vector 899 TestScenario.uninfected[179].veinsmobility speed ETV
+463	1024080 2614 288363 1154222 94 182 89 0.973 8.717210820919 263.05839681495 1220.0715956437
+462	1026694 2974 288363 1154222 94 182 89 -3.2719946089425 2.3273351999884 9.6575598348878 179.01039139871
+457	1029668 2871 281142 1154222 93 182 90 3.6296768848971 13.884883749872 964.16050511829 11485.377475873
+450	1032539 2347 273740 1154222 92 182 91 226.6 418.74615737329 24343.953727923 6893350.5229211
+449	1034886 2596 273740 1154222 92 182 91 238.39542651856 826.6 57699.63128838 40314970.444477
+vector 900 TestScenario.uninfected[181].veinsmobility posx ETV
+vector 901 TestScenario.uninfected[181].veinsmobility posy ETV
+vector 902 TestScenario.uninfected[179].veinsmobility acceleration ETV
+vector 903 TestScenario.uninfected[179].veinsmobility co2emission ETV
+vector 904 TestScenario.uninfected[180].veinsmobility speed ETV
+vector 905 TestScenario.uninfected[182].veinsmobility posx ETV
+vector 906 TestScenario.uninfected[182].veinsmobility posy ETV
+vector 907 TestScenario.uninfected[180].veinsmobility acceleration ETV
+vector 908 TestScenario.uninfected[180].veinsmobility co2emission ETV
+vector 909 TestScenario.uninfected[181].veinsmobility speed ETV
+vector 910 TestScenario.uninfected[183].veinsmobility posx ETV
+vector 911 TestScenario.uninfected[183].veinsmobility posy ETV
+vector 912 TestScenario.uninfected[181].veinsmobility acceleration ETV
+vector 913 TestScenario.uninfected[181].veinsmobility co2emission ETV
+vector 914 TestScenario.uninfected[182].veinsmobility speed ETV
+574	1038490 2078 495132 1189237 118 185 68 0.973 8.590982025694 207.79363120997 969.96958820875
+573	1040568 2289 495132 1189237 118 185 68 -3.7099774786935 2.1852235133573 10.7204853766 153.0375724179
+571	1042857 2210 485094 1189237 117 185 69 3.1533601782742 13.886666210969 752.07944329605 9148.66206679
+563	1045067 1955 475779 1189237 116 185 70 223.4 418.70247434099 19476.028947748 5745747.4860128
+562	1047022 1906 475779 1189237 116 185 70 223.4 418.37273346551 19469.104836519 5755310.2251413
+vector 915 TestScenario.uninfected[184].veinsmobility posx ETV
+vector 916 TestScenario.uninfected[184].veinsmobility posy ETV
+vector 917 TestScenario.uninfected[185].veinsmobility posx ETV
+vector 918 TestScenario.uninfected[185].veinsmobility posy ETV
+vector 919 TestScenario.uninfected[182].veinsmobility acceleration ETV
+vector 920 TestScenario.uninfected[182].veinsmobility co2emission ETV
+vector 921 TestScenario.uninfected[183].veinsmobility speed ETV
+523	1049392 2499 384531 1201428 106 186 81 0.973 8.9317521495958 225.47096831612 926.21521111981
+522	1051891 2746 384531 1201428 106 186 81 -3.2782999872126 2.1418571169232 9.7134162362617 118.67032151756
+517	1054637 2637 376222 1201428 105 186 82 3.879869731483 13.888834856942 973.85248944591 12311.955087553
+511	1057274 2164 367443 1201428 104 186 83 26.6 423.4 16503.835469379 5673963.405998
+510	1059438 2307 367443 1201428 104 186 83 26.6 401.91015549331 9489.160933495 2072324.4266767
+496	1061745 2597 342150 1201428 101 186 86 0.973 8.0172651455975 262.4700496954 1195.4871887895
+495	1064342 2891 342150 1201428 101 186 86 -3.2828153231841 2.2324931186857 10.150612302606 200.54922669855
+491	1067233 2793 333855 1201428 100 186 87 3.5706681597023 13.887566794173 956.66867379314 11614.500892124
+481	1070026 2487 325898 1201428 99 186 88 430.72753218437 826.6 57032.629335186 38484310.882608
+480	1072513 2374 325898 1201428 99 186 88 423.4 626.6 44649.436416507 23292619.578084
+vector 922 TestScenario.uninfected[186].veinsmobility posx ETV
+vector 923 TestScenario.uninfected[186].veinsmobility posy ETV
+vector 924 TestScenario.uninfected[183].veinsmobility acceleration ETV
+vector 925 TestScenario.uninfected[183].veinsmobility co2emission ETV
+vector 926 TestScenario.uninfected[184].veinsmobility speed ETV
+vector 927 TestScenario.uninfected[185].veinsmobility speed ETV
+503	1075288 2612 350446 1213309 102 187 86 0.973 8.344809021215 243.90016598823 1045.0301226328
+502	1077900 2910 350446 1213309 102 187 86 -3.2995453664961 2.1749452954601 9.7099040494353 161.23733142366
+499	1080810 2795 342150 1213309 101 187 87 1.3176057330743 13.885804077124 964.51424712849 11946.14126694
+488	1083605 2334 333855 1213309 100 187 88 223.4 626.6 41570.434644315 22179368.987756
+487	1085939 2524 333855 1213309 100 187 88 50.984943361667 418.68194022244 22466.181427897 6336195.6477769
+vector 928 TestScenario.uninfected[184].veinsmobility acceleration ETV
+vector 929 TestScenario.uninfected[184].veinsmobility co2emission ETV
+vector 930 TestScenario.uninfected[185].veinsmobility acceleration ETV
+vector 931 TestScenario.uninfected[185].veinsmobility co2emission ETV
+vector 932 TestScenario.uninfected[186].veinsmobility speed ETV
+428	1088814 3059 239921 1226412 87 188 102 0.973 8.7689134573413 289.4752928692 1261.0280975516
+427	1091873 3426 239921 1226412 87 188 102 -3.261569757993 2.5595628357818 9.8146387221904 184.22058209757
+422	1095299 3296 233487 1226412 86 188 103 1.6933175848121 13.889037194175 1162.7307021735 14363.206159333
+416	1098595 2657 227279 1226412 85 188 104 447.40847697694 826.6 76107.418154715 57029425.009105
+415	1101252 3007 227279 1226412 85 188 104 26.6 619.3646207476 31511.374136834 13577721.11542
+243	1104259 4015 53995 1226412 50 188 139 0.973 8.8907237240976 390.62325235343 1769.1982777827
+242	1108274 4431 53995 1226412 50 188 139 -4.4591986616328 2.4055141676869 9.9003379984851 319.76183669688
+239	1112705 4247 51219 1226412 49 188 140 0 13.888502105288 1370.4776447754 16705.133894918
+231	1116952 3618 48575 1226412 48 188 141 23.4 426.6 33203.683585847 10796844.810853
+230	1120570 3862 48575 1226412 48 188 141 23.4 626.6 53713.895583878 26936753.612519
+vector 933 TestScenario.uninfected[187].veinsmobility posx ETV
+vector 934 TestScenario.uninfected[187].veinsmobility posy ETV
+vector 935 TestScenario.uninfected[186].veinsmobility acceleration ETV
+vector 936 TestScenario.uninfected[186].veinsmobility co2emission ETV
+589	1124703 2108 526868 1237945 121 189 69 0.973 8.5853894465728 212.74422574511 965.62163563697
+588	1126811 2314 526868 1237945 121 189 69 -3.2670784946231 2.4467607099563 10.488848260348 157.66802689461
+586	1129125 2237 517036 1237945 120 189 70 3.2976777834 13.880958972406 764.71418297279 9269.5485560284
+579	1131362 1922 504984 1237945 119 189 71 426.6 618.98632521612 33891.768024112 16508108.90912
+578	1133284 1983 504984 1237945 119 189 71 437.66763431129 826.6 50760.951615892 37607696.642336
+623	1135267 1964 591228 1237945 127 189 63 0.973 8.484476645057 181.39528888348 778.48610062099
+622	1137231 2141 591228 1237945 127 189 63 -3.7792042191857 2.3105147447786 9.6078509858061 108.03231716253
+618	1139372 2066 580225 1237945 126 189 64 3.6014124413673 13.88726912502 760.55546174449 9684.0491141815
+607	1141438 1965 569388 1237945 125 189 65 226.6 619.02186881867 27006.804730021 12509352.550804
+606	1143403 1612 569388 1237945 125 189 65 623.4 794.73435643683 41793.319286664 26984254.740679
+700	1145015 1469 762658 1237945 143 189 47 0.973 7.933888942278 132.88992866462 547.47232725066
+699	1146484 1617 762658 1237945 143 189 47 -3.0997186423296 2.1997118084691 9.5852474299207 64.445707032561
+692	1148101 1554 753515 1237945 142 189 48 3.5205565785198 13.88646371389 569.27936074191 7281.0903659828
+686	1149655 1587 743813 1237945 141 189 49 51.83744492106 419.19650070051 13571.731654285 4293789.9366127
+685	1151242 1111 743813 1237945 141 189 49 823.4 826.6 40441.406998599 33377819.593336
+303	1152353 3903 97143 1237945 62 189 128 0.973 8.3596389349697 343.84742346442 1320.2503717063
+302	1156256 4318 97143 1237945 62 189 128 -4.4876230656016 2.1902423796384 9.7617054930783 191.46595392726
+297	1160574 4092 92586 1237945 61 189 129 3.8022172946716 13.889955156983 1555.2919053114 19895.874947342
+288	1164666 3776 88351 1237945 60 189 130 26.6 823.4 55665.123611653 36313192.21829
+287	1168442 3185 88351 1237945 60 189 130 26.6 223.4 18850.965852473 3738519.449893
+vector 937 TestScenario.uninfected[188].veinsmobility posx ETV
+vector 938 TestScenario.uninfected[188].veinsmobility posy ETV
+vector 939 TestScenario.uninfected[187].veinsmobility speed ETV
+378	1171820 3078 175989 1249559 77 190 114 0.973 8.5887209208034 244.11373834917 935.36579538646
+377	1174898 3245 175989 1249559 77 190 114 -3.2823445542976 2.2145987277199 9.7678175221405 141.36530264831
+374	1178143 3135 170194 1249559 76 190 115 0 13.88876554895 769.16479577323 9536.1367689083
+363	1181278 3125 164023 1249559 75 190 116 223.4 619.35489613564 40599.129323951 17069970.860891
+362	1184403 2950 164023 1249559 75 190 116 623.4 811.63727535652 74762.990964583 48428415.618041
+vector 940 TestScenario.uninfected[189].veinsmobility posx ETV
+vector 941 TestScenario.uninfected[189].veinsmobility posy ETV
+vector 942 TestScenario.uninfected[190].veinsmobility posx ETV
+vector 943 TestScenario.uninfected[190].veinsmobility posy ETV
+vector 944 TestScenario.uninfected[187].veinsmobility acceleration ETV
+vector 945 TestScenario.uninfected[187].veinsmobility co2emission ETV
+vector 946 TestScenario.uninfected[188].veinsmobility speed ETV
+vector 947 TestScenario.uninfected[191].veinsmobility posx ETV
+vector 948 TestScenario.uninfected[191].veinsmobility posy ETV
+vector 949 TestScenario.uninfected[188].veinsmobility acceleration ETV
+vector 950 TestScenario.uninfected[188].veinsmobility co2emission ETV
+vector 951 TestScenario.uninfected[189].veinsmobility speed ETV
+vector 952 TestScenario.uninfected[190].veinsmobility speed ETV
+vector 953 TestScenario.uninfected[189].veinsmobility acceleration ETV
+vector 954 TestScenario.uninfected[189].veinsmobility co2emission ETV
+vector 955 TestScenario.uninfected[190].veinsmobility acceleration ETV
+vector 956 TestScenario.uninfected[190].veinsmobility co2emission ETV
+vector 957 TestScenario.uninfected[191].veinsmobility speed ETV
+709	1188569 1519 782088 1284324 145 193 49 0.973 8.0335330729321 135.18867064711 538.97338781976
+708	1190088 1684 782088 1284324 145 193 49 -2.5743984445175 2.1637272935058 11.058391028767 57.017691582298
+702	1191772 1621 772412 1284324 144 193 50 2.7925644867647 13.886345158194 575.06038232408 7249.8194965775
+696	1193393 1656 762658 1284324 143 193 51 47.24397311648 418.38877094434 14131.563583001 4483235.3817589
+695	1195049 1168 762658 1284324 143 193 51 823.4 826.6 42089.203373454 34735439.435753
+596	1196217 2174 538673 1284324 122 193 72 0.973 8.5286516710448 214.9477161997 979.63509446164
+595	1198391 2425 538673 1284324 122 193 72 -4.5 2.4299806622432 9.9967841532084 168.11019047565
+592	1200816 2348 526868 1284324 121 193 73 0 13.889926811592 768.04295807749 9445.3987636095
+585	1203164 1843 517036 1284324 120 193 74 226.6 411.62089329102 18740.356312766 4976678.6065649
+584	1205007 2195 517036 1284324 120 193 74 226.6 794.15553499487 33098.449368222 17359128.327955
+vector 958 TestScenario.uninfected[191].veinsmobility acceleration ETV
+vector 959 TestScenario.uninfected[191].veinsmobility co2emission ETV
+vector 960 TestScenario.uninfected[192].veinsmobility posx ETV
+vector 961 TestScenario.uninfected[192].veinsmobility posy ETV
+476	1207473 2893 310768 1306653 97 195 99 0.973 8.3870335779472 281.70744136129 1262.97899758
+475	1210366 3295 310768 1306653 97 195 99 -3.2057707622846 2.4806959825102 2.575438744695 246.70107304505
+472	1213661 3196 303417 1306653 96 195 100 0 13.888478769066 961.45038618693 11310.705377185
+466	1216857 2464 295997 1306653 95 195 101 423.4 626.6 57852.354255915 33809377.225071
+465	1219321 3076 295997 1306653 95 195 101 42.272568564921 618.3440925429 35155.165975017 14916132.621573
+vector 962 TestScenario.uninfected[192].veinsmobility speed ETV
+vector 963 TestScenario.uninfected[193].veinsmobility posx ETV
+vector 964 TestScenario.uninfected[193].veinsmobility posy ETV
+vector 965 TestScenario.uninfected[194].veinsmobility posx ETV
+vector 966 TestScenario.uninfected[194].veinsmobility posy ETV
+vector 967 TestScenario.uninfected[192].veinsmobility acceleration ETV
+vector 968 TestScenario.uninfected[192].veinsmobility co2emission ETV
+vector 969 TestScenario.uninfected[195].veinsmobility posx ETV
+vector 970 TestScenario.uninfected[195].veinsmobility posy ETV
+vector 971 TestScenario.uninfected[193].veinsmobility speed ETV
+vector 972 TestScenario.uninfected[194].veinsmobility speed ETV
+vector 973 TestScenario.uninfected[196].veinsmobility posx ETV
+vector 974 TestScenario.uninfected[196].veinsmobility posy ETV
+vector 975 TestScenario.uninfected[197].veinsmobility posx ETV
+vector 976 TestScenario.uninfected[197].veinsmobility posy ETV
+vector 977 TestScenario.uninfected[193].veinsmobility acceleration ETV
+vector 978 TestScenario.uninfected[193].veinsmobility co2emission ETV
+vector 979 TestScenario.uninfected[194].veinsmobility acceleration ETV
+vector 980 TestScenario.uninfected[194].veinsmobility co2emission ETV
+vector 981 TestScenario.uninfected[195].veinsmobility speed ETV
+vector 982 TestScenario.uninfected[198].veinsmobility posx ETV
+vector 983 TestScenario.uninfected[198].veinsmobility posy ETV
+vector 984 TestScenario.uninfected[195].veinsmobility acceleration ETV
+vector 985 TestScenario.uninfected[195].veinsmobility co2emission ETV
+vector 986 TestScenario.uninfected[196].veinsmobility speed ETV
+vector 987 TestScenario.uninfected[197].veinsmobility speed ETV
+666	1224127 2028 679371 1364473 135 200 66 0.973 8.6160744515846 206.7481536139 966.63452269869
+665	1226155 2233 679371 1364473 135 200 66 -4.4401938650323 2.4773303241073 9.6048593926496 152.73959140517
+662	1228388 2171 668656 1364473 134 200 67 3.5400052640303 13.886085619829 774.6782473509 9638.9016019467
+653	1230559 1717 657876 1364473 133 200 68 34.381467773287 223.4 13193.848929022 2792615.0443338
+652	1232276 2024 657876 1364473 133 200 68 253.53597477393 823.4 41987.273525157 28303749.871054
+461	1234300 3359 288363 1364473 94 200 107 0.973 7.9316734305582 270.03892974201 955.47813803576
+460	1237659 3679 288363 1364473 94 200 107 -4.4684769610131 2.132420929512 9.7336465424388 104.423643498
+456	1241338 3475 281142 1364473 93 200 108 3.5754000550485 13.888191920868 1366.0707026561 18040.012606446
+448	1244813 3009 273740 1364473 92 200 109 55.607968518531 826.6 68132.959747867 49511477.692304
+447	1247822 2939 273740 1364473 92 200 109 430.69239413498 826.6 77656.146112046 57587542.643877
+vector 988 TestScenario.uninfected[199].veinsmobility posx ETV
+vector 989 TestScenario.uninfected[199].veinsmobility posy ETV
+vector 990 TestScenario.uninfected[196].veinsmobility acceleration ETV
+vector 991 TestScenario.uninfected[196].veinsmobility co2emission ETV
+vector 992 TestScenario.uninfected[197].veinsmobility acceleration ETV
+vector 993 TestScenario.uninfected[197].veinsmobility co2emission ETV
+vector 994 TestScenario.uninfected[198].veinsmobility speed ETV
+178	1251240 4836 24818 1376516 37 201 165 0.973 8.8078517156743 459.3614943254 1957.451769019
+177	1256076 5386 24818 1376516 37 201 165 -4.4865341157583 2.2647407081452 9.8362026634428 345.17758185565
+174	1261462 5171 23064 1376516 36 201 166 0 13.889981063502 1756.7144049211 21659.473377531
+166	1266633 4456 21273 1376516 35 201 167 26.6 823.4 65057.535279325 37934720.663127
+165	1271089 4420 21273 1376516 35 201 167 26.6 623.4 53742.725905258 23022467.827462
+vector 995 TestScenario.uninfected[200].veinsmobility posx ETV
+vector 996 TestScenario.uninfected[200].veinsmobility posy ETV
+vector 997 TestScenario.uninfected[201].veinsmobility posx ETV
+vector 998 TestScenario.uninfected[201].veinsmobility posy ETV
+vector 999 TestScenario.uninfected[198].veinsmobility acceleration ETV
+vector 1000 TestScenario.uninfected[198].veinsmobility co2emission ETV
+vector 1001 TestScenario.uninfected[199].veinsmobility speed ETV
+757	1275975 1517 877996 1388192 154 202 49 0.973 7.7816097381594 157.69857664936 756.44537163471
+756	1277492 1672 877996 1388192 154 202 49 -4.4111582853367 2.35838484284 10.832794994656 112.99230744059
+751	1279164 1631 867885 1388192 153 202 50 2.7817143712003 13.877228518089 569.37373362131 7022.1122124336
+742	1280795 1506 857515 1388192 152 202 51 256.44040502987 612.55011934428 22671.887588758 10503397.591772
+741	1282301 1355 857515 1388192 152 202 51 226.6 426.6 16263.060239776 5585817.8355634
+vector 1002 TestScenario.uninfected[202].veinsmobility posx ETV
+vector 1003 TestScenario.uninfected[202].veinsmobility posy ETV
+vector 1004 TestScenario.uninfected[199].veinsmobility acceleration ETV
+vector 1005 TestScenario.uninfected[199].veinsmobility co2emission ETV
+vector 1006 TestScenario.uninfected[200].veinsmobility speed ETV
+vector 1007 TestScenario.uninfected[201].veinsmobility speed ETV
+403	1284063 3702 206798 1400176 82 203 122 0.973 8.8305152257598 319.81409110267 1253.0598076323
+402	1287765 4071 206798 1400176 82 203 122 -4.440626722389 2.2244497887155 11.597814684448 187.13277056102
+399	1291836 3883 200345 1400176 81 203 123 0 13.889277979254 1362.7635840165 17484.325162035
+391	1295719 3293 193882 1400176 80 203 124 23.4 419.33802479092 15730.299032675 4397090.8071464
+390	1299012 3417 193882 1400176 80 203 124 23.4 619.38972882297 30584.064607129 14632692.742174
+vector 1008 TestScenario.uninfected[200].veinsmobility acceleration ETV
+vector 1009 TestScenario.uninfected[200].veinsmobility co2emission ETV
+vector 1010 TestScenario.uninfected[201].veinsmobility acceleration ETV
+vector 1011 TestScenario.uninfected[201].veinsmobility co2emission ETV
+vector 1012 TestScenario.uninfected[202].veinsmobility speed ETV
+468	1302785 3457 295997 1411885 95 204 110 0.973 8.057316465691 276.42786306063 973.0983193977
+467	1306242 3763 295997 1411885 95 204 110 -4.4856922607018 2.1221412597806 9.6685985944206 115.91213012216
+464	1310005 3574 288363 1411885 94 204 111 0.72695353428651 13.889640390808 1381.2523170164 18251.823110805
+453	1313579 3276 281142 1411885 93 204 112 23.4 811.63495680986 29454.616598729 15671266.574235
+452	1316855 2816 281142 1411885 93 204 112 23.4 426.6 35661.394591283 14131025.260209
+vector 1013 TestScenario.uninfected[202].veinsmobility acceleration ETV
+vector 1014 TestScenario.uninfected[202].veinsmobility co2emission ETV
+551	1319816 2947 438680 1423106 112 205 94 0.973 8.1424521764861 244.7485834364 895.99924070902
+550	1322763 3231 438680 1423106 112 205 94 -3.3244311908939 2.0746504878695 9.7570733814242 107.57356949088
+547	1325994 3060 429479 1423106 111 205 95 3.6094763137819 13.889193590875 1164.7372712379 15146.266675716
+541	1329054 2797 420257 1423106 110 205 96 26.6 619.31338735586 26377.522043868 12054454.557852
+540	1331851 2449 420257 1423106 110 205 96 423.4 798.71047451341 46105.410088034 23179379.240719
+vector 1015 TestScenario.uninfected[203].veinsmobility posx ETV
+vector 1016 TestScenario.uninfected[203].veinsmobility posy ETV
+498	1334430 3227 342150 1433956 101 206 106 0.973 8.7133865345202 278.15903918871 1109.089320196
+497	1337657 3552 342150 1433956 101 206 106 -4.4710113434447 2.1858765821531 9.881745707297 165.47835226843
+492	1341209 3378 333855 1433956 100 206 107 0 13.889802971166 1159.7866425987 14743.076743253
+483	1344587 3133 325898 1433956 99 206 108 223.4 819.26915042678 53481.265027293 32515870.959832
+482	1347720 2771 325898 1433956 99 206 108 423.4 619.32863166101 49659.45166648 23240637.311445
+846	1350491 1051 1059931 1433956 173 206 34 0.973 8.3205549462736 111.87236907467 553.12620430504
+845	1351542 1173 1059931 1433956 173 206 34 -3.2934594986248 2.2063214715291 8.9211281698587 76.922600477482
+844	1352715 1151 1050723 1433956 172 206 35 3.5258545482391 13.884100142224 374.12140042365 4457.9616403575
+837	1353866 838 1041191 1433956 171 206 36 623.4 626.6 22494.340410656 14055515.852214
+836	1354704 1184 1041191 1433956 171 206 36 631.08938401539 811.63021227815 25905.043814441 18778889.699658
+371	1355888 3855 170194 1433956 76 206 131 0.973 8.2778626708501 375.6253312858 1677.5226968779
+370	1359743 4371 170194 1433956 76 206 131 -4.5 2.33633321587 0.096541326358668 324.2927423758
+366	1364114 4220 164023 1433956 75 206 132 4.5884080804611e-011 13.886858587856 1369.4908002066 16455.602680157
+356	1368334 3490 157957 1433956 74 206 133 23.4 226.6 17323.356884062 3275410.2497725
+355	1371824 3743 157957 1433956 74 206 133 226.6 826.6 72702.074938778 46179060.777907
+vector 1017 TestScenario.uninfected[204].veinsmobility posx ETV
+vector 1018 TestScenario.uninfected[204].veinsmobility posy ETV
+vector 1019 TestScenario.uninfected[205].veinsmobility posx ETV
+vector 1020 TestScenario.uninfected[205].veinsmobility posy ETV
+vector 1021 TestScenario.uninfected[203].veinsmobility speed ETV
+vector 1022 TestScenario.uninfected[206].veinsmobility posx ETV
+vector 1023 TestScenario.uninfected[206].veinsmobility posy ETV
+vector 1024 TestScenario.uninfected[203].veinsmobility acceleration ETV
+vector 1025 TestScenario.uninfected[203].veinsmobility co2emission ETV
+vector 1026 TestScenario.uninfected[204].veinsmobility speed ETV
+vector 1027 TestScenario.uninfected[205].veinsmobility speed ETV
+641	1376300 2340 626024 1455006 130 208 79 0.973 8.705500353707 223.37363266837 990.77944093849
+640	1378640 2607 626024 1455006 130 208 79 -4.494116231776 2.4158540033596 10.303972618074 176.44417444687
+639	1381247 2518 615784 1455006 129 208 80 0 13.887950486571 770.58902927901 9358.0972284809
+629	1383765 2173 602555 1455006 128 208 81 26.6 399.00413783776 13812.763161895 3255677.4837511
+628	1385938 2269 602555 1455006 128 208 81 623.4 823.4 57805.226451089 41817614.174223
+vector 1028 TestScenario.uninfected[207].veinsmobility posx ETV
+vector 1029 TestScenario.uninfected[207].veinsmobility posy ETV
+vector 1030 TestScenario.uninfected[204].veinsmobility acceleration ETV
+vector 1031 TestScenario.uninfected[204].veinsmobility co2emission ETV
+vector 1032 TestScenario.uninfected[205].veinsmobility acceleration ETV
+vector 1033 TestScenario.uninfected[205].veinsmobility co2emission ETV
+vector 1034 TestScenario.uninfected[206].veinsmobility speed ETV
+611	1388693 2637 569388 1465746 125 209 85 0.973 8.1385801023082 241.42648174253 1022.8219574592
+610	1391330 2901 569388 1465746 125 209 85 -4.2846645200393 2.1384970620018 11.399989158194 161.41516320891
+604	1394231 2786 559035 1465746 124 209 86 0.44318972690147 13.887005416302 955.10989735136 11953.906890947
+598	1397017 2493 548618 1465746 123 209 87 226.6 619.34154390087 36971.245788378 17117313.645084
+597	1399510 2353 548618 1465746 123 209 87 437.32533432079 793.51559914441 53363.446218657 33165835.665666
+vector 1035 TestScenario.uninfected[206].veinsmobility acceleration ETV
+vector 1036 TestScenario.uninfected[206].veinsmobility co2emission ETV
+vector 1037 TestScenario.uninfected[207].veinsmobility speed ETV
+707	1402074 2029 782088 1476344 145 210 66 0.973 8.2751021427164 198.76454105782 901.94068400557
+706	1404103 2238 782088 1476344 145 210 66 -4.5 2.1245870041801 10.665333894268 128.15890367753
+701	1406341 2182 772412 1476344 144 210 67 3.1806183934514 13.889500798832 757.09201927628 9243.2149471571
+694	1408523 1917 762658 1476344 143 210 68 426.6 623.4 35586.265275896 19073658.512817
+693	1410440 1868 762658 1476344 143 210 68 226.6 423.4 22374.418677018 7827297.2875424
+vector 1038 TestScenario.uninfected[208].veinsmobility posx ETV
+vector 1039 TestScenario.uninfected[208].veinsmobility posy ETV
+vector 1040 TestScenario.uninfected[209].veinsmobility posx ETV
+vector 1041 TestScenario.uninfected[209].veinsmobility posy ETV
+vector 1042 TestScenario.uninfected[207].veinsmobility acceleration ETV
+vector 1043 TestScenario.uninfected[207].veinsmobility co2emission ETV
+631	1412713 2597 602555 1487142 128 211 84 0.973 9.1217301394521 221.43202042257 864.51286162085
+630	1415310 2872 602555 1487142 128 211 84 -4.4332638648385 2.2190623836848 10.378179622346 126.65432315616
+626	1418182 2755 591228 1487142 127 211 85 0.0033429340770015 13.888602818947 968.66002137663 12396.400425859
+615	1420937 2409 580225 1487142 126 211 86 252.68391708464 826.6 58791.183156868 43157334.903757
+614	1423346 2310 580225 1487142 126 211 86 26.6 219.3548917457 6702.6359722983 953342.00852253
+421	1425656 3890 233487 1487142 86 211 126 0.973 8.5559639569707 334.1234469893 1266.5103837192
+420	1429546 4291 233487 1487142 86 211 126 -3.3303623611801 2.2631317056413 9.709379123254 139.97753753333
+419	1433837 4074 227279 1487142 85 211 127 4.128265067227 13.88879445666 1576.5396782217 20403.298072043
+411	1437911 3485 220562 1487142 84 211 128 23.4 823.4 67905.393073392 48446729.789959
+410	1441396 3490 220562 1487142 84 211 128 52.731797694738 815.6158354857 42723.93916377 19197634.019776
+vector 1044 TestScenario.uninfected[210].veinsmobility posx ETV
+vector 1045 TestScenario.uninfected[210].veinsmobility posy ETV
+vector 1046 TestScenario.uninfected[208].veinsmobility speed ETV
+vector 1047 TestScenario.uninfected[209].veinsmobility speed ETV
+vector 1048 TestScenario.uninfected[208].veinsmobility acceleration ETV
+vector 1049 TestScenario.uninfected[208].veinsmobility co2emission ETV
+vector 1050 TestScenario.uninfected[209].veinsmobility acceleration ETV
+vector 1051 TestScenario.uninfected[209].veinsmobility co2emission ETV
+vector 1052 TestScenario.uninfected[210].veinsmobility speed ETV
+570	1445504 2875 485094 1508113 117 213 97 0.973 8.5158710044526 270.61942089153 1213.2727494968
+569	1448379 3153 485094 1508113 117 213 97 -4.5 2.5620802261936 9.7549990193157 201.52065963535
+566	1451532 3055 475779 1508113 116 213 98 0 13.889725788534 969.09598290936 11958.120751097
+559	1454587 2612 466620 1508113 115 213 99 426.6 815.59931451412 56044.304807337 33159794.870074
+558	1457199 2803 466620 1508113 115 213 99 26.6 596.21689516386 22681.953140277 7577779.3326441
+vector 1053 TestScenario.uninfected[211].veinsmobility posx ETV
+vector 1054 TestScenario.uninfected[211].veinsmobility posy ETV
+vector 1055 TestScenario.uninfected[212].veinsmobility posx ETV
+vector 1056 TestScenario.uninfected[212].veinsmobility posy ETV
+vector 1057 TestScenario.uninfected[210].veinsmobility acceleration ETV
+vector 1058 TestScenario.uninfected[210].veinsmobility co2emission ETV
+655	1460407 2564 657876 1520027 133 214 82 0.973 8.7768538120241 237.84587981295 1041.5354784899
+654	1462971 2805 657876 1520027 133 214 82 -4.284122065322 2.3757423220598 9.7915315622176 156.14113885791
+651	1465776 2694 647026 1520027 132 214 83 3.2120690893507 13.888393085883 972.56320073767 12273.216745364
+644	1468470 2377 636203 1520027 131 214 84 46.838778886519 423.4 28271.739369052 10522257.111564
+643	1470847 2281 636203 1520027 131 214 84 226.6 623.4 33340.842992741 15531340.922497
+vector 1059 TestScenario.uninfected[213].veinsmobility posx ETV
+vector 1060 TestScenario.uninfected[213].veinsmobility posy ETV
+vector 1061 TestScenario.uninfected[211].veinsmobility speed ETV
+vector 1062 TestScenario.uninfected[212].veinsmobility speed ETV
+vector 1063 TestScenario.uninfected[214].veinsmobility posx ETV
+vector 1064 TestScenario.uninfected[214].veinsmobility posy ETV
+vector 1065 TestScenario.uninfected[215].veinsmobility posx ETV
+vector 1066 TestScenario.uninfected[215].veinsmobility posy ETV
+vector 1067 TestScenario.uninfected[211].veinsmobility acceleration ETV
+vector 1068 TestScenario.uninfected[211].veinsmobility co2emission ETV
+vector 1069 TestScenario.uninfected[212].veinsmobility acceleration ETV
+vector 1070 TestScenario.uninfected[212].veinsmobility co2emission ETV
+vector 1071 TestScenario.uninfected[213].veinsmobility speed ETV
+591	1474006 3010 526868 1542536 121 216 96 0.973 7.6687009544951 264.9524326813 1044.1425160932
+590	1477016 3294 526868 1542536 121 216 96 -4.1198450562428 2.4642189984815 9.7608101032049 145.8946598056
+587	1480310 3146 517036 1542536 120 216 97 3.9578867185569 13.889533164902 1176.9703171342 15110.538204264
+581	1483456 2878 504984 1542536 119 216 98 34.380209547239 823.4 47049.678683921 28516724.594242
+580	1486334 2552 504984 1542536 119 216 98 447.26904435878 823.4 68170.091750348 48611242.411875
+613	1488886 2928 569388 1542536 125 216 92 0.973 8.7143264188706 241.82514517377 912.41173562585
+612	1491814 3186 569388 1542536 125 216 92 -3.7777561916448 2.2450992986608 9.8386355321828 107.9852924553
+605	1495000 3019 559035 1542536 124 216 93 3.5237927611701 13.887545948583 1179.2271449897 15543.691948606
+600	1498019 2602 548618 1542536 123 216 94 223.4 823.4 54553.940378067 37186203.434792
+599	1500621 2614 548618 1542536 123 216 94 249.34398948121 815.66607385318 45891.004300303 24212229.179701
+761	1503235 1987 877996 1542536 154 216 63 0.973 8.0617849855544 181.52587354092 765.7223953827
+760	1505222 2177 877996 1542536 154 216 63 -4.4907921479619 2.1333752323641 9.6066171429227 103.08708607093
+753	1507399 2088 867885 1542536 153 216 64 4.1674165494121 13.887949420987 777.981325626 9989.9050997858
+746	1509487 1797 857515 1542536 152 216 65 23.4 211.64571377545 4697.0436439722 614247.24152127
+745	1511284 1817 857515 1542536 152 216 65 423.4 826.6 41366.998483172 28151999.581211
+vector 1072 TestScenario.uninfected[213].veinsmobility acceleration ETV
+vector 1073 TestScenario.uninfected[213].veinsmobility co2emission ETV
+vector 1074 TestScenario.uninfected[214].veinsmobility speed ETV
+vector 1075 TestScenario.uninfected[215].veinsmobility speed ETV
+583	1513378 2941 504984 1557101 119 217 99 0.973 8.4954454707216 278.73540834279 1247.518570454
+582	1516319 3227 504984 1557101 119 217 99 -4.1222054390295 2.5238797525247 11.543234553632 216.44431340681
+577	1519546 3106 495132 1557101 118 217 100 0 13.883017844483 963.23723296637 11785.658395565
+568	1522652 2807 485094 1557101 117 217 101 223.4 423.4 33547.217448824 11832341.373168
+567	1525459 2714 485094 1557101 117 217 101 23.4 423.4 23653.191827221 7346657.116189
+vector 1076 TestScenario.uninfected[216].veinsmobility posx ETV
+vector 1077 TestScenario.uninfected[216].veinsmobility posy ETV
+vector 1078 TestScenario.uninfected[214].veinsmobility acceleration ETV
+vector 1079 TestScenario.uninfected[214].veinsmobility co2emission ETV
+vector 1080 TestScenario.uninfected[215].veinsmobility acceleration ETV
+vector 1081 TestScenario.uninfected[215].veinsmobility co2emission ETV
+516	1528593 3505 376222 1567023 105 218 114 0.973 9.0091734629077 315.8664511655 1323.2426975536
+515	1532098 3884 376222 1567023 105 218 114 -4.4882242459455 2.3900074126758 5.6074676400112 199.84366791424
+514	1535982 3723 367443 1567023 104 218 115 3.4787024755302 13.887020586524 1366.5386746987 17269.565063269
+506	1539705 3060 358967 1567023 103 218 116 226.6 823.4 50814.864566189 29135940.349446
+505	1542765 3318 358967 1567023 103 218 116 226.6 803.06965679862 43509.401342796 19924217.939703
+vector 1082 TestScenario.uninfected[217].veinsmobility posx ETV
+vector 1083 TestScenario.uninfected[217].veinsmobility posy ETV
+vector 1084 TestScenario.uninfected[216].veinsmobility speed ETV
+750	1546279 2111 857515 1577529 152 219 68 0.973 8.5437617200636 204.08882492915 912.34287090138
+749	1548390 2325 857515 1577529 152 219 68 -4.4482595357077 2.0616216165293 11.632425754777 143.631079734
+740	1550715 2252 848109 1577529 151 219 69 2.1861939631129 13.88161586317 774.09176894526 9525.3645073845
+732	1552967 1939 835646 1577529 150 219 70 637.3 823.4 54254.56952246 42346772.847087
+731	1554906 1925 835646 1577529 150 219 70 26.6 423.4 17246.971534362 6148623.2407364
+vector 1085 TestScenario.uninfected[218].veinsmobility posx ETV
+vector 1086 TestScenario.uninfected[218].veinsmobility posy ETV
+vector 1087 TestScenario.uninfected[216].veinsmobility acceleration ETV
+vector 1088 TestScenario.uninfected[216].veinsmobility co2emission ETV
+vector 1089 TestScenario.uninfected[217].veinsmobility speed ETV
+691	1557172 2354 753515 1587867 142 220 79 0.973 9.139755757752 224.30208911745 1012.7342898214
+690	1559526 2634 753515 1587867 142 220 79 -4.4425548683365 2.2242882269784 9.9390891893797 180.6755549701
+689	1562160 2555 743813 1587867 141 220 80 0 13.877114803726 763.41116235501 9292.0639268851
+681	1564715 2288 733614 1587867 140 220 81 23.4 219.2725421162 6276.0572433517 894902.5519093
+680	1567003 2280 733614 1587867 140 220 81 630.64510386436 826.6 61656.911841499 47421690.211638
+603	1569283 2893 559035 1587867 124 220 97 0.973 8.1880554931874 273.28105037372 1205.7672952785
+602	1572176 3168 559035 1587867 124 220 97 -4.4939182766837 2.4988544623903 9.6721076216874 205.87335975805
+601	1575344 3059 548618 1587867 123 220 98 0 13.889302367864 959.74449568944 11699.834057517
+594	1578403 2548 538673 1587867 122 220 99 426.6 626.6 55188.803254396 31467054.67987
+593	1580951 2866 538673 1587867 122 220 99 238.39010875358 823.4 56077.736708771 34923803.379578
+vector 1090 TestScenario.uninfected[219].veinsmobility posx ETV
+vector 1091 TestScenario.uninfected[219].veinsmobility posy ETV
+vector 1092 TestScenario.uninfected[220].veinsmobility posx ETV
+vector 1093 TestScenario.uninfected[220].veinsmobility posy ETV
+vector 1094 TestScenario.uninfected[217].veinsmobility acceleration ETV
+vector 1095 TestScenario.uninfected[217].veinsmobility co2emission ETV
+vector 1096 TestScenario.uninfected[218].veinsmobility speed ETV
+748	1584288 2138 857515 1598091 152 221 70 0.973 8.914076617613 211.90434800232 967.91577707185
+747	1586426 2382 857515 1598091 152 221 70 -3.2836446349261 2.172034844649 11.666977985564 145.65217534241
+739	1588808 2315 848109 1598091 151 221 71 2.1582618883882 13.88371008002 763.88691980605 9170.1752740119
+730	1591123 1649 835646 1598091 150 221 72 423.4 426.6 30531.311189986 12946796.283851
+729	1592772 2328 835646 1598091 150 221 72 30.655594992911 612.7 20729.228511514 8530177.6755975
+vector 1097 TestScenario.uninfected[221].veinsmobility posx ETV
+vector 1098 TestScenario.uninfected[221].veinsmobility posy ETV
+vector 1099 TestScenario.uninfected[218].veinsmobility acceleration ETV
+vector 1100 TestScenario.uninfected[218].veinsmobility co2emission ETV
+vector 1101 TestScenario.uninfected[219].veinsmobility speed ETV
+vector 1102 TestScenario.uninfected[220].veinsmobility speed ETV
+549	1595507 3471 438680 1610386 112 222 111 0.973 8.3682362359911 299.07217470225 1157.7442014629
+548	1598978 3809 438680 1610386 112 222 111 -4.4729491100186 2.5532235933351 10.347653704371 169.91985939814
+546	1602787 3632 429479 1610386 111 222 112 3.2592225453035 13.885722278685 1353.2999855634 17466.38211103
+539	1606419 3014 420257 1610386 110 222 113 226.6 826.6 67414.808101364 47153790.984218
+538	1609433 3223 420257 1610386 110 222 113 430.81243428245 823.4 79766.92130676 58415706.34073
+vector 1103 TestScenario.uninfected[219].veinsmobility acceleration ETV
+vector 1104 TestScenario.uninfected[219].veinsmobility co2emission ETV
+vector 1105 TestScenario.uninfected[220].veinsmobility acceleration ETV
+vector 1106 TestScenario.uninfected[220].veinsmobility co2emission ETV
+vector 1107 TestScenario.uninfected[221].veinsmobility speed ETV
+893	1613012 1414 1142903 1620798 181 223 43 1.6463274570046 8.8108288167467 108.81333417987 370.72744797121
+892	1614426 1507 1142903 1620798 181 223 43 -0.11112294371938 2.0577953243931 9.8871839197545 19.068864054838
+889	1615933 1447 1132139 1620798 180 223 44 3.9886701459641 13.888709369998 578.07228988085 7792.2463956062
+881	1617380 1485 1121372 1620798 179 223 45 34.358350683264 593.32056144809 13152.050335807 5219432.3742182
+880	1618865 1035 1121372 1620798 179 223 45 823.4 823.4 37053 30509440.2
+vector 1108 TestScenario.uninfected[222].veinsmobility posx ETV
+vector 1109 TestScenario.uninfected[222].veinsmobility posy ETV
+vector 1110 TestScenario.uninfected[221].veinsmobility acceleration ETV
+vector 1111 TestScenario.uninfected[221].veinsmobility co2emission ETV
+633	1620175 3041 602555 1631717 128 224 97 0.973 8.7002498612903 267.51449592149 1092.612317456
+632	1623216 3316 602555 1631717 128 224 97 -4.5 2.4281386089232 9.7422743388402 154.81524350602
+627	1626532 3183 591228 1631717 127 224 98 2.7642521814024 13.888646576614 1171.3222203068 15006.266447342
+617	1629715 2861 580225 1631717 126 224 99 226.6 801.79060724033 36662.699400927 16567353.619155
+616	1632576 2624 580225 1631717 126 224 99 226.6 623.4 47604.40102803 25564132.665442
+561	1635200 3225 466620 1631717 115 224 110 0.973 8.5770104694187 297.40823105603 1288.2203164709
+560	1638425 3748 466620 1631717 115 224 110 -3.3616696625307 2.4599235940957 9.7102370304087 236.13565670131
+557	1642173 3635 457440 1631717 114 224 111 0 13.888431809833 980.59817625481 11733.176825286
+554	1645808 3015 448141 1631717 113 224 112 423.4 626.6 55222.297725064 28035010.681632
+553	1648823 3230 448141 1631717 113 224 112 23.4 426.6 24242.784792231 7940217.9841831
+vector 1112 TestScenario.uninfected[223].veinsmobility posx ETV
+vector 1113 TestScenario.uninfected[223].veinsmobility posy ETV
+vector 1114 TestScenario.uninfected[224].veinsmobility posx ETV
+vector 1115 TestScenario.uninfected[224].veinsmobility posy ETV
+vector 1116 TestScenario.uninfected[222].veinsmobility speed ETV
+373	1652379 4573 170194 1644834 76 225 150 0.973 8.5700546391437 400.50955804415 1602.7285065083
+372	1656952 5098 170194 1644834 76 225 150 -4.4446031659492 2.4674317348585 9.5605895861763 219.78262450608
+367	1662050 4858 164023 1644834 75 225 151 1.1142095475402e-009 13.888808402452 1766.0936121288 22487.415851441
+358	1666908 4340 157957 1644834 74 225 152 26.6 826.6 56469.567805832 36483678.344839
+357	1671248 3925 157957 1644834 74 225 152 23.4 623.4 41855.251466824 16446766.112808
+vector 1117 TestScenario.uninfected[222].veinsmobility acceleration ETV
+vector 1118 TestScenario.uninfected[222].veinsmobility co2emission ETV
+vector 1119 TestScenario.uninfected[223].veinsmobility speed ETV
+vector 1120 TestScenario.uninfected[224].veinsmobility speed ETV
+vector 1121 TestScenario.uninfected[225].veinsmobility posx ETV
+vector 1122 TestScenario.uninfected[225].veinsmobility posy ETV
+vector 1123 TestScenario.uninfected[223].veinsmobility acceleration ETV
+vector 1124 TestScenario.uninfected[223].veinsmobility co2emission ETV
+vector 1125 TestScenario.uninfected[224].veinsmobility acceleration ETV
+vector 1126 TestScenario.uninfected[224].veinsmobility co2emission ETV
+721	1675870 2514 815768 1666188 148 227 80 0.973 8.3722804362908 211.53273455988 811.80531201443
+720	1678384 2757 815768 1666188 148 227 80 -3.2665736070749 2.2636152880755 10.61728697792 90.820267597453
+719	1681141 2647 805719 1666188 147 227 81 3.1640178539599 13.886819619008 961.79839320104 12194.747992429
+713	1683788 2485 791960 1666188 146 227 82 26.6 612.45417595723 18266.833800282 7365546.8716516
+712	1686273 2059 791960 1666188 146 227 82 426.6 623.4 39704.485083003 19772952.235544
+vector 1127 TestScenario.uninfected[226].veinsmobility posx ETV
+vector 1128 TestScenario.uninfected[226].veinsmobility posy ETV
+vector 1129 TestScenario.uninfected[225].veinsmobility speed ETV
+688	1688528 2834 743813 1676927 141 228 88 0.973 8.0497399500291 214.52138937548 699.5729861472
+687	1691362 3071 743813 1676927 141 228 88 -4.4210554115851 2.1544804122648 9.8831870942011 56.866756514023
+684	1694433 2905 733614 1676927 140 228 89 3.9162220584198 13.889626507822 1169.7407345965 15725.311480502
+678	1697338 2588 723396 1676927 139 228 90 26.6 794.00126419782 24096.399104213 12410886.206141
+677	1699926 2371 723396 1676927 139 228 90 238.37262561931 623.4 49217.581743456 28340638.137337
+805	1702297 2052 964637 1676927 163 228 66 0.973 8.5636296462412 205.38543016175 954.07430383835
+804	1704349 2261 964637 1676927 163 228 66 -4.47659038048 2.4633570676134 10.08476746991 150.8048565237
+799	1706610 2199 954979 1676927 162 228 67 3.4731723869201 13.889548919902 756.62347659201 9284.8032163758
+790	1708809 1875 944982 1676927 161 228 68 426.6 623.4 35722.652286547 19237217.708202
+789	1710684 1941 944982 1676927 161 228 68 26.6 223.4 8605.1080766098 1536733.6921012
+vector 1130 TestScenario.uninfected[225].veinsmobility acceleration ETV
+vector 1131 TestScenario.uninfected[225].veinsmobility co2emission ETV
+vector 1132 TestScenario.uninfected[226].veinsmobility speed ETV
+625	1712836 3186 591228 1690458 127 229 103 0.973 8.5436836432755 275.66677638014 1099.1523942305
+624	1716022 3535 591228 1690458 127 229 103 -3.2453834858294 2.1986123424559 9.8509804052649 155.03480374057
+619	1719557 3381 580225 1690458 126 229 104 5.5611976590484e-012 13.889941821969 1175.1990829808 14883.278533454
+609	1722938 3011 569388 1690458 125 229 105 50.733424495634 811.6423530175 37325.332899045 17849453.527352
+608	1725949 2797 569388 1690458 125 229 105 226.6 626.6 37972.245360248 16332619.748081
+vector 1133 TestScenario.uninfected[227].veinsmobility posx ETV
+vector 1134 TestScenario.uninfected[227].veinsmobility posy ETV
+vector 1135 TestScenario.uninfected[228].veinsmobility posx ETV
+vector 1136 TestScenario.uninfected[228].veinsmobility posy ETV
+vector 1137 TestScenario.uninfected[229].veinsmobility posx ETV
+vector 1138 TestScenario.uninfected[229].veinsmobility posy ETV
+vector 1139 TestScenario.uninfected[226].veinsmobility acceleration ETV
+vector 1140 TestScenario.uninfected[226].veinsmobility co2emission ETV
+773	1729281 2264 907261 1701137 157 230 74 0.973 8.3560066977809 213.4619573676 944.00095105448
+772	1731545 2513 907261 1701137 157 230 74 -4.5 2.1627266277303 9.7575586416709 145.54656509374
+767	1734058 2453 897838 1701137 156 230 75 0.5629785480593 13.88884975218 765.19707276586 9157.2313933188
+763	1736511 2323 888103 1701137 155 230 76 250.51261530679 619.03070893786 36042.435805906 17788649.595349
+762	1738834 1944 888103 1701137 155 230 76 623.4 826.6 52301.882631542 36550963.049051
+vector 1141 TestScenario.uninfected[230].veinsmobility posx ETV
+vector 1142 TestScenario.uninfected[230].veinsmobility posy ETV
+vector 1143 TestScenario.uninfected[227].veinsmobility speed ETV
+vector 1144 TestScenario.uninfected[228].veinsmobility speed ETV
+vector 1145 TestScenario.uninfected[229].veinsmobility speed ETV
+536	1741106 3915 411638 1713249 109 231 123 0.973 8.4522644454722 304.558972026 1024.8209812516
+535	1745021 4265 411638 1713249 109 231 123 -3.3713380180461 2.274121640427 9.9319643854647 108.0601182576
+534	1749286 4026 402730 1713249 108 231 124 3.7943176868344 13.889533066894 1586.2670444096 21053.668584341
+525	1753312 3410 393231 1713249 107 231 125 23.4 826.6 39767.644279215 25092645.543546
+524	1756722 3459 393231 1713249 107 231 125 223.4 815.62517133307 44258.86399674 20086865.475948
+576	1760181 3312 495132 1713249 118 231 114 0.973 8.7011550494134 278.27116794712 1118.9057822577
+575	1763493 3865 495132 1713249 118 231 114 -3.3575932489088 2.5376995782484 9.695854324783 188.1203188757
+572	1767358 3730 485094 1713249 117 231 115 0 13.88807185943 964.38223024412 11824.677841913
+565	1771088 3447 475779 1713249 116 231 116 30.997762518265 611.6359528332 24484.578575669 8551053.1249669
+564	1774535 2875 475779 1713249 116 231 116 623.4 826.6 82077.332503601 59092406.923085
+vector 1146 TestScenario.uninfected[231].veinsmobility posx ETV
+vector 1147 TestScenario.uninfected[231].veinsmobility posy ETV
+vector 1148 TestScenario.uninfected[227].veinsmobility acceleration ETV
+vector 1149 TestScenario.uninfected[227].veinsmobility co2emission ETV
+vector 1150 TestScenario.uninfected[228].veinsmobility acceleration ETV
+vector 1151 TestScenario.uninfected[228].veinsmobility co2emission ETV
+vector 1152 TestScenario.uninfected[229].veinsmobility acceleration ETV
+vector 1153 TestScenario.uninfected[229].veinsmobility co2emission ETV
+vector 1154 TestScenario.uninfected[230].veinsmobility speed ETV
+vector 1155 TestScenario.uninfected[232].veinsmobility posx ETV
+vector 1156 TestScenario.uninfected[232].veinsmobility posy ETV
+vector 1157 TestScenario.uninfected[230].veinsmobility acceleration ETV
+vector 1158 TestScenario.uninfected[230].veinsmobility co2emission ETV
+vector 1159 TestScenario.uninfected[231].veinsmobility speed ETV
+821	1778382 2081 993464 1738685 166 233 68 0.973 8.8147854845777 208.11912791656 973.17082651627
+820	1780463 2337 993464 1738685 166 233 68 -4.4999103546166 2.5226148761273 7.4611486401073 156.14291278563
+817	1782800 2271 983732 1738685 165 233 69 3.3765413245529 13.882195353403 757.20039327995 9101.1470161319
+809	1785071 2131 974094 1738685 164 233 70 231.32187534821 423.4 24004.895165406 8581554.1095076
+808	1787202 1804 974094 1738685 164 233 70 423.4 623.4 35064.377179905 18110981.357155
+vector 1160 TestScenario.uninfected[231].veinsmobility acceleration ETV
+vector 1161 TestScenario.uninfected[231].veinsmobility co2emission ETV
+vector 1162 TestScenario.uninfected[232].veinsmobility speed ETV
+661	1789217 3149 668656 1750147 134 234 101 0.973 8.6100373424426 252.17043305033 906.01895521607
+660	1792366 3466 668656 1750147 134 234 101 -4.5 2.1356007814803 -0.40002131210015 157.89675299786
+657	1795832 3322 657876 1750147 133 234 102 0.43418053886562 13.889194944731 1167.040534279 15002.313994601
+650	1799154 2768 647026 1750147 132 234 103 23.4 611.64220892395 17367.211607897 7019425.2828335
+649	1801922 2843 647026 1750147 132 234 103 26.6 418.98347780209 15708.705076838 4503003.1677483
+485	1804765 4177 325898 1750147 99 234 136 0.973 8.5229391079915 344.09997816846 1297.0090151589
+484	1808942 4637 325898 1750147 99 234 136 -4.4487526376302 2.1633401887045 7.5944287947777 189.48867198699
+479	1813579 4420 318404 1750147 98 234 137 0 13.889695895177 1569.1622696372 20242.18579035
+474	1817999 3956 310768 1750147 97 234 138 26.6 826.6 51133.665578809 33467203.540291
+473	1821955 3701 310768 1750147 97 234 138 238.37252615764 823.4 69259.274340722 38455258.80193
+vector 1163 TestScenario.uninfected[233].veinsmobility posx ETV
+vector 1164 TestScenario.uninfected[233].veinsmobility posy ETV
+vector 1165 TestScenario.uninfected[234].veinsmobility posx ETV
+vector 1166 TestScenario.uninfected[234].veinsmobility posy ETV
+vector 1167 TestScenario.uninfected[232].veinsmobility acceleration ETV
+vector 1168 TestScenario.uninfected[232].veinsmobility co2emission ETV
+vector 1169 TestScenario.uninfected[233].veinsmobility speed ETV
+vector 1170 TestScenario.uninfected[234].veinsmobility speed ETV
+vector 1171 TestScenario.uninfected[235].veinsmobility posx ETV
+vector 1172 TestScenario.uninfected[235].veinsmobility posy ETV
+vector 1173 TestScenario.uninfected[233].veinsmobility acceleration ETV
+vector 1174 TestScenario.uninfected[233].veinsmobility co2emission ETV
+vector 1175 TestScenario.uninfected[234].veinsmobility acceleration ETV
+vector 1176 TestScenario.uninfected[234].veinsmobility co2emission ETV
+vector 1177 TestScenario.uninfected[235].veinsmobility speed ETV
+vector 1178 TestScenario.uninfected[236].veinsmobility posx ETV
+vector 1179 TestScenario.uninfected[236].veinsmobility posy ETV
+vector 1180 TestScenario.uninfected[235].veinsmobility acceleration ETV
+vector 1181 TestScenario.uninfected[235].veinsmobility co2emission ETV
+711	1826954 3003 782088 1804887 145 239 95 0.973 8.5605460605962 263.84879906028 1092.7169359411
+710	1829957 3287 782088 1804887 145 239 95 -4.1806419843412 2.3583473920822 9.8381214731309 151.46488977615
+703	1833244 3139 772412 1804887 144 239 96 3.9976215623826 13.886288398551 1167.9570181448 15026.076537903
+698	1836383 2683 762658 1804887 143 239 97 426.6 826.6 62394.094964004 42879865.903185
+697	1839066 2754 762658 1804887 143 239 97 238.35872442921 823.4 58400.792722838 37918473.557289

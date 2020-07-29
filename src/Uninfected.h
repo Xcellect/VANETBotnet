@@ -32,10 +32,7 @@ class Uninfected : public BaseWaveApplLayer {
         std::list<std::string> chosenRoute;
         std::string prevRoad;
         bool changedRoute;
-
-        // malware var
-        std::string targetRoadID = "D3D2";
-
+        bool hasChosen;
         bool sentMessage;
         int currentSubscribedServiceId;
     protected:
@@ -57,6 +54,9 @@ class Uninfected : public BaseWaveApplLayer {
         virtual std::string listToString(std::list<std::string> lanes);
         virtual std::list<std::string> stringToList(std::string edges);
         virtual void reroute();
+        virtual void rerouteHelper(std::list<std::string> adjacentEdges);
+        virtual void changeRoute();
+        void cleanRoadList() ;
         virtual std::string getElementByIndex(std::list<std::string> ls, int index);
         virtual std::list<std::string> getRouteListByCarID(std::list<std::string> ls, int carID);
         virtual std::pair<int,int> iterateRouteID(std::string routeID);
